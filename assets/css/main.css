@@ -29,12 +29,13 @@
   --heading-color: #3e5055;
 
   /* Accent Color - This is the main accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out. */
-  --accent-color: #388da8;
+  --accent-color: #1ABC9C;
 
   /* Contrast Color - This is a color used for text when the background color is one of the heading, accent, or default colors. Its purpose is to ensure proper contrast and readability when placed over these more dominant colors. */
   --contrast-color: #ffffff;
 
   --main-color: #113626;
+  
 }
 
 /* Nav Menu Colors */
@@ -58,6 +59,14 @@
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+}
+
+.text-grey {
+  color: gray;
+}
+
+.text-left {
+  text-align: left;
 }
 
 /*--------------------------------------------------------------
@@ -1146,6 +1155,85 @@ section,
   .clients .client-logo img {
     padding: 20px;
   }
+}
+
+/*--------------------------------------------------------------
+# Regulation Section
+--------------------------------------------------------------*/
+#regulation .container {
+  background-image: url('<?php echo base_url();?>assets/img/carousel.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+#regulation .container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Warna overlay (hitam dengan opacity 0.5) */
+}
+
+.custom-card {
+  height: 100%;
+}
+
+.custom-card-utama{
+  border: none; /* Remove border from card */
+  box-shadow: none; /* Optional: Remove box shadow if present */
+}
+
+.custom-card .card-body {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.custom-card .card-title,
+.custom-card .card-text,
+.custom-card .text-grey {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem; /* Adjust the margin as needed */
+}
+
+.custom-card .card-btn {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-card .card-btn:hover {
+  background-color: rgba(18, 130, 107, 0.9); /* Gelapkan warna aksen dengan opacity 0.9 */
+}
+
+.carousel-inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+# Statistics Section
+--------------------------------------------------------------*/
+.custom-statistik {
+  height: 70%;
+  width: auto;
+  position: absolute;  /* Make the image position absolute */
+  top: -10px;         /* Adjust the vertical position */
+  left: 0px;        /* Adjust the horizontal position */
+}
+
+.custom-statistik-2 {
+  height: auto;
+  width: auto;
+}
+
+.statistic span{
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*--------------------------------------------------------------

@@ -473,10 +473,10 @@ var initializeScroll = function initializeScroll() {
  * Refresh AOS
  */
 var refresh = function refresh() {
-  var initialize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var initialize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
   // Allow refresh only when it was first initialized on startEvent
-  if (initialize) initialized = true;
+  if (initialize) initialized = false;
   if (initialized) initializeScroll();
 };
 

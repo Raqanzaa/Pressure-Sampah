@@ -10,35 +10,14 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="<?php echo site_url('c_landing'); ?>#hero" class="">Beranda</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#about">Regulasi Peraturan</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#features">Statistik</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#hero-small" class="">About</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#regulation">Regulasi Peraturan</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#statistic">Statistik</a></li>
           <li><a href="<?php echo site_url('c_landing'); ?>#services">Peta Guwosari</a></li>
-          <!-- <li><a href="<?php echo site_url('c_landing'); ?>#pricing">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#contact">Contact</a></li> -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
       <a class="btn-getstarted" href="<?php echo site_url('c_landing'); ?>#about">Login Admin</a>
-      <!-- <a class="btn-getstarted" href="<?php echo site_url('c_landing'); ?>#about">Daftar</a> -->
-
     </div>
   </header>
 
@@ -54,11 +33,6 @@
         <img src="<?php echo base_url();?>assets/img/logo.svg" alt="" class="main-logo">
           <h1 data-aos="fade-up" class=""><span>Presure Sampah</span></h1>
           <p data-aos="fade-up" data-aos-delay="100" class="">Presentase Keberhasilan Daur Ulang Sampah<br></p>
-          <!-- <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#about" class="btn-get-started">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-          </div> -->
-          <!-- <img src="<?php echo base_url();?>assets/img/hero-services-img.webp" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300"> -->
         </div>
       </div>
 
@@ -66,520 +40,254 @@
     
     <!-- Hero Section -->
 <section id="hero-small" class="hero section" style="height=100px">
-  <div class="container text-center">
+  <div class="container text-center pt-5">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-5 d-flex justify-content-center align-items-center">
         <img data-aos="fade-right" src="<?php echo base_url();?>assets/img/logo-black.svg" alt="" class="secondary-logo me-4">
         <div>
           <h1 data-aos="fade-up" class=""><span class="text-dark">Presure</span></h1>
           <h1 data-aos="fade-up" class=""><span class="text-dark">Sampah</span></h1>
-          <!-- <p data-aos="fade-up" data-aos-delay="100" class="">Presentase Keberhasilan Daur Ulang Sampah<br></p> -->
         </div>
       </div>
       <div class="col-lg-7 d-flex justify-content-center align-items-center">
-        <!-- <img data-aos="fade-right" src="<?php echo base_url();?>assets/img/logo-black.svg" alt="" class="secondary-logo me-4"> -->
         <div>
           <p data-aos="fade-up" data-aos-delay="100" class="text-dark custom-paragraph">Presur Sampah (Presentase Keberhasilan Daur Ulang Sampah) <span>
-
             adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah. Dengan fitur-fitur pelacakan berat jenis sampah yang didaur ulang dan presentase daur ulang harian, mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
           </span>
           <br></p>
         </div>
       </div>
     </div>
-      <!-- 
-      <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-        <a href="#about" class="btn-get-started">Get Started</a>
-        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-      </div> 
-      <img src="<?php echo base_url();?>assets/img/hero-services-img.webp" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300"> 
-      -->
-    </div>
+  </div>
 </section><!-- /Hero Section -->
 
-    
-
-    <!-- Featured Services Section -->
-    <section id="featured-services" class="featured-services section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Lorem Ipsum</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-              </div>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Dolor Sitema</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exa</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Sed ut perspiciatis</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
+<!-- REGULATION SECTION -->
+<section id="regulation" class="py-5">
+    <div id="carouselExampleDark" class="carousel carousel-light slide" style="background-image: url('<?php echo base_url();?>assets/img/carousel.svg'); background-size: cover; background-position: center;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
         </div>
-
-      </div>
-
-    </section><!-- /Featured Services Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p class="who-we-are">Who We Are</p>
-            <h3>Unleashing Potential with Creative Strategy</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-            </ul>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="col-lg-6 about-images" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-              <div class="col-lg-6">
-                <img src="<?php echo base_url();?>assets/img/about-company-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-6">
-                <div class="row gy-4">
-                  <div class="col-lg-12">
-                    <img src="<?php echo base_url();?>assets/img/about-company-2.jpg" class="img-fluid" alt="">
-                  </div>
-                  <div class="col-lg-12">
-                    <img src="<?php echo base_url();?>assets/img/about-company-3.jpg" class="img-fluid" alt="">
-                  </div>
+        <div class="container py-5">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Pemerintah Nomor 27 Tahun 2020</h5>
+                                    <p class="card-text">Pengelolaan Sampah Spesifik.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Presiden Republik Indonesia Nomor 83 Tahun 2018</h5>
+                                    <p class="card-text">Penanganan Sampah Laut.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 6 Tahun 2022</h5>
+                                    <p class="card-text">Sistem Informasi Pengelolaan Sampah Nasional.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 76 Tahun 2019</h5>
+                                    <p class="card-text">Adipura.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- /About Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="<?php echo base_url();?>assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="<?php echo base_url();?>assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="<?php echo base_url();?>assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="<?php echo base_url();?>assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="<?php echo base_url();?>assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="<?php echo base_url();?>assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2 class="">Features</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row justify-content-between">
-
-          <div class="col-lg-5 d-flex align-items-center">
-
-            <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-              <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                  <i class="bi bi-binoculars"></i>
-                  <div>
-                    <h4 class="d-none d-lg-block">Modi sit est dela pireda nest</h4>
-                    <p>
-                      Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                      velit esse cillum dolore eu fugiat nulla pariatur
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                  <i class="bi bi-box-seam"></i>
-                  <div>
-                    <h4 class="d-none d-lg-block">Unde praesenti mara setra le</h4>
-                    <p>
-                      Recusandae atque nihil. Delectus vitae non similique magnam molestiae sapiente similique
-                      tenetur aut voluptates sed voluptas ipsum voluptas
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                  <i class="bi bi-brightness-high"></i>
-                  <div>
-                    <h4 class="d-none d-lg-block">Pariatur explica nitro dela</h4>
-                    <p>
-                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                      Debitis nulla est maxime voluptas dolor aut
-                    </p>
-                  </div>
-                </a>
-              </li>
-            </ul><!-- End Tab Nav -->
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="tab-pane fade active show" id="features-tab-1">
-                <img src="<?php echo base_url();?>assets/img/tabs-1.jpg" alt="" class="img-fluid">
-              </div><!-- End Tab Content Item -->
-
-              <div class="tab-pane fade" id="features-tab-2">
-                <img src="<?php echo base_url();?>assets/img/tabs-2.jpg" alt="" class="img-fluid">
-              </div><!-- End Tab Content Item -->
-
-              <div class="tab-pane fade" id="features-tab-3">
-                <img src="<?php echo base_url();?>assets/img/tabs-3.jpg" alt="" class="img-fluid">
-              </div><!-- End Tab Content Item -->
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Features Section -->
-
-    <!-- Features Details Section -->
-    <section id="features-details" class="features-details section">
-
-      <div class="container">
-
-        <div class="row gy-4 justify-content-between features-item">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <img src="<?php echo base_url();?>assets/img/features-1.jpg" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="content">
-              <h3>Corporis temporibus maiores provident</h3>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-              </p>
-              <a href="#" class="btn more-btn">Learn More</a>
-            </div>
-          </div>
-
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 justify-content-between features-item">
-
-          <div class="col-lg-5 d-flex align-items-center order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="content">
-              <h3>Neque ipsum omnis sapiente quod quia dicta</h3>
-              <p>
-                Quidem qui dolore incidunt aut. In assumenda harum id iusto lorena plasico mares
-              </p>
-              <ul>
-                <li><i class="bi bi-easel flex-shrink-0"></i> Et corporis ea eveniet ducimus.</li>
-                <li><i class="bi bi-patch-check flex-shrink-0"></i> Exercitationem dolorem sapiente.</li>
-                <li><i class="bi bi-brightness-high flex-shrink-0"></i> Veniam quia modi magnam.</li>
-              </ul>
-              <p></p>
-              <a href="#" class="btn more-btn">Learn More</a>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
-            <img src="<?php echo base_url();?>assets/img/features-2.jpg" class="img-fluid" alt="">
-          </div>
-
-        </div><!-- Features Item -->
-
-      </div>
-
-    </section><!-- /Features Details Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row g-5">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <i class="bi bi-activity icon"></i>
-              <div>
-                <h3>Nesciunt Mete</h3>
-                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <i class="bi bi-broadcast icon"></i>
-              <div>
-                <h3>Eosle Commodi</h3>
-                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <i class="bi bi-easel icon"></i>
-              <div>
-                <h3>Ledo Markt</h3>
-                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <i class="bi bi-bounding-box-circles icon"></i>
-              <div>
-                <h3>Asperiores Commodi</h3>
-                <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <i class="bi bi-calendar4-week icon"></i>
-              <div>
-                <h3>Velit Doloremque.</h3>
-                <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <i class="bi bi-chat-square-text icon"></i>
-              <div>
-                <h3>Dolori Architecto</h3>
-                <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- More Features Section -->
-    <section id="more-features" class="more-features section">
-
-      <div class="container">
-
-        <div class="row justify-content-around gy-4">
-
-          <div class="col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-            <h3>Enim quis est voluptatibus aliquid consequatur</h3>
-            <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
-
-            <div class="row">
-
-              <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-easel flex-shrink-0"></i>
-                <div>
-                  <h4>Lorem Ipsum</h4>
-                  <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias </p>
+                <div class="carousel-item" data-bs-interval="2000">
+                <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 75 Tahun 2019</h5>
+                                    <p class="card-text">Peta Jalan Pengurangan Sampah Oleh Produsen.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Pemerintah Nomor 81 Tahun 2022</h5>
+                                    <p class="card-text">Pengelolaan Sampah Rumah Tangga dan Sampah Sejenis Sampah Rumah Tangga.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Undang-undang Republik Indonesia Nomor 18 Tahun 2008</h5>
+                                    <p class="card-text">Pengelolaan Sampah.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card custom-card align-items-center">
+                                <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Peraturan Lingkungan Hidup dan Kehutanan Nomor 14 Tahun 2021</h5>
+                                    <p class="card-text">Pengelolaan Sampah Pada Bank Sampah.</p>
+                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-patch-check flex-shrink-0"></i>
-                <div>
-                  <h4>Nemo Enim</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiise</p>
-                </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-brightness-high flex-shrink-0"></i>
-                <div>
-                  <h4>Dine Pad</h4>
-                  <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit</p>
-                </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-brightness-high flex-shrink-0"></i>
-                <div>
-                  <h4>Tride clov</h4>
-                  <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit</p>
-                </div>
-              </div><!-- End Icon Box -->
-
             </div>
-
-          </div>
-
-          <div class="features-image col-lg-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
-            <img src="<?php echo base_url();?>assets/img/features-3.jpg" alt="">
-          </div>
-
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<!-- END REGULATION SECTION -->
 
-      </div>
+<!-- STATISTICS SECTION -->
+<section id="statistic" class="statistic section">
 
-    </section><!-- /More Features Section -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2 class="">Statistik</h2>
+  </div><!-- End Section Title -->
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <a href="#" class="cta-btn">Start a free trial</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <p class="popular">Popular</p>
-              <h3>Business Plan</h3>
-              <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <a href="#" class="cta-btn">Start a free trial</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <a href="#" class="cta-btn">Start a free trial</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                <li><i class="bi bi-check"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
+  <!-- Statistics Content -->
+  <div class="container">
+    <div class="row text-center" data-aos="fade-up" data-aos-delay="100">
+      <!-- Statistik 1 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card custom-card custom-card-utama d-flex align-items-center" style="position: relative;">
+          <img src="<?php echo base_url();?>assets/img/statistik1.svg" class="custom-statistik w-50 mt-3" alt="Statistik 1">
+          <div class="card-body">
+            <h1 class="card-title text-left fw-bold" id="stat-1">256</h1>
+            <p class="text-left text-grey">UNIT</p>
+            <p class="card-text text-left fw-bold">BSI (Bank Sampah Induk)</p>
+          </div>
         </div>
-
       </div>
-
-    </section><!-- /Pricing Section -->
+      <!-- Statistik 2 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card custom-card-utama align-items-center">
+          <img src="<?php echo base_url();?>assets/img/statistik2.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 2">
+          <div class="card-body">
+            <h1 class="card-title text-left fw-bold" id="stat-1">27.538</h1>
+            <p class="text-left text-grey">UNIT</p>
+            <p class="card-text text-left fw-bold">BSU (Bank Sampah Unit)</p>
+          </div>
+        </div>
+      </div>
+      <!-- Statistik 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card custom-card-utama align-items-center">
+          <img src="<?php echo base_url();?>assets/img/statistik3.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 3">
+          <div class="card-body">
+            <h1 class="card-title text-left fw-bold" id="stat-1">4.681</h1>
+            <p class="text-left text-grey">NASABAH</p>
+            <p class="card-text text-left fw-bold">Lembaga/Rumah Tangga</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Year Filter -->
+    <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="col text-center">
+        <label for="yearFilter" class="form-label"></label>
+        <select class="form-select w-15 d-inline-block" id="yearFilter" style="max-width: 150px;">
+          <option value="2022">TAHUN 2022</option>
+          <option value="2023">TAHUN 2023</option>
+          <option value="2024">TAHUN 2024</option>
+        </select>
+      </div>
+    </div>
+    <!-- Additional Statistics -->
+    <div class="row text-center" data-aos="fade-up" data-aos-delay="300">
+       <!-- Statistik 4 -->
+       <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card d-flex align-items-center">
+          <!-- <img src="<?php echo base_url();?>assets/img/statistik4.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+          <div class="card-body">
+            <h2 class="card-title text-center fw-bold" id="stat-1">13</h2>
+            <p class="text-center text-grey">Jenis Sampah</p>
+          </div>
+        </div>
+      </div>
+       <!-- Statistik 5 -->
+       <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card d-flex align-items-center">
+          <!-- <img src="<?php echo base_url();?>assets/img/statistik5.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+          <div class="card-body">
+            <h2 class="card-title text-center fw-bold" id="stat-1">137.215,08 Ton</h2>
+            <p class="text-center text-grey">Sampah Dikumpulkan</p>
+          </div>
+        </div>
+      </div>
+       <!-- Statistik 6 -->
+       <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card d-flex align-items-center">
+          <!-- <img src="<?php echo base_url();?>assets/img/statistik6.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+          <div class="card-body">
+            <h2 class="card-title text-center fw-bold" id="stat-1">2.461,05 Ton</h2>
+            <p class="text-center text-grey">Sampah Dimanfaatkan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Additional Statistics -->
+    <div class="row text-center justify-content-center" data-aos="fade-up" data-aos-delay="300">
+       <!-- Statistik 7 -->
+       <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card d-flex align-items-center">
+          <!-- <img src="<?php echo base_url();?>assets/img/statistik7.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+          <div class="card-body">
+            <h2 class="card-title text-center fw-bold" id="stat-1">5.313,96 Ton</h2>
+            <p class="text-center text-grey">Sampah Didaur Ulang</p>
+          </div>
+        </div>
+      </div>
+       <!-- Statistik 8 -->
+       <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card custom-card d-flex align-items-center">
+          <!-- <img src="<?php echo base_url();?>assets/img/statistik8.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+          <div class="card-body">
+            <h2 class="card-title text-center fw-bold" id="stat-1">25,61 Ton</h2>
+            <p class="text-center text-grey">Residu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END STATISTICS SECTION -->
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
