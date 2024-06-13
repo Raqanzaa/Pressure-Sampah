@@ -13,6 +13,7 @@ class c_mahasiswa extends CI_Controller
         $data['judul'] = 'Daftar Mahasiswa';
         $data['d_mahasiswa'] = $this->m_mahasiswa->getAllMahasiswa();
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('v_mahasiswa/index');
         $this->load->view('templates/footer');
     }
