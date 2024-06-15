@@ -9,7 +9,6 @@
 - **Pelacakan Berat Sampah**: Catat berat sampah yang didaur ulang setiap hari untuk memahami pola daur ulang Anda.
 - **Statistik Harian, Mingguan, dan Bulanan**: Lihat presentase keberhasilan daur ulang sampah Anda dalam berbagai periode waktu untuk analisis yang lebih mendalam.
 - **Laporan dan Grafik**: Visualisasikan data daur ulang Anda dengan grafik yang informatif dan mudah dipahami.
-- **Pengingat dan Notifikasi**: Dapatkan pengingat untuk memastikan Anda tetap konsisten dalam melakukan daur ulang.
 
 ## Manfaat
 
@@ -19,7 +18,7 @@
 
 ## Cara Menggunakan
 
-1. **Instal Aplikasi**: Unduh dan instal aplikasi Presur Sampah di perangkat Anda.
+1. **Akses Website**: Akses Website Presur Sampah di perangkat Anda.
 2. **Masukkan Data**: Catat berat sampah yang Anda daur ulang setiap hari.
 3. **Lihat Statistik**: Akses statistik harian, mingguan, dan bulanan untuk memantau kemajuan Anda.
 4. **Tingkatkan Daur Ulang**: Gunakan data dan laporan untuk meningkatkan praktik daur ulang Anda.
@@ -34,7 +33,7 @@ Aplikasi ini dilisensikan di bawah [Nama Lisensi]. Silakan lihat berkas LICENSE 
 
 ## Kontak
 
-Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk menghubungi kami di [alamat email/contact form].
+Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk menghubungi kami di ahmadrozaq34@gmail.com.
 
 ---
 
