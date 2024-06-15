@@ -44,7 +44,9 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Sampah</span>
-                <span class="info-box-number">41,410 ton</span>
+                <span class="info-box-number">41,410
+                  <small>ton</small>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -60,7 +62,7 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
+                <span class="info-box-text">Presentase</span>
                 <span class="info-box-number">760</span>
               </div>
               <!-- /.info-box-content -->

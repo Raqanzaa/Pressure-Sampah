@@ -13,4 +13,6 @@
   <link rel="stylesheet" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/img/logo.svg" type="image/png">
 </head>

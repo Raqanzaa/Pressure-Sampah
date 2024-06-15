@@ -23,5 +23,29 @@
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/demo.js"></script> -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var navLinks = document.querySelectorAll('.nav-item .nav-link');
+
+    // Add 'active' class to the current link and remove it from others
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            navLinks.forEach(function(navLink) {
+                navLink.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
+
+    // Set 'active' class based on the current URL
+    var currentPath = window.location.pathname;
+    navLinks.forEach(function(link) {
+        if (link.href.includes(currentPath)) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+
 </body>
 </html>

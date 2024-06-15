@@ -7,7 +7,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar pt-2">
       
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -27,11 +27,21 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="<?php echo base_url();?>c_home" class="nav-link active">
+            <a href="<?php echo base_url();?>c_home" class="nav-link">
 
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>c_tps" class="nav-link">
+
+              <i class="nav-icon fas fa-trash-alt"></i>
+              <p>
+                TPS
               </p>
             </a>
           </li>
