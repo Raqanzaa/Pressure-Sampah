@@ -16,13 +16,13 @@ class Auth extends CI_Controller {
             $user = $this->m_users->login_user($email, $password);
             if ($user) {
                 $this->session->set_userdata('user_id', $user['id']);
-                redirect('c_home'); // Ganti 'c_home' dengan halaman dashboard
+                redirect('dashboard'); // Ganti 'c_home' dengan halaman dashboard
             } else {
                 $this->session->set_flashdata('error', 'Email atau password salah.');
-                redirect('c_landing');
+                redirect('LandingPage');
             }
         } else {
-            redirect('c_landing');
+            redirect('LandingPage');
         }
     }
 
@@ -42,10 +42,10 @@ class Auth extends CI_Controller {
                 redirect('auth/login');
             } else {
                 $this->session->set_flashdata('validation_errors', validation_errors());
-                redirect('c_landing');
+                redirect('LandingPage');
             }
         } else {
-            redirect('c_landing');
+            redirect('LandingPage');
         }
     }
 
@@ -56,7 +56,7 @@ class Auth extends CI_Controller {
     // Fungsi untuk logout
     public function logout() {
         $this->session->unset_userdata('user_id');
-        redirect('auth/login');
+        redirect('LandingPage');
     }
 }
 ?>
