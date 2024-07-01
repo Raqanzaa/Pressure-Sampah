@@ -5,7 +5,7 @@
   <div class="row gy-4">
     <div class="col-lg-4 col-md-6 footer-about">
       <a href="<?php echo site_url('c_landing'); ?>" class="logo d-flex align-items-center">
-        <span class="sitename">QuickStart</span>
+        <span class="sitename">Presure Sampah</span>
       </a>
       <div class="footer-contact pt-3">
         <p>A108 Adam Street</p>

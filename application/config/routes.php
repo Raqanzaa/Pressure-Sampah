@@ -55,3 +55,5 @@ $route['register'] = 'auth/register';
 $route['dashboard'] = 'c_home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['c_ktgrsampah'] = 'c_ktgrsampah';
+$route['c_kategori'] = 'c_ktgrsampah';
