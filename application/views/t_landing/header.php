@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - QuickStart Bootstrap Template</title>
+  <title>Pressure Sampah</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -23,9 +23,11 @@
   <link href="<?php echo base_url();?>assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Main CSS File -->
   <link href="<?php echo base_url();?>assets/css/main.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
 
 </head>
 

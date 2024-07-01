@@ -39,13 +39,13 @@ class m_users extends CI_Model {
     }
 
     // Fungsi untuk memeriksa kecocokan password pengguna
-    public function login_user($username, $password) {
-        $user = $this->get_user_by_username($username);
-        if (!empty($user) && password_verify($password, $user['password'])) {
-            return $user; // password match
-        } else {
-            return false; // password doesn't match or user not found
+    public function login_user($email, $password) {
+        $this->db->where('email', $email);
+        $user = $this->db->get('t_users')->row_array();
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
         }
+        return false;
     }
 }
 ?>

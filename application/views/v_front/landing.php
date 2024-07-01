@@ -24,42 +24,86 @@
   <main class="main">
 
   <!-- LOGIN & REGISTER PAGE -->
-   <!-- Login Popup -->
-   <div id="loginPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closeLoginPopup()">&times;</span>
+<!-- Login Popup -->
+<div id="loginPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeLoginPopup()">&times;</span>
+        <div class="container">
             <?php echo form_open('auth/login'); ?>
-            <h2>Login</h2>
-            <?php echo validation_errors(); ?>
-            <?php if(isset($error)) echo $error; ?>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" name="login" value="Login">
+            <h2 class="text-center">Login</h2>
+            <?php if($this->session->flashdata('error')): ?>
+            <div class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></div>
+            <?php endif; ?>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" name="login" value="Login">
+            </div>
             <?php echo form_close(); ?>
             <br>
-            <button type="button" onclick="showRegisterPopup()">Register</button>
+            <div class="text-center">
+                <button class="btn btn-secondary" type="button" onclick="showRegisterPopup()">Register</button>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- Register Popup -->
-    <div id="registerPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closeRegisterPopup()">&times;</span>
+<!-- Register Popup -->
+<div id="registerPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeRegisterPopup()">&times;</span>
+        <div class="container">
             <?php echo form_open('auth/register'); ?>
-            <h2>Register</h2>
-            <?php echo validation_errors(); ?>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            <input type="submit" name="register" value="Register">
+            <h2 class="text-center">Register</h2>
+            <?php if($this->session->flashdata('validation_errors')): ?>
+            <div class="alert alert-danger"><?php echo $this->session->flashdata('validation_errors'); ?></div>
+            <?php endif; ?>
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" name="register" value="Register">
+            </div>
             <?php echo form_close(); ?>
         </div>
     </div>
+</div>
+    <?php if($this->session->flashdata('error')): ?>
+    <script type="text/javascript">
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "<?php echo $this->session->flashdata('error'); ?>",
+        });
+        showLoginPopup(); // Menampilkan popup login ketika ada error
+    </script>
+    <?php endif; ?>
+
+    <?php if($this->session->flashdata('validation_errors')): ?>
+    <script type="text/javascript">
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: "<?php echo $this->session->flashdata('validation_errors'); ?>",
+        });
+        showRegisterPopup(); // Menampilkan popup register ketika ada error
+    </script>
+    <?php endif; ?>
     <!--  END Login & Register Page -->
 
     <!-- Hero Section -->

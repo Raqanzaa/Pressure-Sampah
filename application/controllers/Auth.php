@@ -8,42 +8,52 @@ class Auth extends CI_Controller {
         $this->load->model('m_users');
     }
 
+    // Fungsi untuk halaman login
     public function login() {
-        $data = array();
         if ($this->input->post('login')) {
-            $username = $this->input->post('username');
+            $email = $this->input->post('email');
             $password = $this->input->post('password');
-            $user = $this->m_users->login_user($username, $password);
+            $user = $this->m_users->login_user($email, $password);
             if ($user) {
                 $this->session->set_userdata('user_id', $user['id']);
-                redirect('c_home');
+                redirect('c_home'); // Ganti 'c_home' dengan halaman dashboard
             } else {
-                $data['error'] = 'Username atau password salah.';
-                $this->load->view('v_front/landing', $data);
+                $this->session->set_flashdata('error', 'Email atau password salah.');
+                redirect('c_landing');
             }
+        } else {
+            redirect('c_landing');
         }
     }
 
+    // Fungsi untuk halaman register
     public function register() {
-        $data = array();
         if ($this->input->post('register')) {
-            $this->form_validation->set_rules('username', 'Username', 'required|is_unique[t_users.username]');
+            $this->form_validation->set_rules('full_name', 'Full Name', 'required');
             $this->form_validation->set_rules('password', 'Password', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[t_users.email]');
             if ($this->form_validation->run() == true) {
                 $data = array(
-                    'username' => $this->input->post('username'),
+                    'full_name' => $this->input->post('full_name'),
                     'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                     'email' => $this->input->post('email')
                 );
                 $this->m_users->register_user($data);
                 redirect('auth/login');
             } else {
-                $this->load->view('v_front/landing', $data);
+                $this->session->set_flashdata('validation_errors', validation_errors());
+                redirect('c_landing');
             }
+        } else {
+            redirect('c_landing');
         }
     }
 
+    public function register_user($data) {
+        return $this->db->insert('t_users', $data);
+    }
+
+    // Fungsi untuk logout
     public function logout() {
         $this->session->unset_userdata('user_id');
         redirect('auth/login');
