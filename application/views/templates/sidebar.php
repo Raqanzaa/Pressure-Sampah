@@ -44,7 +44,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url();?>c_tps" class="nav-link">
+          <a href="<?php echo base_url();?>c_kategori" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Kategori Sampah
@@ -53,7 +53,16 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url();?>c_tps" class="nav-link">
+          <a href="<?php echo base_url();?>c_recycle" class="nav-link">
+            <i class="nav-icon fas fa-recycle"></i>
+            <p>
+              Data Daur Ulang
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?php echo base_url();?>c_regulasi" class="nav-link">
             <i class="nav-icon fas fa-book"></i>
             <p>
               Regulasi
@@ -62,7 +71,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url();?>c_tps" class="nav-link">
+          <a href="<?php echo base_url();?>c_artikel" class="nav-link">
             <i class="nav-icon fas fa-pen"></i>
             <p>
               Artikel

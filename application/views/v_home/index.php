@@ -115,9 +115,9 @@
 
                     <div class="progress-group">
                       Bulanan
-                      <span class="float-right"><b>80%</b>/100%</span>
+                      <span class="float-right"><b>70%</b>/100%</span>
                       <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 80%"></div>
+                        <div class="progress-bar bg-success" style="width: 70%"></div>
                       </div>
                     </div>
                     <!-- /.progress-group -->
@@ -140,9 +140,9 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-3">
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-success pr-1"></i> Behasil</p>
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-warning pr-1"></i> Netral</p>
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-danger pr-1"></i> Gagal</p>
+                      <p class="pr-3"><i class="nav-icon fas fa-square text-success pr-1"></i>> 50% = Behasil</p>
+                      <p class="pr-3"><i class="nav-icon fas fa-square text-warning pr-1"></i>< 50% = Netral</p>
+                      <p class="pr-3"><i class="nav-icon fas fa-square text-danger pr-1"></i>< 30% = Gagal</p>
                         
                     </div>
 
