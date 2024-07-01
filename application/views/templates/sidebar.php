@@ -42,6 +42,34 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+          <a href="<?php echo base_url();?>c_tps" class="nav-link">
+            <i class="nav-icon fas fa-list"></i>
+            <p>
+              Kategori Sampah
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?php echo base_url();?>c_tps" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Regulasi
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?php echo base_url();?>c_tps" class="nav-link">
+            <i class="nav-icon fas fa-pen"></i>
+            <p>
+              Artikel
+            </p>
+          </a>
+        </li>
+      
     </ul>
 </nav>
 

@@ -17,7 +17,7 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="<?php echo site_url('c_landing'); ?>#about">Login Admin</a>
+      <a class="btn-getstarted" href="<?php echo site_url('c_home'); ?>">Login Admin</a>
     </div>
   </header>
 
