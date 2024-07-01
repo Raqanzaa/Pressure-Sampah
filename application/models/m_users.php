@@ -12,6 +12,12 @@ class m_users extends CI_Model {
         return $this->db->insert('t_users', $data);
     }
 
+    public function get_user_by_id($user_id) {
+        $this->db->where('id', $user_id);
+        $query = $this->db->get('t_users');
+        return $query->row_array();
+    }
+
     // Fungsi untuk mengambil data pengguna berdasarkan username
     public function get_user_by_username($username) {
         $query = $this->db->get_where('t_users', array('username' => $username));
