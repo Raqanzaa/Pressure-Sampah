@@ -5,52 +5,48 @@ class Auth extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('user_model'); // Load model user_model.php
+        $this->load->model('m_users');
     }
 
-    // Fungsi untuk halaman login
     public function login() {
-        // Proses login
+        $data = array();
         if ($this->input->post('login')) {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $user = $this->user_model->login_user($username, $password);
+            $user = $this->m_users->login_user($username, $password);
             if ($user) {
-                // Login sukses, simpan data user ke session
                 $this->session->set_userdata('user_id', $user['id']);
-                redirect('dashboard'); // Ganti 'dashboard' dengan halaman setelah login sukses
+                redirect('c_home');
             } else {
-                // Login gagal, tampilkan pesan error
                 $data['error'] = 'Username atau password salah.';
+                $this->load->view('v_front/landing', $data);
             }
         }
-        // Tampilkan halaman login
-        $this->load->view('login', $data); // Ganti 'login' dengan nama file view login
     }
 
-    // Fungsi untuk halaman register
     public function register() {
-        // Proses registrasi
+        $data = array();
         if ($this->input->post('register')) {
-            // Validasi input
-            $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
+            $this->form_validation->set_rules('username', 'Username', 'required|is_unique[t_users.username]');
             $this->form_validation->set_rules('password', 'Password', 'required');
-            // tambahkan validasi lainnya sesuai kebutuhan
-
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[t_users.email]');
             if ($this->form_validation->run() == true) {
-                // Data untuk disimpan ke database
                 $data = array(
                     'username' => $this->input->post('username'),
-                    'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
-                    // tambahkan field lainnya jika ada
+                    'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                    'email' => $this->input->post('email')
                 );
-                // Simpan data ke database
-                $this->user_model->register_user($data);
-                redirect('auth/login'); // Redirect ke halaman login setelah registrasi sukses
+                $this->m_users->register_user($data);
+                redirect('auth/login');
+            } else {
+                $this->load->view('v_front/landing', $data);
             }
         }
-        // Tampilkan halaman register
-        $this->load->view('register'); // Ganti 'register' dengan nama file view register
+    }
+
+    public function logout() {
+        $this->session->unset_userdata('user_id');
+        redirect('auth/login');
     }
 }
 ?>

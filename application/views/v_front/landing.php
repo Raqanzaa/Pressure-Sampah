@@ -17,11 +17,50 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="<?php echo site_url('c_home'); ?>">Login Admin</a>
+      <a class="btn-getstarted" href="#" onclick="showLoginPopup()">Login Admin</a>
     </div>
   </header>
 
   <main class="main">
+
+  <!-- LOGIN & REGISTER PAGE -->
+   <!-- Login Popup -->
+   <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeLoginPopup()">&times;</span>
+            <?php echo form_open('auth/login'); ?>
+            <h2>Login</h2>
+            <?php echo validation_errors(); ?>
+            <?php if(isset($error)) echo $error; ?>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" name="login" value="Login">
+            <?php echo form_close(); ?>
+            <br>
+            <button type="button" onclick="showRegisterPopup()">Register</button>
+        </div>
+    </div>
+
+    <!-- Register Popup -->
+    <div id="registerPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeRegisterPopup()">&times;</span>
+            <?php echo form_open('auth/register'); ?>
+            <h2>Register</h2>
+            <?php echo validation_errors(); ?>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <input type="submit" name="register" value="Register">
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+    <!--  END Login & Register Page -->
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
