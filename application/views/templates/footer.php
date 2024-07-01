@@ -21,28 +21,108 @@
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/demo.js"></script> -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var navLinks = document.querySelectorAll('.nav-item .nav-link');
 
-    // Add 'active' class to the current link and remove it from others
-    navLinks.forEach(function(link) {
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+
+<!-- REQUIRED SCRIPTS -->
+<!-- overlayScrollbars -->
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/raphael/raphael.min.js"></script>
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all nav-link elements
+      var navLinks = document.querySelectorAll('.nav-link');
+
+      // Add click event listener to each nav-link
+      navLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-            navLinks.forEach(function(navLink) {
-                navLink.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-    });
+          // Remove active class from all nav-link elements
+          navLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
 
-    // Set 'active' class based on the current URL
-    var currentPath = window.location.pathname;
-    navLinks.forEach(function(link) {
-        if (link.href.includes(currentPath)) {
-            link.classList.add('active');
+          // Add active class to the clicked nav-link
+          this.classList.add('active');
+        });
+      });
+
+      // Check URL to maintain active class on page reload
+      var currentPath = window.location.pathname;
+      navLinks.forEach(function(link) {
+        if (link.getAttribute('href').includes(currentPath)) {
+          link.classList.add('active');
         }
+      });
+    });
+  </script>
+<!-- SCRIPT FOR CHART -->
+<script>
+$(document).ready(function() {
+    // Get context with jQuery - using jQuery's .get() method.
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d');
+
+    var areaChartData = {
+        labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label               : 'Sampah Basah',
+                backgroundColor     : 'rgba(60,141,188,0.9)',
+                borderColor         : 'rgba(60,141,188,0.8)',
+                pointRadius         : false,
+                pointColor          : '#3b8bba',
+                pointStrokeColor    : 'rgba(60,141,188,1)',
+                pointHighlightFill  : '#fff',
+                pointHighlightStroke: 'rgba(60,141,188,1)',
+                data                : [28, 48, 40, 19, 86, 27, 90]
+            },
+            {
+                label               : 'Sampah Kering',
+                backgroundColor     : 'rgba(210, 214, 222, 1)',
+                borderColor         : 'rgba(210, 214, 222, 1)',
+                pointRadius         : false,
+                pointColor          : 'rgba(210, 214, 222, 1)',
+                pointStrokeColor    : '#c1c7d1',
+                pointHighlightFill  : '#fff',
+                pointHighlightStroke: 'rgba(220,220,220,1)',
+                data                : [65, 59, 80, 81, 56, 55, 40]
+            },
+        ]
+    };
+
+    var areaChartOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+            display: true, // Display the legend
+        },
+        scales: {
+            xAxes: [{
+                gridLines : {
+                    display : false,
+                }
+            }],
+            yAxes: [{
+                gridLines : {
+                    display : false,
+                }
+            }]
+        }
+    };
+
+    // This will get the first returned node in the jQuery collection.
+    new Chart(areaChartCanvas, {
+        type: 'line',
+        data: areaChartData,
+        options: areaChartOptions
     });
 });
 </script>
