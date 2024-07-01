@@ -25,12 +25,8 @@
       <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-        <?php
-        $currentURL = current_url(); // Dapatkan URL saat ini
-        $baseURL = base_url();
-        ?>
         <li class="nav-item">
-            <a href="<?php echo $baseURL;?>c_home" class="nav-link <?php echo ($currentURL == $baseURL.'c_home') ? 'active' : '';?>">
+            <a href="<?php echo base_url();?>c_home" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Dashboard
@@ -39,7 +35,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="<?php echo $baseURL;?>c_tps" class="nav-link <?php echo ($currentURL == $baseURL.'c_tps') ? 'active' : '';?>">
+            <a href="<?php echo base_url();?>c_tps" class="nav-link">
                 <i class="nav-icon fas fa-trash-alt"></i>
                 <p>
                     TPS

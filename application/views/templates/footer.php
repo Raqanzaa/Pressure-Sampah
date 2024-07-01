@@ -39,31 +39,53 @@
 
 <script defer>
     document.addEventListener('DOMContentLoaded', function() {
-      // Get all nav-link elements
-      var navLinks = document.querySelectorAll('.nav-link');
+        // Get all nav-link elements
+        var navLinks = document.querySelectorAll('.nav-link');
 
-      // Add click event listener to each nav-link
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          // Remove active class from all nav-link elements
-          navLinks.forEach(function(link) {
-            link.classList.remove('active');
-          });
+        // Add click event listener to each nav-link
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                // Prevent default behavior if necessary
+                // event.preventDefault();
 
-          // Add active class to the clicked nav-link
-          this.classList.add('active');
+                // Remove active class from all nav-link elements
+                navLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+
+                // Add active class to the clicked nav-link
+                this.classList.add('active');
+            });
         });
-      });
 
-      // Check URL to maintain active class on page reload
-      var currentPath = window.location.pathname;
-      navLinks.forEach(function(link) {
-        if (link.getAttribute('href').includes(currentPath)) {
-          link.classList.add('active');
+        // Check URL to maintain active class on page reload
+        var currentPath = window.location.pathname;
+        var foundActive = false;
+        navLinks.forEach(function(link) {
+            var linkPath = new URL(link.href).pathname;
+            if (linkPath === currentPath) {
+                navLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+                link.classList.add('active');
+                foundActive = true;
+            }
+        });
+
+        // If no nav-link matches the current URL, default to the Dashboard link
+        if (!foundActive) {
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            document.querySelector('.nav-link[href="<?php echo base_url();?>c_home"]').classList.add('active');
         }
-      });
     });
-  </script>
+</script>
+
+
+
+
+
 <!-- SCRIPT FOR CHART -->
 <script>
 $(document).ready(function() {
