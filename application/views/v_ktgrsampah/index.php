@@ -23,14 +23,16 @@
                     <div class="card-header">
                         <h3 class="card-title">Daftar Kategori Sampah</h3>
                         <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 300px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
+                            <form action="#" method="get">
+                                <div class="input-group input-group-sm" style="width: 300px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <br>
@@ -54,32 +56,42 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($categories as $category): ?>
-                                <tr>
+                                    <tr>
                                     <td><?php echo $category->id; ?></td>
-                                    <td><?php echo $category->nama_kategori; ?></td>
+                                        <td><?php echo $category->nama_kategori; ?></td>
                                     <td><?php echo $category->keterangan; ?></td>
                                     <td class="project-actions">
-                                        <a class="btn btn-primary btn-sm" href="#">
-                                            <i class="fas fa-folder"></i> View
-                                        </a>
-                                        <a class="btn btn-info btn-sm" href="#">
-                                            <i class="fas fa-pencil-alt"></i> Edit
-                                        </a>
-                                        <a class="btn btn-danger btn-sm" href="#">
-                                            <i class="fas fa-trash"></i> Delete
-                                        </a>
-                                    </td>
-                                </tr>
+                                            <a class="btn btn-primary btn-sm" href="#">
+                                                <i class="fas fa-folder"></i> View
+                                            </a>
+                                            <a class="btn btn-info btn-sm" href="#">
+                                                <i class="fas fa-pencil-alt"></i> Edit
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="#">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                                 <!-- Add more rows as needed -->
                             </tbody>
                         </table>
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="float-right">
+                            <a class="btn btn-success btn-sm" href="#">
+                                <i class="fas fa-plus"></i> Tambah Kategori
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.card -->
             </div>
+            <!-- /.col -->
         </div>
         <!-- /.row -->
     </div>
+    <!-- /.container-fluid -->
 </section>
+<!-- /.content -->
