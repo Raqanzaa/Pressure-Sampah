@@ -13,7 +13,7 @@ class m_users extends CI_Model {
     }
 
     public function get_user_by_id($user_id) {
-        $this->db->where('id_users', $user_id); // Perbarui dengan 'id_users'
+        $this->db->where('id', $user_id); // Perbarui dengan 'id_users'
         $query = $this->db->get('t_users');
         return $query->row_array();
     }
