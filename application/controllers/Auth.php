@@ -14,8 +14,13 @@ class Auth extends CI_Controller {
             $password = $this->input->post('password');
             $user = $this->m_users->login_user($email, $password);
             if ($user) {
+<<<<<<< HEAD
                 $this->session->set_userdata('user_id', $user['id']);
                 redirect('dashboard');  // Pastikan URL controller 'dashboard' sesuai dengan route yang diinginkan
+=======
+                $this->session->set_userdata('user_id', $user['id_users']);
+                redirect('dashboard'); // Ganti 'c_home' dengan halaman dashboard
+>>>>>>> b122476367dcc8b0010602a7fb2bcc5b94142919
             } else {
                 $this->session->set_flashdata('error', 'Email atau password salah.');
                 redirect('LandingPage');

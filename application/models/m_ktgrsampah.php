@@ -3,41 +3,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_ktgrsampah extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        // Load database jika diperlukan
-        $this->load->database();
-    }
-
     public function get_categories() {
-        // Method untuk mendapatkan semua kategori sampah
-        $query = $this->db->get('kategori_sampah'); // Ganti 'kategori_sampah' dengan nama tabel yang sesuai
-        return $query->result();
+        return $this->db->get('kategori_sampah')->result_array();
     }
 
-    public function get_category($id) {
-        // Method untuk mendapatkan detail kategori berdasarkan ID
-        $query = $this->db->get_where('kategori_sampah', array('id' => $id));
-        return $query->row();
+    public function get_kategori_by_id($id) {
+        return $this->db->get_where('kategori_sampah', ['id_ktgrsampah' => $id])->row_array();
     }
 
-    public function tambah_category($data) {
-        // Method untuk menambahkan kategori baru
-        $this->db->insert('kategori_sampah', $data);
-        return $this->db->insert_id();
+    public function tambah_kategori() {
+        $data = [
+            'nama_kategori' => $this->input->post('Nama_Kategori'),
+            'deskripsi' => $this->input->post('Deskripsi'),
+            'warna_kategori' => $this->input->post('Warna_Kategori')
+        ];
+        return $this->db->insert('kategori_sampah', $data);
     }
 
-    public function update_category($id, $data) {
-        // Method untuk memperbarui kategori berdasarkan ID
-        $this->db->where('id', $id);
-        $this->db->update('kategori_sampah', $data);
+    public function edit_kategori($id) {
+        $data = [
+            'nama_kategori' => $this->input->post('Nama_Kategori'),
+            'deskripsi' => $this->input->post('Deskripsi'),
+            'warna_kategori' => $this->input->post('Warna_Kategori')
+        ];
+        $this->db->where('id_ktgrsampah', $id);
+        return $this->db->update('kategori_sampah', $data);
     }
 
-    public function hapus_category($id) {
-        // Method untuk menghapus kategori berdasarkan ID
-        $this->db->delete('kategori_sampah', array('id' => $id));
+    public function hapus_kategori($id) {
+        return $this->db->delete('kategori_sampah', ['id_ktgrsampah' => $id]);
     }
-
-    // Tambahkan method lainnya sesuai kebutuhan
 
 }
