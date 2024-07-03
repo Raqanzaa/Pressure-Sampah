@@ -48,10 +48,12 @@ class m_users extends CI_Model {
     public function login_user($email, $password) {
         $this->db->where('email', $email);
         $user = $this->db->get('t_users')->row_array();
+
         if ($user && password_verify($password, $user['password'])) {
             return $user;
+        } else {
+            return false;
         }
-        return false;
     }
 }
 ?>

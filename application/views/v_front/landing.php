@@ -24,86 +24,43 @@
   <main class="main">
 
   <!-- LOGIN & REGISTER PAGE -->
-<!-- Login Popup -->
-<div id="loginPopup" class="popup">
+  <div id="loginPopup" class="popup">
     <div class="popup-content">
         <span class="close" onclick="closeLoginPopup()">&times;</span>
-        <div class="container">
-            <?php echo form_open('auth/login'); ?>
-            <h2 class="text-center">Login</h2>
-            <?php if($this->session->flashdata('error')): ?>
-            <div class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></div>
-            <?php endif; ?>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <div class="text-center">
-                <input type="submit" class="btn btn-primary" name="login" value="Login">
-            </div>
-            <?php echo form_close(); ?>
-            <br>
-            <div class="text-center">
-                <button class="btn btn-secondary" type="button" onclick="showRegisterPopup()">Register</button>
+        <div class="w-auto rounded-2xl m-auto bg-slate-900">
+            <div class="flex flex-col gap-2 p-8">
+                <p class="text-center text-3xl text-gray-300 mb-4">Login</p>
+                <?php echo form_open('auth/login'); ?>
+                <input type="email" name="email" class="mb-3 bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-light" placeholder="Email" required>
+                <input type="password" name="password" class="mb-3 bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-light" placeholder="Password" required>
+                <button type="submit" name="login" class="w-full inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95" value="login">Login</button>
+                <?php echo form_close(); ?>
+                <p class="text-center">atau</p>
+                <div class="text-center">
+                    <button class="btn btn-secondary w-full" type="button" onclick="showRegisterPopup()">Register</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Register Popup -->
 <div id="registerPopup" class="popup">
     <div class="popup-content">
-        <span class="close" onclick="closeRegisterPopup()">&times;</span>
-        <div class="container">
-            <?php echo form_open('auth/register'); ?>
-            <h2 class="text-center">Register</h2>
-            <?php if($this->session->flashdata('validation_errors')): ?>
-            <div class="alert alert-danger"><?php echo $this->session->flashdata('validation_errors'); ?></div>
-            <?php endif; ?>
-            <div class="form-group">
-                <label for="full_name">Full Name:</label>
-                <input type="text" class="form-control" id="full_name" name="full_name" required>
+        <span class="close2" onclick="closeRegisterPopup()">&times;</span>
+        <span class="back" onclick="showLoginPopup()">&larr; Back to Login</span>
+        <div class="w-auto rounded-2xl m-auto bg-slate-900">
+            <div class="flex flex-col gap-2 p-8">
+                <p class="text-center text-3xl text-gray-300 mb-4">Register</p>
+                <?php echo form_open('auth/register'); ?>
+                <input type="text" name="full_name" class="mb-3 bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-light" placeholder="Full Name" required>
+                <input type="email" name="email" class="mb-3 bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-light" placeholder="Email" required>
+                <input type="password" name="password" class="mb-3 bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-light" placeholder="Password" required>
+                <button type="submit" name="register" class="w-full cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95" value="register">Register</button>
+                <?php echo form_close(); ?>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <div class="text-center">
-                <input type="submit" class="btn btn-primary" name="register" value="Register">
-            </div>
-            <?php echo form_close(); ?>
         </div>
     </div>
 </div>
-    <?php if($this->session->flashdata('error')): ?>
-    <script type="text/javascript">
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: "<?php echo $this->session->flashdata('error'); ?>",
-        });
-        showLoginPopup(); // Menampilkan popup login ketika ada error
-    </script>
-    <?php endif; ?>
-
-    <?php if($this->session->flashdata('validation_errors')): ?>
-    <script type="text/javascript">
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            html: "<?php echo $this->session->flashdata('validation_errors'); ?>",
-        });
-        showRegisterPopup(); // Menampilkan popup register ketika ada error
-    </script>
-    <?php endif; ?>
     <!--  END Login & Register Page -->
 
     <!-- Hero Section -->

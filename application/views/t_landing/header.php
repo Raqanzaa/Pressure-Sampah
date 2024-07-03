@@ -23,7 +23,8 @@
   <link href="<?php echo base_url();?>assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
   <!-- Main CSS File -->
   <link href="<?php echo base_url();?>assets/css/main.css" rel="stylesheet">

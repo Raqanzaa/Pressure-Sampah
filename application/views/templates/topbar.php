@@ -30,7 +30,7 @@
                             <img src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <span class="d-block"><?php echo $user['full_name']; ?></span>
+                            <span class="d-block"><?php echo isset($user['full_name']) ? $user['full_name'] : 'User'; ?></span>
                         </div>
                     </div>
                 </a>
