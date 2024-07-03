@@ -1,7 +1,7 @@
 </div>
 <!-- /.content-wrapper -->
 
-<footer class="main-footer">
+<footer class="main-footer" style="margin-top: 64px;">
   <div class="float-right d-none d-sm-block">
     <!-- <b>Version</b> 3.2.0 -->
   </div>
@@ -82,10 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-
-
-
-
 
 <!-- SCRIPT FOR CHART -->
 <script>
