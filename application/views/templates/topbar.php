@@ -21,7 +21,6 @@
                 </li>
             </ul>
 
-<<<<<<< HEAD
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto pb-2 justify-content-end">
             <li class="nav-item dropdown">
@@ -32,19 +31,6 @@
                         </div>
                         <div class="info">
                             <span class="d-block"><?php echo isset($user['full_name']) ? $user['full_name'] : 'User'; ?></span>
-=======
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto pb-2 justify-content-end">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#" role="button">
-                        <div class="user-panel d-flex align-items-center">
-                            <div class="image">
-                                <img src="<?php echo base_url('/assets/AdminLTE-3.2.0/dist/img/user2-160x160.jpg'); ?>" class="img-circle elevation-2" alt="User Image">
-                            </div>
-                            <div class="info">
-                                <span class="d-block"><?php echo isset($user['full_name']) ? $user['full_name'] : ''; ?></span>
-                            </div>
->>>>>>> b122476367dcc8b0010602a7fb2bcc5b94142919
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
