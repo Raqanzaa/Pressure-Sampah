@@ -6,28 +6,19 @@ class c_ktgrsampah extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-<<<<<<< HEAD
         $this->load->model('m_ktgrsampah'); // Memuat model m_ktgrsampah
         $this->load->model('m_users');
         // Periksa apakah pengguna sudah login
         if (!$this->session->userdata('user_id')) {
             redirect('auth/login');
-=======
-        $this->load->model('m_ktgrsampah');
-        $this->load->library('form_validation'); // Load library form_validation untuk validasi form
->>>>>>> b122476367dcc8b0010602a7fb2bcc5b94142919
     }
 
     public function index()
     {
         $data['title'] = 'Kategori Sampah';
-<<<<<<< HEAD
         $user_id = $this->session->userdata('user_id');
         $data['user'] = $this->m_users->get_user_by_id($user_id);
-        $data['categories'] = $this->m_ktgrsampah->get_categories(); // Mengambil data kategori dari model
-=======
         $data['categories'] = $this->m_ktgrsampah->get_categories();
->>>>>>> b122476367dcc8b0010602a7fb2bcc5b94142919
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
