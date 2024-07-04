@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Daur Ulang Sampah</h1>
+                <h1>Data Recycle</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Data Daur Ulang</li>
+                    <li class="breadcrumb-item active">Data Recycle</li>
                 </ol>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Daftar Data Daur Ulang</h3>
+                        <h3 class="card-title">Daftar Data Recycle</h3>
                         <div class="card-tools">
                             <form action="#" method="get">
                                 <div class="input-group input-group-sm" style="width: 300px;">
@@ -39,7 +39,7 @@
 
                     <div class="float-right ml-4 mb-3">
                         <a class="btn btn-success btn-sm" href="<?php echo base_url('c_recycle/tambah'); ?>">
-                            <i class="fas fa-plus"></i> Tambah Data Daur Ulang
+                            <i class="fas fa-plus"></i> Tambah Data Recycle
                         </a>
                     </div>
 
@@ -52,16 +52,18 @@
                                     <th>Jenis Sampah</th>
                                     <th>Berat (kg)</th>
                                     <th>Tanggal</th>
+                                    <th>Nama TPS</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($data_daur_ulang as $data): ?>
+                                <?php foreach ($data_recycle as $data): ?>
                                     <tr>
                                         <td><?php echo $data->id_data; ?></td>
                                         <td><?php echo $data->jenis_sampah; ?></td>
                                         <td><?php echo $data->berat; ?></td>
                                         <td><?php echo $data->tanggal; ?></td>
+                                        <td><?php echo $data->nama_tps; ?></td>
                                         <td class="project-actions">
                                             <a class="btn btn-primary btn-sm" href="<?php echo base_url('c_recycle/view/'.$data->id_data); ?>">
                                                 <i class="fas fa-folder"></i> View
@@ -83,7 +85,7 @@
                     <div class="card-footer">
                         <div class="float-right">
                             <a class="btn btn-success btn-sm" href="<?php echo base_url('c_recycle/tambah'); ?>">
-                                <i class="fas fa-plus"></i> Tambah Data Daur Ulang
+                                <i class="fas fa-plus"></i> Tambah Data Recycle
                             </a>
                         </div>
                     </div>

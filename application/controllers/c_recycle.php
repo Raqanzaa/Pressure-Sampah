@@ -9,7 +9,7 @@ class c_recycle extends CI_Controller {
     }
 
     public function index() {
-        $data['data_daur_ulang'] = $this->m_recycle->get_all_recycles();
+        $data['data_recycle'] = $this->m_recycle->get_all_recycles(); // Ganti ini dengan nama method yang sesuai
         $this->load->view('v_recycle/index', $data);
     }
 
