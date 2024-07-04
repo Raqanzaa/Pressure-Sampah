@@ -86,6 +86,47 @@
 <!-- Main JS File -->
 <script src="<?php echo base_url();?>assets/js/main.js"></script>
 <script src="<?php echo base_url();?>assets/js/custom.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            <?php if ($this->session->flashdata('success')): ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '<?php echo $this->session->flashdata('success'); ?>',
+                    timer: 3000,
+                    showConfirmButton: false,
+                    position: 'top-start',
+                    toast: true
+                });
+            <?php endif; ?>
+
+            <?php if ($this->session->flashdata('error')): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: '<?php echo $this->session->flashdata('error'); ?>',
+                    timer: 3000,
+                    showConfirmButton: false,
+                    position: 'top-start',
+                    toast: true
+                });
+            <?php endif; ?>
+
+            <?php if ($this->session->flashdata('validation_errors')): ?>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Validation Errors',
+                    html: '<?php echo $this->session->flashdata('validation_errors'); ?>',
+                    timer: 5000,
+                    showConfirmButton: true,
+                    position: 'top-start',
+                    toast: true
+                });
+            <?php endif; ?>
+        });
+    </script>
 
 </body>
 

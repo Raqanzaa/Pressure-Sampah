@@ -13,7 +13,7 @@ class m_users extends CI_Model {
     }
 
     public function get_user_by_id($user_id) {
-        $this->db->where('id', $user_id);
+        $this->db->where('id', $user_id); // Perbarui dengan 'id_users'
         $query = $this->db->get('t_users');
         return $query->row_array();
     }
@@ -48,10 +48,12 @@ class m_users extends CI_Model {
     public function login_user($email, $password) {
         $this->db->where('email', $email);
         $user = $this->db->get('t_users')->row_array();
+
         if ($user && password_verify($password, $user['password'])) {
             return $user;
+        } else {
+            return false;
         }
-        return false;
     }
 }
 ?>

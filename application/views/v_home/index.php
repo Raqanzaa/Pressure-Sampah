@@ -30,7 +30,7 @@
                 <span class="info-box-text">Jumlah TPS</span>
                 <span class="info-box-number">
                   10
-                  <small>%</small>
+                  <small></small>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -63,7 +63,8 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Presentase</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">760
+                  <small>%</small>
               </div>
               <!-- /.info-box-content -->
             </div>

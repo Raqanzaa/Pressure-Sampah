@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Kategori Sampah</h1>
+                <h1>Data Daur Ulang Sampah</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Kategori Sampah</li>
+                    <li class="breadcrumb-item active">Data Daur Ulang</li>
                 </ol>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Daftar Kategori Sampah</h3>
+                        <h3 class="card-title">Daftar Data Daur Ulang</h3>
                         <div class="card-tools">
                             <form action="#" method="get">
                                 <div class="input-group input-group-sm" style="width: 300px;">
@@ -38,8 +38,8 @@
                     <br>
 
                     <div class="float-right ml-4 mb-3">
-                        <a class="btn btn-success btn-sm" href="#">
-                            <i class="fas fa-plus"></i> Tambah Kategori
+                        <a class="btn btn-success btn-sm" href="<?php echo base_url('c_recycle/tambah'); ?>">
+                            <i class="fas fa-plus"></i> Tambah Data Daur Ulang
                         </a>
                     </div>
 
@@ -49,25 +49,27 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nama Kategori</th>
-                                    <th>Keterangan</th>
+                                    <th>Jenis Sampah</th>
+                                    <th>Berat (kg)</th>
+                                    <th>Tanggal</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($categories as $category): ?>
+                                <?php foreach ($data_daur_ulang as $data): ?>
                                     <tr>
-                                    <td><?php echo $category->id; ?></td>
-                                        <td><?php echo $category->nama_kategori; ?></td>
-                                    <td><?php echo $category->keterangan; ?></td>
-                                    <td class="project-actions">
-                                            <a class="btn btn-primary btn-sm" href="#">
+                                        <td><?php echo $data->id_data; ?></td>
+                                        <td><?php echo $data->jenis_sampah; ?></td>
+                                        <td><?php echo $data->berat; ?></td>
+                                        <td><?php echo $data->tanggal; ?></td>
+                                        <td class="project-actions">
+                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url('c_recycle/view/'.$data->id_data); ?>">
                                                 <i class="fas fa-folder"></i> View
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="#">
+                                            <a class="btn btn-info btn-sm" href="<?php echo base_url('c_recycle/edit/'.$data->id_data); ?>">
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
+                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('c_recycle/hapus/'.$data->id_data); ?>">
                                                 <i class="fas fa-trash"></i> Delete
                                             </a>
                                         </td>
@@ -80,8 +82,8 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <div class="float-right">
-                            <a class="btn btn-success btn-sm" href="#">
-                                <i class="fas fa-plus"></i> Tambah Kategori
+                            <a class="btn btn-success btn-sm" href="<?php echo base_url('c_recycle/tambah'); ?>">
+                                <i class="fas fa-plus"></i> Tambah Data Daur Ulang
                             </a>
                         </div>
                     </div>
