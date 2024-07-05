@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simple Crud Image Codeigniter</title>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
-
-</head>
 <body>
 
 <!-- Content Header (Page header) -->
@@ -30,7 +19,6 @@
 </section>
 
 <section class="content">
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
@@ -39,12 +27,19 @@
             <h3 class="card-title">Artikel Terbaru</h3>
 
             <div class="card-tools">
-            <form action="<?=base_url()?>index.php/c_artikel/index" method="get">
-            <input type="text" name="cari" placeholder="Cari judul artikel">
-            <input type="submit" value="Cari" class="btn btn-default">
-            </form>
+              <form action="<?=base_url()?>index.php/c_artikel/index" method="get">
+                <div class="input-group input-group-sm" style="width: 300px;">
+                  <input type="text" name="cari" class="form-control float-right" placeholder="Cari judul artikel">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-default">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
+          <br>
 
           <div class="float-right ml-4 mb-3">
             <a class="btn btn-success btn-sm" href="<?=base_url()?>index.php/c_artikel/tambah">
@@ -53,36 +48,52 @@
           </div>
 
           <!-- /.card-header -->
-          <div class="row">
-
-            <?php foreach ($data as $artikel): ?>
-             <div class="col-sm-6 col-md-3">
-             <a href="#" class="thumbnail">
-             <img src="<?=base_url()?>assets/img/<?=$artikel->gambar_artikel?>" alt="gambar artikel">
-            </a>
-            <div class="caption">
-            <h3><?php echo $artikel->judul ?></h3>
-            <p>Tanggal Publikasi: <?php echo $artikel->tanggal_publikasi ?></p>
-            <p>
-            <a href="<?=base_url()?>index.php/c_artikel/edit/<?=$artikel->id_artikel?>" class="btn btn-info" role="button">Edit</a>
-            <a href="<?=base_url()?>index.php/c_artikel/deletedata/<?=$artikel->id_artikel?>/<?=$artikel->gambar_artikel?>" class="btn btn-danger" role="button">Hapus</a>
-            </p>
-            </div>
-            </div>
-            <?php endforeach; ?>
-
-            </div>
-            </div>
+          <div class="card-body table-responsive p-0" style="height: auto;">
+            <table class="table table-head-fixed text-nowrap">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Judul</th>
+                  <th>Tanggal Publikasi</th>
+                  <th>Gambar Artikel</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($data as $artikel): ?>
+                  <tr>
+                    <td><?php echo $artikel->id_artikel; ?></td>
+                    <td><?php echo $artikel->judul; ?></td>
+                    <td><?php echo $artikel->tanggal_publikasi; ?></td>
+                    <td>
+                      <img src="<?=base_url()?>assets/img/<?=$artikel->gambar_artikel?>" alt="gambar artikel" style="width: 100px;">
+                    </td>
+                    <td class="project-actions">
+                      <a class="btn btn-primary btn-sm" href="#">
+                        <i class="fas fa-folder"></i> View
+                      </a>
+                      <a class="btn btn-info btn-sm" href="<?=base_url()?>index.php/c_artikel/edit/<?=$artikel->id_artikel?>">
+                        <i class="fas fa-pencil-alt"></i> Edit
+                      </a>
+                      <a class="btn btn-danger btn-sm" href="<?=base_url()?>index.php/c_artikel/deletedata/<?=$artikel->id_artikel?>/<?=$artikel->gambar_artikel?>">
+                        <i class="fas fa-trash"></i> Delete
+                      </a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
       </div>
+      <!-- /.col -->
     </div>
     <!-- /.row -->
   </div>
+  <!-- /.container-fluid -->
 </section>
 
-<script src="<?= base_url() ?>assets/js/jquery.min.js"></script>
-<script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
 </body>
 </html>

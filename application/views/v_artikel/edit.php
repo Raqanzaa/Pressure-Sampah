@@ -1,50 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simple Crud Codeigniter</title>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
-
-</head>
 <body>
 
-<div class="container">
-  <h1>Simple Crud image Codeigniter</h1>
-  <hr>
-</div>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Edit Artikel</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit Artikel</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
 
-<!-- KONTEN UTAMA -->
-<div class="container">
-  <h2>Edit Artikel</h2>
-  <div class="row">
-    <form action="<?=base_url()?>index.php/c_artikel/updatedata" method="post" enctype="multipart/form-data">
-      <label>Judul</label><br>
-      <input type="text" name="judul" value="<?=$data->judul?>"><br><br>
-      <label>Tanggal Publikasi</label><br>
-      <input type="date" name="tanggal_publikasi" value="<?=$data->tanggal_publikasi?>"><br><br>
-      <label>Gambar Artikel</label><br>
-      <?php if (!empty($data->gambar_artikel)) { ?>
-        <img src="<?=base_url()?>assets/img/<?=$data->gambar_artikel?>" width="150"><br><br>
-      <?php } ?>
-      <input type="file" name="gambar_artikel"><br><br>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Formulir Edit Artikel</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form action="<?=base_url()?>index.php/c_artikel/updatedata" method="post" enctype="multipart/form-data">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="judul">Judul:</label>
+                <input type="text" class="form-control" id="judul" name="judul" value="<?=$data->judul?>" required>
+              </div>
 
-      <!-- file lama -->
-      <input type="hidden" name="filelama" value="<?=$data->gambar_artikel?>">
-      <!-- ID -->
-      <input type="hidden" name="id_artikel" value="<?=$data->id_artikel?>">
+              <div class="form-group">
+                <label for="tanggal_publikasi">Tanggal Publikasi:</label>
+                <input type="date" class="form-control" id="tanggal_publikasi" name="tanggal_publikasi" value="<?=$data->tanggal_publikasi?>" required>
+              </div>
 
-      <input type="submit" name="submit" value="Submit" class="btn btn-default">
-    </form>
+              <div class="form-group">
+                <label for="gambar_artikel">Gambar Artikel:</label>
+                <?php if (!empty($data->gambar_artikel)) { ?>
+                  <div class="mb-3">
+                    <img src="<?=base_url()?>assets/img/<?=$data->gambar_artikel?>" width="150"><br><br>
+                  </div>
+                <?php } ?>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="gambar_artikel" name="gambar_artikel">
+                    <label class="custom-file-label" for="gambar_artikel">Pilih file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
 
+            <input type="hidden" name="filelama" value="<?=$data->gambar_artikel?>">
+            <input type="hidden" name="id_artikel" value="<?=$data->id_artikel?>">
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <!-- /.row -->
   </div>
-</div>
-<!-- END KONTEN UTAMA -->
+  <!-- /.container-fluid -->
+</section>
 
-<script src="<?= base_url() ?>assets/js/jquery.min.js"></script>
-<script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
 </body>
 </html>

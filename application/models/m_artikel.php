@@ -1,41 +1,57 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class m_artikel extends CI_Model {
-
-    public function get_all_articles()
-    {
-        $this->db->select('a.*, u.full_name as author_name');
-        $this->db->from('artikel a');
-        $this->db->join('t_users u', 'a.author_id = u.id_users');
-        $query = $this->db->get();
-        return $query->result();
+class m_artikel extends CI_Model
+{
+  // Retrieve data with optional limits and search criteria
+  public function get($batas = NULL, $offset = NULL, $cari = NULL)
+  {
+    if ($batas != NULL) {
+      $this->db->limit($batas, $offset);
     }
-
-    public function get_article_by_id($id)
-    {
-        $this->db->select('a.*, u.full_name as author_name');
-        $this->db->from('artikel a');
-        $this->db->join('t_users u', 'a.author_id = u.id_users');
-        $this->db->where('a.id_artikel', $id);
-        $query = $this->db->get();
-        return $query->row();
+    if ($cari != NULL) {
+      $this->db->or_like($cari);
     }
+    $this->db->from('artikel');
+    $query = $this->db->get();
+    return $query->result();
+  }
 
-    public function insert_article($data)
-    {
-        return $this->db->insert('artikel', $data);
-    }
+  // Count the number of rows matching the search criteria
+  public function jumlah_row($search)
+  {
+    $this->db->or_like($search);
+    $query = $this->db->get('artikel');
+    return $query->num_rows();
+  }
 
-    public function update_article($id, $data)
-    {
-        $this->db->where('id_artikel', $id);
-        return $this->db->update('artikel', $data);
-    }
+  // Retrieve a single row by ID
+  public function get_by_id($kondisi)
+  {
+    $this->db->from('artikel');
+    $this->db->where($kondisi);
+    $query = $this->db->get();
+    return $query->row();
+  }
 
-    public function delete_article($id)
-    {
-        $this->db->where('id_artikel', $id);
-        return $this->db->delete('artikel');
-    }
+  // Insert data into the table
+  public function insert($data)
+  {
+    $this->db->insert('artikel', $data);
+    return TRUE;
+  }
+
+  // Delete data from the table
+  public function delete($where)
+  {
+    $this->db->where($where);
+    $this->db->delete('artikel');
+    return TRUE;
+  }
+
+  // Update data in the table
+  public function update($data, $kondisi)
+  {
+    $this->db->update('artikel', $data, $kondisi);
+    return TRUE;
+  }
 }
+?>
