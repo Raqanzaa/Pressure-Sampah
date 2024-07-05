@@ -57,4 +57,5 @@ $route['LandingPage'] = 'c_landing';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['c_ktgrsampah'] = 'c_ktgrsampah';
-$route['c_kategori'] = 'c_ktgrsampah';
+$route['c_tps'] = 'c_tps';
+

@@ -1,37 +1,31 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+class M_ktgrsampah extends CI_Model {
 
-class m_ktgrsampah extends CI_Model {
-
-    public function get_categories() {
-        return $this->db->get('kategori_sampah')->result_array();
+    public function get_all_ktgrsampah()
+    {
+        return $this->db->get('kategori_sampah')->result();
     }
 
-    public function get_kategori_by_id($id) {
-        return $this->db->get_where('kategori_sampah', ['id_ktgrsampah' => $id])->row_array();
+    public function get_ktgrsampah_by_id($id_ktgrsampah)
+    {
+        return $this->db->get_where('kategori_sampah', array('id_ktgrsampah' => $id_ktgrsampah))->row();
     }
 
-    public function tambah_kategori() {
-        $data = [
-            'nama_kategori' => $this->input->post('Nama_Kategori'),
-            'deskripsi' => $this->input->post('Deskripsi'),
-            'warna_kategori' => $this->input->post('Warna_Kategori')
-        ];
-        return $this->db->insert('kategori_sampah', $data);
+    public function insert_ktgrsampah($data)
+    {
+        $this->db->insert('kategori_sampah', $data);
     }
 
-    public function edit_kategori($id) {
-        $data = [
-            'nama_kategori' => $this->input->post('Nama_Kategori'),
-            'deskripsi' => $this->input->post('Deskripsi'),
-            'warna_kategori' => $this->input->post('Warna_Kategori')
-        ];
-        $this->db->where('id_ktgrsampah', $id);
-        return $this->db->update('kategori_sampah', $data);
+    public function update_ktgrsampah($id_ktgrsampah, $data)
+    {
+        $this->db->where('id_ktgrsampah', $id_ktgrsampah);
+        $this->db->update('kategori_sampah', $data);
     }
 
-    public function hapus_kategori($id) {
-        return $this->db->delete('kategori_sampah', ['id_ktgrsampah' => $id]);
+    public function delete_ktgrsampah($id_ktgrsampah)
+    {
+        $this->db->where('id_ktgrsampah', $id_ktgrsampah);
+        $this->db->delete('kategori_sampah');
     }
-
 }
+?>

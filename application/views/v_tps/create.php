@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Edit Kategori Sampah</h1>
+                <h1>Tambah TPS</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Edit Kategori Sampah</li>
+                    <li class="breadcrumb-item active">Tambah TPS</li>
                 </ol>
             </div>
         </div>
@@ -21,21 +21,24 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="<?= site_url('c_ktgrsampah/edit/'.$ktgrsampah->id_ktgrsampah) ?>" method="post">
+                        <form action="<?= site_url('c_tps/create') ?>" method="post">
                             <div class="form-group">
-                                <label>Nama Kategori</label>
-                                <input type="text" class="form-control" name="nama_kategori" value="<?= $ktgrsampah->nama_kategori ?>">
+                                <label for="nama_tps">Nama TPS</label>
+                                <input type="text" class="form-control" id="nama_tps" name="nama_tps" placeholder="Masukkan Nama TPS">
                             </div>
                             <div class="form-group">
-                                <label>Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi"><?= $ktgrsampah->deskripsi ?></textarea>
+                                <label for="alamat">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat">
                             </div>
                             <div class="form-group">
-                                <label>Warna Kategori</label>
-                                <input type="text" class="form-control" name="warna_kategori" value="<?= $ktgrsampah->warna_kategori ?>">
+                                <label for="kapasitas">Kapasitas</label>
+                                <input type="number" class="form-control" id="kapasitas" name="kapasitas" placeholder="Masukkan Kapasitas">
+                            </div>
+                            <div class="form-group">
+                                <label for="keterangan">Keterangan</label>
+                                <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="<?= site_url('c_ktgrsampah/index') ?>" class="btn btn-default">Batal</a>
                         </form>
                     </div>
                 </div>
