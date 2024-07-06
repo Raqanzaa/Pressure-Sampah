@@ -1,4 +1,3 @@
-<!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -47,25 +46,34 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Nama TPS</th>
+                                        <th>No.</th>
+                                        <th style="width: 15%;">Nama TPS</th>
                                         <th>Alamat TPS</th>
                                         <th>Kapasitas</th>
-                                        <th>Keterangan</th>
+                                        <th style="width: 30%;">Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($tps as $t): ?>
+                                    <?php foreach($tps as $index => $t): ?>
                                     <tr>
-                                        <td><?php echo $t['id_tps']; ?></td>
-                                        <td><?php echo $t['nama_tps']; ?></td>
-                                        <td><?php echo $t['alamat_tps']; ?></td>
-                                        <td><?php echo $t['kapasitas']; ?></td>
-                                        <td><?php echo $t['keterangan']; ?></td>
+                                        <td><?= $index + 1 ?></td>
+                                        <td><?= $t['nama_tps']; ?></td>
+                                        <td><?= $t['alamat_tps']; ?></td>
                                         <td>
-                                            <a href="<?php echo site_url('c_tps/edit/'.$t['id_tps']); ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?php echo site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</a>
+                                            <?php
+                                                // Tampilkan kapasitas dalam kg jika lebih dari atau sama dengan 1000 gram
+                                                if ($t['kapasitas'] >= 1000) {
+                                                    echo ($t['kapasitas'] / 1000) . ' kg';
+                                                } else {
+                                                    echo $t['kapasitas'] . ' gram';
+                                                }
+                                            ?>
+                                        </td>
+                                        <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?= $t['keterangan']; ?></td>
+                                        <td>
+                                            <a href="<?= site_url('c_tps/edit/'.$t['id_tps']); ?>" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

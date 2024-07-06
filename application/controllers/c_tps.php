@@ -49,12 +49,10 @@ class c_tps extends CI_Controller {
             redirect('auth/login');
         }
 
-        $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
-
         $this->form_validation->set_rules('nama_tps', 'Nama TPS', 'required');
         $this->form_validation->set_rules('alamat_tps', 'Alamat TPS', 'required');
-        $this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required|integer');
+        $this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required|numeric');
+        $this->form_validation->set_rules('satuan', 'Satuan', 'required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -64,15 +62,29 @@ class c_tps extends CI_Controller {
             $this->load->view('v_tps/create', $data);
             $this->load->view('templates/footer');
         } else {
-            $tps_data = array(
-                'nama_tps' => $this->input->post('nama_tps'),
-                'alamat_tps' => $this->input->post('alamat_tps'),
-                'kapasitas' => $this->input->post('kapasitas'),
-                'keterangan' => $this->input->post('keterangan'),
-                'user_id' => $user_id
+            // Mengambil data dari form
+            $nama_tps = $this->input->post('nama_tps');
+            $alamat_tps = $this->input->post('alamat_tps');
+            $kapasitas = $this->input->post('kapasitas');
+            $satuan = $this->input->post('satuan');
+            $keterangan = $this->input->post('keterangan');
+
+            // Konversi kapasitas ke gram jika satuan adalah kg
+            if ($satuan == 'kg') {
+                $kapasitas *= 1000; // 1 kg = 1000 gram
+            }
+
+            // Data yang akan disimpan
+            $data = array(
+                'nama_tps' => $nama_tps,
+                'alamat_tps' => $alamat_tps,
+                'kapasitas' => $kapasitas,
+                'keterangan' => $keterangan,
+                'user_id' => $this->session->userdata('user_id')
             );
 
-            $this->m_tps->insert_tps($tps_data);
+            // Simpan data ke database
+            $this->m_tps->insert_tps($data);
             redirect('c_tps');
         }
     }
@@ -99,35 +111,47 @@ class c_tps extends CI_Controller {
         if (!$this->session->userdata('user_id')) {
             redirect('auth/login');
         }
-
-        $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
-
+    
         $this->form_validation->set_rules('nama_tps', 'Nama TPS', 'required');
         $this->form_validation->set_rules('alamat_tps', 'Alamat TPS', 'required');
-        $this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required|integer');
+        $this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required|numeric');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
-
+    
         if ($this->form_validation->run() == FALSE) {
+            $data['user'] = $this->m_users->get_user_by_id($this->session->userdata('user_id'));
             $data['tps'] = $this->m_tps->get_tps($id_tps);
+    
             $this->load->view('templates/header', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('v_tps/edit', $data);
             $this->load->view('templates/footer');
         } else {
+            $nama_tps = $this->input->post('nama_tps');
+            $alamat_tps = $this->input->post('alamat_tps');
+            $kapasitas = str_replace(',', '.', $this->input->post('kapasitas'));
+            $satuan = $this->input->post('satuan');
+            $keterangan = $this->input->post('keterangan');
+    
+            // Konversi kapasitas ke gram jika satuan adalah kg
+            if ($satuan == 'kg') {
+                $kapasitas = $kapasitas * 1000; // 1 kg = 1000 gram
+            }
+    
+            // Data yang akan diupdate
             $tps_data = array(
-                'nama_tps' => $this->input->post('nama_tps'),
-                'alamat_tps' => $this->input->post('alamat_tps'),
-                'kapasitas' => $this->input->post('kapasitas'),
-                'keterangan' => $this->input->post('keterangan')
+                'nama_tps' => $nama_tps,
+                'alamat_tps' => $alamat_tps,
+                'kapasitas' => $kapasitas,
+                'keterangan' => $keterangan
             );
-
+    
             $this->m_tps->update_tps($id_tps, $tps_data);
             redirect('c_tps');
         }
     }
-
+    
+    
     // Fungsi untuk menghapus data TPS
     public function delete($id_tps) {
         if (!$this->session->userdata('user_id')) {

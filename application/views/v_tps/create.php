@@ -30,10 +30,20 @@
                             <label for="alamat_tps">Alamat TPS</label>
                             <input type="text" name="alamat_tps" class="form-control" required>
                         </div>
+                       
                         <div class="form-group">
                             <label for="kapasitas">Kapasitas</label>
-                            <input type="number" name="kapasitas" class="form-control" required>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="kapasitas" name="kapasitas" required>
+                                <div class="input-group-append">
+                                    <select class="form-control" name="satuan" id="satuan">
+                                        <option value="g">gram</option>
+                                        <option value="kg">kg</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>
                             <textarea name="keterangan" class="form-control" required></textarea>
