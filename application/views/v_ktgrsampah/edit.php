@@ -7,7 +7,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= site_url('dashboard'); ?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= site_url('kategori-sampah'); ?>">Kategori</a></li>
                     <li class="breadcrumb-item active">Edit Kategori Sampah</li>
                 </ol>
             </div>
@@ -22,25 +23,25 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="<?= site_url('c_ktgrsampah/update/'.$kategori['id_ktgrsampah']) ?>" method="post">
-                            <div class="form-group">
-                                <label for="nama_kategori">Nama Kategori</label>
-                                <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="<?= $kategori['nama_kategori'] ?>" required>
-                                <?= form_error('nama_kategori', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" required><?= $kategori['deskripsi'] ?></textarea>
-                                <?= form_error('deskripsi', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="warna_kategori">Warna Kategori</label>
-                                <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" value="<?= $kategori['warna_kategori'] ?>" required>
-                                <?= form_error('warna_kategori', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="<?= site_url('c_ktgrsampah'); ?>" class="btn btn-secondary">Kembali</a>
-                        </form>
+                    <form action="<?= site_url('c_ktgrsampah/update/'.$ktgrsampah['id_ktgrsampah']) ?>" method="post">
+                        <div class="form-group">
+                            <label for="nama_kategori">Nama Kategori</label>
+                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="<?= $ktgrsampah['nama_kategori'] ?>" required>
+                            <?= form_error('nama_kategori', '<small class="text-danger">', '</small>') ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" required><?= $ktgrsampah['deskripsi'] ?></textarea>
+                            <?= form_error('deskripsi', '<small class="text-danger">', '</small>') ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="warna_kategori">Warna Kategori</label>
+                            <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" value="<?= $ktgrsampah['warna_kategori'] ?>" required>
+                            <?= form_error('warna_kategori', '<small class="text-danger">', '</small>') ?>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="<?= site_url('c_ktgrsampah'); ?>" class="btn btn-secondary">Kembali</a>
+                    </form>
                     </div>
                 </div>
             </div>

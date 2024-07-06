@@ -18,10 +18,10 @@ class Auth extends CI_Controller {
                 redirect('dashboard');  // Pastikan URL controller 'dashboard' sesuai dengan route yang diinginkan
             } else {
                 $this->session->set_flashdata('error', 'Email atau password salah.');
-                redirect('LandingPage');
+                redirect('landing-page');
             }
         } else {
-            redirect('LandingPage');
+            redirect('landing-page');
         }
     }
 
@@ -40,17 +40,17 @@ class Auth extends CI_Controller {
     
                 if ($this->m_users->register_user($data)) {
                     $this->session->set_flashdata('success', 'Registrasi berhasil! Silakan login.');
-                    redirect('LandingPage?registered=true');
+                    redirect('landing-page?registered=true');
                 } else {
                     $this->session->set_flashdata('error', 'Gagal menyimpan data.');
-                    redirect('LandingPage');
+                    redirect('landing-page');
                 }
             } else {
                 $this->session->set_flashdata('validation_errors', validation_errors());
-                redirect('LandingPage');
+                redirect('landing-page');
             }
         } else {
-            redirect('LandingPage');
+            redirect('landing-page');
         }
     }
     

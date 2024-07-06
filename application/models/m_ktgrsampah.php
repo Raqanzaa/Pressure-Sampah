@@ -7,7 +7,8 @@ class m_ktgrsampah extends CI_Model {
         parent::__construct();
     }
 
-    public function get_all_ktgrsampah() {
+    public function get_all_ktgrsampah($user_id) {
+        $this->db->where('user_id', $user_id);
         $query = $this->db->get('t_ktgrsampah');
         return $query->result_array();
     }

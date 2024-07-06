@@ -1,12 +1,12 @@
 <section class="content-header">
     <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="row">
             <div class="col-sm-6">
-                <h1>Kategori Sampah</h1>
+                <!-- <h1>Kategori Sampah</h1> -->
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= site_url('dashboard'); ?>">Home</a></li>
                     <li class="breadcrumb-item active">Kategori Sampah</li>
                 </ol>
             </div>
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="float-left mb-1">
+                    <div class="float-left mb-1" style="margin-top: -15px;">
                             <a class="btn btn-primary text-dark" href="<?= site_url('c_ktgrsampah/create') ?>">
                                 <i class="fas fa-plus"></i> Tambah Kategori
                             </a>

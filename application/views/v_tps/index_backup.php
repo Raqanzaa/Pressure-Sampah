@@ -1,8 +1,8 @@
 <section class="content-header">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mb-2">
             <div class="col-sm-6">
-                <!-- <h1>Tempat Pembuangan Sampah</h1> -->
+                <h1>Tempat Pembuangan Sampah</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -36,10 +36,10 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="float-left mb-1" style="margin-top: -15px;">
-                            <button class="btn btn-primary text-light" data-toggle="modal" data-target="#createModal">
+                        <div class="float-left mb-1">
+                            <a class="btn btn-primary text-dark" href="<?= site_url('c_tps/create') ?>">
                                 <i class="fas fa-plus"></i> Tambah TPS
-                            </button>
+                            </a>
                         </div>
 
                         <div class="table-responsive">
@@ -72,9 +72,7 @@
                                         </td>
                                         <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?= $t['keterangan']; ?></td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm text-dark" data-toggle="modal" data-target="#editModal" onclick="loadEditForm(<?= $t['id_tps']; ?>)">
-                                                <i class="fas fa-edit"></i> Edit
-                                            </button>
+                                            <a href="<?= site_url('c_tps/edit/'.$t['id_tps']); ?>" class="btn btn-warning btn-sm text-dark" title="Edit"><i class="fas fa-edit"></i> Edit</a>
                                             <a href="<?= site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger btn-sm text-dark" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
@@ -88,56 +86,3 @@
         </div>
     </div>
 </section>
-
-<!-- Modal for Create -->
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="createModalLabel">Tambah TPS</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content from create.php -->
-                <?php $this->load->view('v_tps/create'); ?>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Edit -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit TPS</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content for edit will be dynamically loaded via AJAX -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function loadEditForm(id_tps) {
-        console.log('Loading form for TPS ID:', id_tps);
-        $.ajax({
-            url: '<?= site_url('c_tps/edit/') ?>' + id_tps,
-            type: 'GET',
-            success: function(data) {
-                console.log('AJAX success:', data);
-                $('#editModal .modal-body').html(data); // Memuat data ke dalam modal body
-            },
-            error: function(xhr, status, error) {
-                console.error('AJAX Error: ' + status + ' - ' + error); // Menampilkan error jika terjadi masalah
-                console.log(xhr.responseText); // Melihat detail respon
-            }
-        });
-    }
-</script>

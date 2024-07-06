@@ -85,26 +85,37 @@ class c_tps extends CI_Controller {
 
             // Simpan data ke database
             $this->m_tps->insert_tps($data);
-            redirect('c_tps');
+            redirect('list-tps');
         }
     }
 
     // Fungsi untuk menampilkan form edit TPS
+    // public function edit($id_tps) {
+    //     if (!$this->session->userdata('user_id')) {
+    //         redirect('auth/login');
+    //     }
+
+    //     $user_id = $this->session->userdata('user_id');
+    //     $data['user'] = $this->m_users->get_user_by_id($user_id);
+    //     $data['tps'] = $this->m_tps->get_tps($id_tps);
+
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('v_tps/edit', $data);
+    //     $this->load->view('templates/footer');
+    // }
+
     public function edit($id_tps) {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
+        $tps = $this->db->get_where('t_tps', ['id_tps' => $id_tps])->row_array();
+        if ($tps) {
+            $this->load->view('v_tps/edit', ['tps' => $tps]);
+        } else {
+            echo 'No TPS found with ID ' . $id_tps;
         }
-
-        $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
-        $data['tps'] = $this->m_tps->get_tps($id_tps);
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('v_tps/edit', $data);
-        $this->load->view('templates/footer');
     }
+    
+
 
     // Fungsi untuk mengupdate data TPS
     public function update($id_tps) {
@@ -147,7 +158,7 @@ class c_tps extends CI_Controller {
             );
     
             $this->m_tps->update_tps($id_tps, $tps_data);
-            redirect('c_tps');
+            redirect('list-tps');
         }
     }
     
@@ -159,7 +170,7 @@ class c_tps extends CI_Controller {
         }
 
         $this->m_tps->delete_tps($id_tps);
-        redirect('c_tps');
+        redirect('list-tps');
     }
 }
 ?>

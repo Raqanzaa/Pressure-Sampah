@@ -53,9 +53,9 @@ $route['default_controller'] = 'c_landing';
 $route['login'] = 'auth/login';
 $route['register'] = 'auth/register';
 $route['dashboard'] = 'c_home';
-$route['LandingPage'] = 'c_landing';
+$route['landing-page'] = 'c_landing';
+$route['kategori-sampah'] = 'c_ktgrsampah';
+$route['list-tps'] = 'c_tps';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['c_ktgrsampah'] = 'c_ktgrsampah';
-$route['c_tps'] = 'c_tps';
 

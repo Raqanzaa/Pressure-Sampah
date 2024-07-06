@@ -26,19 +26,19 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="<?php echo base_url('c_home'); ?>" class="nav-link">
+          <a href="<?php echo base_url('dashboard'); ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('c_tps'); ?>" class="nav-link">
+          <a href="<?php echo base_url('list-tps'); ?>" class="nav-link">
             <i class="nav-icon fas fa-trash-alt"></i>
             <p>TPS</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('c_ktgrsampah'); ?>" class="nav-link">
+          <a href="<?php echo base_url('kategori-sampah'); ?>" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>Kategori Sampah</p>
           </a>
