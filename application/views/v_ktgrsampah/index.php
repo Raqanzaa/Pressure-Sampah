@@ -1,4 +1,3 @@
-<!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -37,37 +36,33 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="float-right mb-3">
-                            <a class="btn btn-success" href="<?= site_url('c_ktgrsampah/tambah') ?>">
-                                <i class="fas fa-plus"></i> Tambah Kategori Sampah
+                        <div class="float-left mb-1">
+                            <a class="btn btn-primary text-dark" href="<?= site_url('c_ktgrsampah/create') ?>">
+                                <i class="fas fa-plus"></i> Tambah Kategori
                             </a>
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>No.</th>
                                         <th>Nama Kategori</th>
                                         <th>Deskripsi</th>
                                         <th>Warna Kategori</th>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($categories as $item): ?>
+                                    <?php foreach ($ktgrsampah as $index => $item): ?>
                                         <tr>
-                                            <td><?= $item->id_ktgrsampah ?></td>
-                                            <td><?= $item->nama_kategori ?></td>
-                                            <td><?= $item->deskripsi ?></td>
-                                            <td><?= $item->warna_kategori ?></td>
+                                            <td><?= $index + 1 ?></td>
+                                            <td><?= $item['nama_kategori'] ?></td>
+                                            <td><?= $item['deskripsi'] ?></td>
+                                            <td><span style="background-color: <?= $item['warna_kategori'] ?>; padding: 5px; border-radius: 3px;"><?= $item['warna_kategori'] ?></span></td>
                                             <td>
-                                                <a class="btn btn-info btn-sm" href="<?= site_url('c_ktgrsampah/edit/'.$item->id_ktgrsampah) ?>">
-                                                    <i class="fas fa-pencil-alt"></i> Edit
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" href="<?= site_url('c_ktgrsampah/delete/'.$item->id_ktgrsampah) ?>">
-                                                    <i class="fas fa-trash"></i> Delete
-                                                </a>
+                                                <a href="<?= site_url('c_ktgrsampah/edit/'.$item['id_ktgrsampah']) ?>" class="btn btn-warning btn-sm text-dark" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                                                <a href="<?= site_url('c_ktgrsampah/delete/'.$item['id_ktgrsampah']) ?>" class="btn btn-danger btn-sm text-dark" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

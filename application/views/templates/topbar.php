@@ -1,6 +1,4 @@
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-    <!-- Site wrapper -->
-    <div class="wrapper">
+
 
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble" src="<?php echo base_url('/assets/AdminLTE-3.2.0/dist/img/logo.svg'); ?>" alt="Pressure Sampah Logo" height="60" width="60">
@@ -48,6 +46,4 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-    </div>
-    <!-- /.wrapper -->
-</body>
+

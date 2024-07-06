@@ -16,3 +16,5 @@
   <!-- Favicon -->
   <link rel="icon" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/img/logo.svg" type="image/png">
 </head>
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">

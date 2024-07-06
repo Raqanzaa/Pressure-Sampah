@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>TPS</h1>
+                <h1>Tempat Pembuangan Sampah</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -36,8 +36,8 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="float-right mb-3">
-                            <a class="btn btn-success" href="<?= site_url('c_tps/create') ?>">
+                        <div class="float-left mb-1">
+                            <a class="btn btn-primary text-dark" href="<?= site_url('c_tps/create') ?>">
                                 <i class="fas fa-plus"></i> Tambah TPS
                             </a>
                         </div>
@@ -72,8 +72,8 @@
                                         </td>
                                         <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?= $t['keterangan']; ?></td>
                                         <td>
-                                            <a href="<?= site_url('c_tps/edit/'.$t['id_tps']); ?>" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-edit"></i></a>
-                                            <a href="<?= site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i></a>
+                                            <a href="<?= site_url('c_tps/edit/'.$t['id_tps']); ?>" class="btn btn-warning btn-sm text-dark" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="<?= site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger btn-sm text-dark" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

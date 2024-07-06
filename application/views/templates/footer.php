@@ -13,6 +13,7 @@
   <!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
+
 </div>
 <!-- ./wrapper -->
 
@@ -22,22 +23,17 @@
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-
-<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
-
-<!-- REQUIRED SCRIPTS -->
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
-
-<!-- PAGE PLUGINS -->
+<!-- ChartJS -->
+<script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
 <!-- jQuery Mapael -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/raphael/raphael.min.js"></script>
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 
+<!-- Custom scripts -->
 <script defer>
 document.addEventListener('DOMContentLoaded', function() {
   // Get all nav-link elements
@@ -145,6 +141,3 @@ $(document).ready(function() {
   });
 });
 </script>
-
-</body>
-</html>
