@@ -92,7 +92,7 @@
       <div class="col-lg-7 d-flex justify-content-center align-items-center">
         <div>
           <p data-aos="fade-up" data-aos-delay="100" class="text-dark custom-paragraph">Presur Sampah (Presentase Keberhasilan Daur Ulang Sampah) <span>
-            adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah. Dengan fitur-fitur pelacakan berat jenis sampah yang didaur ulang dan presentase daur ulang harian, mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
+            adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah. Dengan fitur-fitur pencatata berat jenis sampah yang didaur ulang dan presentase daur ulang harian, mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
           </span>
           <br></p>
         </div>
@@ -109,7 +109,7 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
         </div>
-        <div class="container py-5">
+        <div class="container py-5" style="padding-right: 5%; padding-left: 5%;">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
                     <div class="row">
@@ -223,9 +223,9 @@
 
   <!-- Statistics Content -->
   <div class="container">
-    <div class="row text-center" data-aos="fade-up" data-aos-delay="100">
+    <div class="row text-center justify-center" data-aos="fade-up" data-aos-delay="100">
       <!-- Statistik 1 -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <!-- <div class="col-lg-4 col-md-6 mb-4">
       <div class="card custom-card custom-card-utama d-flex align-items-center" style="position: relative;">
           <img src="<?php echo base_url();?>assets/img/statistik1.svg" class="custom-statistik w-50 mt-3" alt="Statistik 1">
           <div class="card-body">
@@ -234,20 +234,20 @@
             <p class="card-text text-left fw-bold">BSI (Bank Sampah Induk)</p>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Statistik 2 -->
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card custom-card custom-card-utama align-items-center">
           <img src="<?php echo base_url();?>assets/img/statistik2.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 2">
           <div class="card-body">
-            <h1 class="card-title text-left fw-bold" id="stat-1">27.538</h1>
+            <h1 class="card-title text-left fw-bold" id="stat-1">5</h1>
             <p class="text-left text-grey">UNIT</p>
-            <p class="card-text text-left fw-bold">BSU (Bank Sampah Unit)</p>
+            <p class="card-text text-left fw-bold">TPS (Tempat Pembuangan Sampah)</p>
           </div>
         </div>
       </div>
       <!-- Statistik 3 -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <!-- <div class="col-lg-4 col-md-6 mb-4">
         <div class="card custom-card custom-card-utama align-items-center">
           <img src="<?php echo base_url();?>assets/img/statistik3.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 3">
           <div class="card-body">
@@ -256,8 +256,9 @@
             <p class="card-text text-left fw-bold">Lembaga/Rumah Tangga</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
+    <br>
     <!-- Year Filter -->
     <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
       <div class="col text-center">
@@ -547,7 +548,8 @@
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <p><strong>Guwosari</strong></p>
+              <p> Kec. Pajangan, Kabupaten Bantul, Daerah Istimewa Yogyakarta</p>
             </div>
           </div><!-- End Info Item -->
 
@@ -555,7 +557,7 @@
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-telephone"></i>
               <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
+              <p>02746461041</p>
             </div>
           </div><!-- End Info Item -->
 
@@ -563,7 +565,7 @@
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@example.com</p>
+              <p>desa.guwosari@bantulkab.go.id</p>
             </div>
           </div><!-- End Info Item -->
 
@@ -571,7 +573,7 @@
 
         <div class="row gy-4 mt-1">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31617.619288146845!2d110.28969034135062!3d-7.873877497481937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af8b6f41c8365%3A0x5027a76e3568830!2sGuwosari%2C%20Kec.%20Pajangan%2C%20Kabupaten%20Bantul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1720009745620!5m2!1sid!2sid" style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">

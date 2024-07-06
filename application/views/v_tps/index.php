@@ -44,34 +44,30 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nama TPS</th>
-                                        <th>Alamat</th>
+                                        <th>Alamat TPS</th>
                                         <th>Kapasitas</th>
                                         <th>Keterangan</th>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($tps as $item): ?>
-                                        <tr>
-                                            <td><?= $item->ID_TPS ?></td>
-                                            <td><?= $item->Nama_TPS ?></td>
-                                            <td><?= $item->Alamat ?></td>
-                                            <td><?= $item->Kapasitas ?></td>
-                                            <td><?= $item->Keterangan ?></td>
-                                            <td>
-                                                <a class="btn btn-info btn-sm" href="<?= site_url('c_tps/edit/'.$item->ID_TPS) ?>">
-                                                    <i class="fas fa-pencil-alt"></i> Edit
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" href="<?= site_url('c_tps/delete/'.$item->ID_TPS) ?>">
-                                                    <i class="fas fa-trash"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    <?php foreach($tps as $t): ?>
+                                    <tr>
+                                        <td><?php echo $t['id_tps']; ?></td>
+                                        <td><?php echo $t['nama_tps']; ?></td>
+                                        <td><?php echo $t['alamat_tps']; ?></td>
+                                        <td><?php echo $t['kapasitas']; ?></td>
+                                        <td><?php echo $t['keterangan']; ?></td>
+                                        <td>
+                                            <a href="<?php echo site_url('c_tps/edit/'.$t['id_tps']); ?>" class="btn btn-warning">Edit</a>
+                                            <a href="<?php echo site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</a>
+                                        </td>
+                                    </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
