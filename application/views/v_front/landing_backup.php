@@ -1,4 +1,5 @@
-<header id="header" class="header d-flex align-items-center fixed-top">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="<?php echo site_url('c_landing'); ?>" class="logo d-flex align-items-center me-auto">
@@ -91,9 +92,7 @@
       <div class="col-lg-7 d-flex justify-content-center align-items-center">
         <div>
           <p data-aos="fade-up" data-aos-delay="100" class="text-dark custom-paragraph">Presur Sampah (Presentase Keberhasilan Daur Ulang Sampah) <span>
-            adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah.
-            Dengan fitur-fitur pencatata berat jenis sampah yang didaur ulang dan presentase daur ulang harian,
-            mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
+            adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah. Dengan fitur-fitur pencatata berat jenis sampah yang didaur ulang dan presentase daur ulang harian, mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
           </span>
           <br></p>
         </div>
@@ -331,125 +330,288 @@
 </section>
 <!-- END STATISTICS SECTION -->
 
-<!-- STATISTICS CARDS -->
-<!-- Section Title -->
-<div class="container section-title" data-aos="fade-up">
-<h2 class="">Developer Profiles</h2>
-</div><!-- End Section Title -->
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Cards</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-  <div class="container mx-auto px-4 py-8">
-    <!-- Profile Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
-      <!-- Profile Card 1 (Kiri) -->
-      <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-80">
-        <div class="text-gray-500 group-hover:scale-105 transition-all">
-          <svg class="w-20 h-20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-          </svg>
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                <div class="faq-content">
+                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
+                <div class="faq-content">
+                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                <div class="faq-content">
+                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+                <div class="faq-content">
+                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
+                <div class="faq-content">
+                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
+                <div class="faq-content">
+                  <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div><!-- End Faq Column-->
+
         </div>
-        <div class="group-hover:pb-10 transition-all duration-500 delay-200">
-          <h1 class="font-semibold text-gray-700 text-lg">Ahmad Rozaq U.</h1>
-          <p class="text-gray-500 text-sm">@a.rzq_u</p>
-        </div>
-        <div class="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
-          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm">
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-                <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <path d="M22 6l-10 7L2 6"></path>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/ahmad-rozaq-ubaidillah-044892278" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 960 1000">
-                <path d="M480 20c133.333 0 246.667 46.667 340 140s140 206.667 140 340c0 132-46.667 245-140 339S613.333 980 480 980c-132 0-245-47-339-141S0 632 0 500c0-133.333 47-246.667 141-340S348 20 480 20M362 698V386h-96v312h96m-48-352c34.667 0 52-16 52-48s-17.333-48-52-48c-14.667 0-27 4.667-37 14s-15 20.667-15 34c0 32 17.333 48 52 48m404 352V514c0-44-10.333-77.667-31-101s-47.667-35-81-35c-44 0-76 16.667-96 50h-2l-6-42h-84c1.333 18.667 2 52 2 100v212h98V518c0-12 1.333-20 4-24 8-25.333 24.667-38 50-38 32 0 48 22.667 48 68v174h98"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
+
       </div>
 
-      <!-- Profile Card 2 (Tengah) -->
-      <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-80">
-        <div class="text-gray-500 group-hover:scale-105 transition-all">
-          <svg class="w-20 h-20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-          </svg>
-        </div>
-        <div class="group-hover:pb-10 transition-all duration-500 delay-200">
-          <h1 class="font-semibold text-gray-700 text-lg">Nur Ikhsan M. H.</h1>
-          <p class="text-gray-500 text-sm">@sanurfz</p>
-        </div>
-        <div class="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
-          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm">
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-                <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <path d="M22 6l-10 7L2 6"></path>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/sanurfz" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 960 1000">
-                <path d="M480 20c133.333 0 246.667 46.667 340 140s140 206.667 140 340c0 132-46.667 245-140 339S613.333 980 480 980c-132 0-245-47-339-141S0 632 0 500c0-133.333 47-246.667 141-340S348 20 480 20M362 698V386h-96v312h96m-48-352c34.667 0 52-16 52-48s-17.333-48-52-48c-14.667 0-27 4.667-37 14s-15 20.667-15 34c0 32 17.333 48 52 48m404 352V514c0-44-10.333-77.667-31-101s-47.667-35-81-35c-44 0-76 16.667-96 50h-2l-6-42h-84c1.333 18.667 2 52 2 100v212h98V518c0-12 1.333-20 4-24 8-25.333 24.667-38 50-38 32 0 48 22.667 48 68v174h98"></path>
-              </svg>
-            </a>
+    </section><!-- /Faq Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="<?php echo base_url();?>assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="<?php echo base_url();?>assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="<?php echo base_url();?>assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="<?php echo base_url();?>assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="<?php echo base_url();?>assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
           </div>
+          <div class="swiper-pagination"></div>
         </div>
+
       </div>
 
-      <!-- Profile Card 3 (Kanan) -->
-      <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-80">
-        <div class="text-gray-500 group-hover:scale-105 transition-all">
-          <svg class="w-20 h-20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-          </svg>
-        </div>
-        <div class="group-hover:pb-10 transition-all duration-500 delay-200">
-          <h1 class="font-semibold text-gray-700 text-lg">Vina Dhamayanti</h1>
-          <p class="text-gray-500 text-sm">@dhamayantivina</p>
-        </div>
-        <div class="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
-          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm">
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-                <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <path d="M22 6l-10 7L2 6"></path>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/vinadhamayanti" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 960 1000">
-                <path d="M480 20c133.333 0 246.667 46.667 340 140s140 206.667 140 340c0 132-46.667 245-140 339S613.333 980 480 980c-132 0-245-47-339-141S0 632 0 500c0-133.333 47-246.667 141-340S348 20 480 20M362 698V386h-96v312h96m-48-352c34.667 0 52-16 52-48s-17.333-48-52-48c-14.667 0-27 4.667-37 14s-15 20.667-15 34c0 32 17.333 48 52 48m404 352V514c0-44-10.333-77.667-31-101s-47.667-35-81-35c-44 0-76 16.667-96 50h-2l-6-42h-84c1.333 18.667 2 52 2 100v212h98V518c0-12 1.333-20 4-24 8-25.333 24.667-38 50-38 32 0 48 22.667 48 68v174h98"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- END STATISTICS CARDS -->
+    </section><!-- /Testimonials Section -->
 
-</main>
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p><strong>Guwosari</strong></p>
+              <p> Kec. Pajangan, Kabupaten Bantul, Daerah Istimewa Yogyakarta</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>02746461041</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p>desa.guwosari@bantulkab.go.id</p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <div class="row gy-4 mt-1">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31617.619288146845!2d110.28969034135062!3d-7.873877497481937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af8b6f41c8365%3A0x5027a76e3568830!2sGuwosari%2C%20Kec.%20Pajangan%2C%20Kabupaten%20Bantul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1720009745620!5m2!1sid!2sid" style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div><!-- End Google Maps -->
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
