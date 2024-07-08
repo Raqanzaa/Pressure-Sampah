@@ -15,7 +15,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Edit Artikel</h1>
+        <!-- <h1>Edit Artikel</h1> -->
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -41,22 +41,22 @@
           <form action="<?= base_url() ?>index.php/c_artikel/updatedata" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label for="judul">Judul:</label>
+                <label for="judul">Judul Artikel</label>
                 <input type="text" class="form-control" id="judul" name="judul" value="<?= $data->judul ?>" required>
               </div>
 
               <div class="form-group">
-                <label for="tanggal_publikasi">Tanggal Publikasi:</label>
+                <label for="tanggal_publikasi">Tanggal Publikasi</label>
                 <input type="date" class="form-control" id="tanggal_publikasi" name="tanggal_publikasi" value="<?= $data->tanggal_publikasi ?>" required>
               </div>
 
               <div class="form-group">
-                <label for="deskripsi">Deskripsi Artikel:</label>
+                <label for="deskripsi">Isi Artikel</label>
                 <textarea class="form-control" id="deskripsi" name="deskripsi" required><?= $data->deskripsi ?></textarea>
              </div>
 
               <div class="form-group">
-                <label for="gambar_artikel">Gambar Artikel:</label>
+                <label for="gambar_artikel">Gambar Artikel</label>
                 <?php if (!empty($data->gambar_artikel)) { ?>
                   <div class="mb-3">
                     <img src="<?= base_url() ?>assets/img/<?= $data->gambar_artikel ?>" width="150"><br><br>

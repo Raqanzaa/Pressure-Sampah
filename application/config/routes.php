@@ -56,6 +56,11 @@ $route['dashboard'] = 'c_home';
 $route['landing-page'] = 'c_landing';
 $route['kategori-sampah'] = 'c_ktgrsampah';
 $route['list-tps'] = 'c_tps';
+$route['artikel-sampah'] = 'c_artikel';
+$route['artikel-sampah/tambah'] = 'c_artikel/tambah';
+$route['artikel-sampah/edit/(:num)'] = 'c_artikel/edit/$1';
+$route['user-profile/index/(:num)'] = 'c_users/index/$1';
+$route['user-profile/edit/(:num)'] = 'c_users/edit/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

@@ -1,10 +1,10 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="<?php echo base_url('assets/AdminLTE-3.2.0/index3.html'); ?>" class="brand-link py-3">
+  <div class="brand-link py-3">
     <img src="<?php echo base_url('assets/AdminLTE-3.2.0/dist/img/logo.svg'); ?>" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
     <span class="brand-text font-weight-light">Pressure Sampah</span>
-  </a>
+  </div>
 
   <!-- Sidebar -->
   <div class="sidebar pt-3">
@@ -59,11 +59,12 @@
         </li> 
         -->
         <li class="nav-item">
-          <a href="<?php echo base_url('c_artikel'); ?>" class="nav-link">
-            <i class="nav-icon fas fa-pen"></i>
-            <p>Artikel</p>
+          <a href="<?= site_url('artikel-sampah'); ?>" class="nav-link <?= ($this->uri->segment(1) == 'c_artikel' && in_array($this->uri->segment(2), ['index', 'tambah', 'edit'])) ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-pen"></i>
+              <p>Artikel</p>
           </a>
-        </li>
+      </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

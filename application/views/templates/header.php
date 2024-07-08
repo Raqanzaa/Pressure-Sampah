@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Favicon -->
   <link rel="icon" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/img/logo.svg" type="image/png">
+  <!-- Include Cropper CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
+  <!-- SweetAlert2 -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"> -->
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">

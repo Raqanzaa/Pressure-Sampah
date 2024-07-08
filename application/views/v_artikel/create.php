@@ -6,11 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Tambah Artikel</h1>
+        <!-- <h1>Tambah Artikel</h1> -->
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= site_url('dashboard'); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= site_url('artikel-sampah'); ?>">Artikel</a></li>
           <li class="breadcrumb-item active">Tambah Artikel</li>
         </ol>
       </div>
@@ -32,22 +33,22 @@
           <form action="<?= base_url('c_artikel/insertdata') ?>" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label for="judul">Judul:</label>
+                <label for="judul">Judul Artikel</label>
                 <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul artikel" required>
               </div>
 
               <div class="form-group">
-                <label for="tanggal_publikasi">Tanggal Publikasi:</label>
+                <label for="tanggal_publikasi">Tanggal Publikasi</label>
                 <input type="date" class="form-control" id="tanggal_publikasi" name="tanggal_publikasi" required>
               </div>
 
               <div class="form-group">
-                <label for="deskripsi">Deskripsi Artikel:</label>
+                <label for="deskripsi">Isi Artikel</label>
                 <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
              </div>
 
               <div class="form-group">
-                <label for="gambar_artikel">Gambar Artikel:</label>
+                <label for="gambar_artikel">Gambar Artikel</label>
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="gambar_artikel" name="gambar_artikel" required>

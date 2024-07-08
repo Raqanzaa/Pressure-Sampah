@@ -9,7 +9,7 @@ class C_artikel extends CI_Controller {
         $this->load->model('m_artikel');
         $this->load->library('upload');
         $this->load->library('pagination');
-        $this->load->model('m_users');
+        $this->load->model('m_auth');
     }
 
     // fungsi untuk mengambil data
@@ -18,7 +18,7 @@ class C_artikel extends CI_Controller {
         $cari = $this->input->get('cari');
         $page = $this->input->get('per_page');
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
 
         $search = array('judul' => $cari );
 
@@ -79,7 +79,7 @@ class C_artikel extends CI_Controller {
     {
         $data['title'] = 'Tambah Artikel';
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
         $this->form_validation->set_rules('tanggal_publikasi', 'Tanggal Publikasi', 'required');
@@ -123,7 +123,7 @@ class C_artikel extends CI_Controller {
                     'gambar_artikel' => $gambar['file_name']
                 );
                 $this->m_artikel->insert($data);
-                redirect('c_artikel');
+                redirect('artikel-sampah');
             } else {
                 die("Gagal upload");
             }
@@ -134,7 +134,7 @@ class C_artikel extends CI_Controller {
                 'deskripsi' => $deskripsi
             );
             $this->m_artikel->insert($data);
-            redirect('c_artikel');
+            redirect('artikel-sampah');
         }
     }
 
@@ -146,7 +146,7 @@ class C_artikel extends CI_Controller {
 
         $where = array('id_artikel' => $id);
         $this->m_artikel->delete($where);
-        return redirect('c_artikel');
+        return redirect('artikel-sampah');
     }
 
     // edit
@@ -155,7 +155,7 @@ class C_artikel extends CI_Controller {
         $data['title'] = 'Edit Artikel';
         $kondisi = array('id_artikel' => $id);
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
 
         $data['data'] = $this->m_artikel->get_by_id($kondisi);
 
@@ -208,7 +208,7 @@ class C_artikel extends CI_Controller {
                 @unlink($path.$this->input->post('filelama'));
 
                 $this->m_artikel->update($data, $kondisi);
-                redirect('c_artikel');
+                redirect('artikel-sampah');
             } else {
                 die("Gagal update");
             }
@@ -219,7 +219,7 @@ class C_artikel extends CI_Controller {
                 'deskripsi' => $deskripsi
             );
             $this->m_artikel->update($data, $kondisi);
-            redirect('c_artikel');
+            redirect('artikel-sampah');
         }
     }
 }

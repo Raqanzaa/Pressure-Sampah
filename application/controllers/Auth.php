@@ -5,14 +5,14 @@ class Auth extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('m_users');
+        $this->load->model('m_auth');
     }
 
     public function login() {
         if ($this->input->post('login')) {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
-            $user = $this->m_users->login_user($email, $password);
+            $user = $this->m_auth->login_user($email, $password);
             if ($user) {
                 $this->session->set_userdata('user_id', $user['id']);
                 redirect('dashboard');  // Pastikan URL controller 'dashboard' sesuai dengan route yang diinginkan
@@ -38,7 +38,7 @@ class Auth extends CI_Controller {
                     'email' => $this->input->post('email')
                 );
     
-                if ($this->m_users->register_user($data)) {
+                if ($this->m_auth->register_user($data)) {
                     $this->session->set_flashdata('success', 'Registrasi berhasil! Silakan login.');
                     redirect('landing-page?registered=true');
                 } else {

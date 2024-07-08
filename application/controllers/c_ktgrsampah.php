@@ -6,7 +6,7 @@ class c_ktgrsampah extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('m_ktgrsampah');
-        $this->load->model('m_users');
+        $this->load->model('m_auth');
         $this->load->library('form_validation');
     }
 
@@ -16,7 +16,7 @@ class c_ktgrsampah extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['ktgrsampah'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
 
         $this->load->view('templates/header', $data);
@@ -32,7 +32,7 @@ class c_ktgrsampah extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -72,7 +72,7 @@ class c_ktgrsampah extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['ktgrsampah'] = $this->m_ktgrsampah->get_ktgrsampah($id_ktgrsampah);
 
         if ($data['ktgrsampah']['user_id'] != $user_id) {

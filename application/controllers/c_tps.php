@@ -6,7 +6,7 @@ class c_tps extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('m_tps');
-        $this->load->model('m_users');
+        $this->load->model('m_auth');
         $this->load->library('form_validation');
     }
 
@@ -17,7 +17,7 @@ class c_tps extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['tps'] = $this->m_tps->get_all_tps($user_id);
 
         $this->load->view('templates/header', $data);
@@ -34,7 +34,7 @@ class c_tps extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -96,7 +96,7 @@ class c_tps extends CI_Controller {
     //     }
 
     //     $user_id = $this->session->userdata('user_id');
-    //     $data['user'] = $this->m_users->get_user_by_id($user_id);
+    //     $data['user'] = $this->m_auth->get_user_by_id($user_id);
     //     $data['tps'] = $this->m_tps->get_tps($id_tps);
 
     //     $this->load->view('templates/header', $data);
@@ -129,7 +129,7 @@ class c_tps extends CI_Controller {
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
     
         if ($this->form_validation->run() == FALSE) {
-            $data['user'] = $this->m_users->get_user_by_id($this->session->userdata('user_id'));
+            $data['user'] = $this->m_auth->get_user_by_id($this->session->userdata('user_id'));
             $data['tps'] = $this->m_tps->get_tps($id_tps);
     
             $this->load->view('templates/header', $data);

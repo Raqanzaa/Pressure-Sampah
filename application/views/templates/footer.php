@@ -27,6 +27,10 @@
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- ChartJS -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+<!-- Include Cropper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<!-- Sweetalert -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 <!-- jQuery Mapael -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/raphael/raphael.min.js"></script>
@@ -74,8 +78,20 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(function(link) {
       link.classList.remove('active');
     });
-    document.querySelector('.nav-link[href="<?php echo base_url();?>c_home"]').classList.add('active');
+    document.querySelector('.nav-link[href="<?= site_url('dashboard') ?>"]').classList.add('active');
   }
+
+  // Additional check for c_artikel pages
+  var artikelPaths = ['artikel-sampah', 'artikel-sampah/index', 'artikel-sampah/tambah', 'artikel-sampah/edit'];
+  artikelPaths.forEach(function(path) {
+    if (currentPath.includes(path)) {
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+      });
+      document.querySelector('.nav-link[href*="artikel-sampah"]').classList.add('active');
+      foundActive = true;
+    }
+  });
 });
 </script>
 
@@ -141,3 +157,43 @@ $(document).ready(function() {
   });
 });
 </script>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        <?php if ($this->session->flashdata('success')): ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '<?php echo $this->session->flashdata('success'); ?>',
+                timer: 3000,
+                showConfirmButton: false,
+                position: 'top-start',
+                toast: true
+            });
+        <?php endif; ?>
+
+        <?php if ($this->session->flashdata('error')): ?>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '<?php echo $this->session->flashdata('error'); ?>',
+                timer: 3000,
+                showConfirmButton: false,
+                position: 'top-start',
+                toast: true
+            });
+        <?php endif; ?>
+
+        <?php if ($this->session->flashdata('validation_errors')): ?>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Validation Errors',
+                html: '<?php echo $this->session->flashdata('validation_errors'); ?>',
+                timer: 5000,
+                showConfirmButton: true,
+                position: 'top-start',
+                toast: true
+            });
+        <?php endif; ?>
+    });
+</script> -->
