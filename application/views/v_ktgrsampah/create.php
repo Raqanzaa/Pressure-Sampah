@@ -1,51 +1,45 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Tambah Kategori Sampah</h1>
+<!-- Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Tambah Kategori Sampah</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= site_url('dashboard'); ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?= site_url('kategori-sampah'); ?>">Kategori</a></li>
-                    <li class="breadcrumb-item active">Tambah Kategori Sampah</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="<?= site_url('c_ktgrsampah/store') ?>" method="post">
-                            <div class="form-group">
-                                <label for="nama_kategori">Nama Kategori</label>
-                                <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
-                                <?= form_error('nama_kategori', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
-                                <?= form_error('deskripsi', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="warna_kategori">Warna Kategori</label>
-                                <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" required>
-                                <?= form_error('warna_kategori', '<small class="text-danger">', '</small>') ?>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="<?= site_url('c_ktgrsampah'); ?>" class="btn btn-secondary">Kembali</a>
-                        </form>
+            <div class="modal-body">
+                <!-- Konten untuk form tambah kategori sampah -->
+                <form id="addForm" action="<?= site_url('c_ktgrsampah/create') ?>" method="post">
+                    <div class="form-group">
+                        <label for="nama_kategori">Nama Kategori</label>
+                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="warna_kategori">Warna Kategori</label>
+                        <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-</section>
-<!-- /.content -->
+</div>
+
+<script>
+    // Fungsi untuk memuat form tambah kategori sampah
+    $(document).ready(function() {
+        $('.btn-success').on('click', function() {
+            $('#createModal').modal('show');
+            // Mengosongkan form saat modal ditampilkan
+            $('#addForm')[0].reset();
+        });
+    });
+</script>

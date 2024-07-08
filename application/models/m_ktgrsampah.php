@@ -1,35 +1,37 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 class m_ktgrsampah extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->load->database();
     }
 
-    public function get_all_ktgrsampah($user_id) {
-        $this->db->where('user_id', $user_id);
+    // Mendapatkan semua data kategori sampah
+    public function get_all_ktgrsampah() {
         $query = $this->db->get('t_ktgrsampah');
         return $query->result_array();
     }
 
-    public function get_ktgrsampah($id_ktgrsampah) {
-        $this->db->where('id_ktgrsampah', $id_ktgrsampah);
-        $query = $this->db->get('t_ktgrsampah');
+    // Mendapatkan data kategori sampah berdasarkan ID
+    public function get_ktgrsampah_by_id($id) {
+        $query = $this->db->get_where('t_ktgrsampah', array('id_ktgrsampah' => $id));
         return $query->row_array();
     }
 
+    // Menambahkan data kategori sampah baru
     public function insert_ktgrsampah($data) {
         return $this->db->insert('t_ktgrsampah', $data);
     }
 
-    public function update_ktgrsampah($id_ktgrsampah, $data) {
-        $this->db->where('id_ktgrsampah', $id_ktgrsampah);
+    // Memperbarui data kategori sampah berdasarkan ID
+    public function update_ktgrsampah($id, $data) {
+        $this->db->where('id_ktgrsampah', $id);
         return $this->db->update('t_ktgrsampah', $data);
     }
 
-    public function delete_ktgrsampah($id_ktgrsampah) {
-        $this->db->where('id_ktgrsampah', $id_ktgrsampah);
+    // Menghapus data kategori sampah berdasarkan ID
+    public function delete_ktgrsampah($id) {
+        $this->db->where('id_ktgrsampah', $id);
         return $this->db->delete('t_ktgrsampah');
     }
 }
