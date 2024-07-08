@@ -62,7 +62,7 @@
                                                 <td><?= $k['deskripsi']; ?></td>
                                                 <td><div style="width: 110px; height: 20px; background-color: <?= $k['warna_kategori']; ?>;"></div></td>
                                                 <td>
-                                                    <button class="btn btn-info btn-sm text-light" data-toggle="modal" data-target="#editModalLabel" onclick="loadEditForm(<?= $k['id_ktgrsampah']; ?>)">
+                                                    <button type="button" class="btn btn-info btn-sm text-light" data-toggle="modal" data-target="#editModal" onclick="loadEditForm(<?= $k['id_ktgrsampah']; ?>)">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
                                                     <a href="<?= site_url('c_ktgrsampah/delete/'.$k['id_ktgrsampah']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
@@ -84,8 +84,39 @@
     </div>
 </section>
 
-<!-- Include the create modal -->
-<?php $this->load->view('v_ktgrsampah/create'); ?>
+<!-- Modal for Create -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Tambah Kategori Sampah</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addForm" action="<?= site_url('c_ktgrsampah/create') ?>" method="post">
+                    <div class="form-group">
+                        <label for="nama_kategori">Nama Kategori</label>
+                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="warna_kategori">Warna Kategori</label>
+                        <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal for Edit -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -112,8 +143,8 @@
             type: 'GET',
             success: function(data) {
                 console.log('AJAX success:', data);
-                $('#editModalLabel .modal-body').html(data); // Memuat data ke dalam modal body
-                $('#editModalLabel').modal('show'); // Menampilkan modal
+                $('#editModal .modal-body').html(data); // Memuat data ke dalam modal body
+                $('#editModal').modal('show'); // Menampilkan modal
             },
             error: function(xhr, status, error) {
                 console.error('AJAX Error: ' + status + ' - ' + error); // Menampilkan error jika terjadi masalah
@@ -121,4 +152,13 @@
             }
         });
     }
+
+    // Fungsi untuk memuat form tambah kategori sampah
+    $(document).ready(function() {
+        $('.btn-success').on('click', function() {
+            $('#createModal').modal('show');
+            // Mengosongkan form saat modal ditampilkan
+            $('#addForm')[0].reset();
+        });
+    });
 </script>
