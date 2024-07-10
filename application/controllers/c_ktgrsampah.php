@@ -53,12 +53,11 @@ class c_ktgrsampah extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
-            $user_id = $this->session->userdata('user_id');
             $data = array(
+                'user_id' => $this->session->userdata('user_id'),
                 'nama_kategori' => $this->input->post('nama_kategori'),
                 'deskripsi' => $this->input->post('deskripsi'),
-                'warna_kategori' => $this->input->post('warna_kategori'),
-                'user_id' => $user_id
+                'warna_kategori' => $this->input->post('warna_kategori')
             );
 
             $this->m_ktgrsampah->insert_ktgrsampah($data);
@@ -70,21 +69,12 @@ class c_ktgrsampah extends CI_Controller {
         if (!$this->session->userdata('user_id')) {
             redirect('auth/login');
         }
-
+    
         $user_id = $this->session->userdata('user_id');
         $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['ktgrsampah'] = $this->m_ktgrsampah->get_ktgrsampah($id_ktgrsampah);
-
-        if ($data['ktgrsampah']['user_id'] != $user_id) {
-            // Handle unauthorized access (e.g., redirect or show error)
-            redirect('c_ktgrsampah');
-        }
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar', $data);
+    
         $this->load->view('v_ktgrsampah/edit', $data);
-        $this->load->view('templates/footer');
     }
 
     public function update($id_ktgrsampah) {
@@ -99,7 +89,6 @@ class c_ktgrsampah extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->edit($id_ktgrsampah);
         } else {
-            $user_id = $this->session->userdata('user_id');
             $data = array(
                 'nama_kategori' => $this->input->post('nama_kategori'),
                 'deskripsi' => $this->input->post('deskripsi'),
@@ -116,13 +105,7 @@ class c_ktgrsampah extends CI_Controller {
             redirect('auth/login');
         }
 
-        $user_id = $this->session->userdata('user_id');
-        $ktgrsampah = $this->m_ktgrsampah->get_ktgrsampah($id_ktgrsampah);
-
-        if ($ktgrsampah['user_id'] == $user_id) {
-            $this->m_ktgrsampah->delete_ktgrsampah($id_ktgrsampah);
-        }
-        
+        $this->m_ktgrsampah->delete_ktgrsampah($id_ktgrsampah);
         redirect('c_ktgrsampah');
     }
 }
