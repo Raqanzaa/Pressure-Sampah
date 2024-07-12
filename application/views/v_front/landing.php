@@ -8,10 +8,10 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="<?php echo site_url('c_landing'); ?>#hero" class="">Beranda</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#hero">Beranda</a></li>
           <li><a href="<?php echo site_url('c_landing'); ?>#regulation">Regulasi Peraturan</a></li>
           <li><a href="<?php echo site_url('c_landing'); ?>#statistic">Statistik</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#services">Peta Guwosari</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#cards">Developer Profiles</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -352,6 +352,7 @@
 <!-- END STATISTICS SECTION -->
 
 <!-- STATISTICS CARDS -->
+<section id="cards" class="cards section">
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
 <h2 class="">Developer Profiles</h2>
@@ -467,6 +468,7 @@
     </div>
   </div>
 </div>
+</section>
 <!-- END STATISTICS CARDS -->
 
 </main>
