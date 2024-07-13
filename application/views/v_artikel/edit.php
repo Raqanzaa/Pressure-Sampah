@@ -57,16 +57,13 @@
 
               <div class="form-group">
                 <label for="gambar_artikel">Gambar Artikel</label>
+                <input type="file" class="form-control-file" id="gambar_artikel" name="gambar_artikel">
+                <small class="form-text text-muted">Ukuran foto maksimal 2MB.</small>
                 <?php if (!empty($data->gambar_artikel)) { ?>
                   <div class="mb-3">
                     <img src="<?= base_url() ?>assets/img/<?= $data->gambar_artikel ?>" width="150"><br><br>
                   </div>
                 <?php } ?>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="gambar_artikel" name="gambar_artikel">
-                    <label class="custom-file-label" for="gambar_artikel">Pilih file</label>
-                  </div>
                 </div>
               </div>
             </div>

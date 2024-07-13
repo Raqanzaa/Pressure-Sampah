@@ -9,8 +9,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url();?>assets/img/favicon.png" rel="icon">
-  <link href="<?php echo base_url();?>assets/img/logo.svg" rel="apple-touch-icon">
+  <link rel="icon" href="<?php echo base_url();?>/assets/AdminLTE-3.2.0/dist/img/logo.svg" type="image/png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">

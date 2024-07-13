@@ -171,5 +171,22 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+
+
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    
+    reader.onload = function() {
+        var dataURL = reader.result;
+        var output = document.getElementById('gambar_preview');
+        output.src = dataURL;
+        output.style.display = 'block';
+    };
+    
+    reader.readAsDataURL(input.files[0]);
+}
+
+
 })();
 

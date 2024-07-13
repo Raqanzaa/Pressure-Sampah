@@ -24,7 +24,7 @@
                         <div class="card-tools">
                             <form action="<?= site_url('artikel-sampah') ?>" method="get">
                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                    <input type="text" name="cari" class="form-control float-right" placeholder="Cari judul artikel">
+                                    <input type="text" name="cari" class="form-control float-right" placeholder="Cari judul artikel" value="<?= isset($cari) ? $cari : '' ?>">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default">
                                             <i class="fas fa-search"></i>
