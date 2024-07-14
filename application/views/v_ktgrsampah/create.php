@@ -8,9 +8,9 @@
     <textarea name="deskripsi" class="form-control" required></textarea>
 </div>
 <div class="form-group">
-    <label for="warna_kategori">Warna Kategori</label>
-    <input type="text" name="warna_kategori" class="form-control" required>
-</div>
+                        <label for="warna_kategori">Warna Kategori</label>
+                        <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" required>
+                    </div>
 <button type="submit" class="btn btn-primary">Simpan</button>
 <!-- <a href="<?php echo site_url('c_ktgrsampah'); ?>" class="btn btn-secondary">Kembali</a> -->
 <?php echo form_close(); ?>
