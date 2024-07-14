@@ -128,7 +128,6 @@
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
         </div>
         <div class="container py-5" style="padding-right: 5%; padding-left: 5%;">
             <div class="carousel-inner">
@@ -140,7 +139,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Pemerintah Nomor 27 Tahun 2020</h5>
                                     <p class="card-text">Pengelolaan Sampah Spesifik.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/PP Nomor 27 Tahun 2020.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +149,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Presiden Republik Indonesia Nomor 83 Tahun 2018</h5>
                                     <p class="card-text">Penanganan Sampah Laut.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Perpres Nomor 83 Tahun 2018.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +159,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 6 Tahun 2022</h5>
                                     <p class="card-text">Sistem Informasi Pengelolaan Sampah Nasional.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/permen LHK No. 6 tahun 2022.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -170,21 +169,21 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 76 Tahun 2019</h5>
                                     <p class="card-text">Adipura.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 76 Tahun 2019.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                <div class="row">
+                    <div class="row">
                         <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
                             <div class="card custom-card align-items-center">
                                 <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 75 Tahun 2019</h5>
                                     <p class="card-text">Peta Jalan Pengurangan Sampah Oleh Produsen.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 75 Tahun 2019.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +193,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Pemerintah Nomor 81 Tahun 2022</h5>
                                     <p class="card-text">Pengelolaan Sampah Rumah Tangga dan Sampah Sejenis Sampah Rumah Tangga.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Permendagri Nomor 81 Tahun 2022 Tentang Pedoman Penyusunan RKPD 2023.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -204,7 +203,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Undang-undang Republik Indonesia Nomor 18 Tahun 2008</h5>
                                     <p class="card-text">Pengelolaan Sampah.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/UU Nomor 18 Tahun 2008.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +213,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Lingkungan Hidup dan Kehutanan Nomor 14 Tahun 2021</h5>
                                     <p class="card-text">Pengelolaan Sampah Pada Bank Sampah.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Permen LHK Nomor 14 Tahun 2021-.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -233,6 +232,7 @@
     </div>
 </section>
 <!-- END REGULATION SECTION -->
+
 
 <!-- STATISTICS SECTION -->
 <section id="statistic" class="statistic section">
