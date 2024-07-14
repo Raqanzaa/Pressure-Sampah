@@ -89,23 +89,6 @@ class c_tps extends CI_Controller {
         }
     }
 
-    // Fungsi untuk menampilkan form edit TPS
-    // public function edit($id_tps) {
-    //     if (!$this->session->userdata('user_id')) {
-    //         redirect('auth/login');
-    //     }
-
-    //     $user_id = $this->session->userdata('user_id');
-    //     $data['user'] = $this->m_auth->get_user_by_id($user_id);
-    //     $data['tps'] = $this->m_tps->get_tps($id_tps);
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('templates/topbar', $data);
-    //     $this->load->view('templates/sidebar', $data);
-    //     $this->load->view('v_tps/edit', $data);
-    //     $this->load->view('templates/footer');
-    // }
-
     public function edit($id_tps) {
         $tps = $this->db->get_where('t_tps', ['id_tps' => $id_tps])->row_array();
         if ($tps) {

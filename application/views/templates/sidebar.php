@@ -44,20 +44,17 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('c_recycle'); ?>" class="nav-link">
-            <i class="nav-icon fas fa-recycle"></i>
+          <a href="<?php echo base_url('c_daur_ulang'); ?>" class="nav-link">
+            <i class="fas fa-recycle nav-icon"></i>
             <p>Data Daur Ulang</p>
           </a>
         </li>
-        <!-- Uncomment the below section if the 'c_regulasi' route is required -->
-        <!-- 
         <li class="nav-item">
-          <a href="<?php echo base_url('c_regulasi'); ?>" class="nav-link">
-            <i class="nav-icon fas fa-book"></i>
-            <p>Regulasi</p>
+          <a href="<?php echo base_url('c_daur_ulang/kalender'); ?>" class="nav-link">
+            <i class="fas fa-book nav-icon"></i>
+            <p>Input Data Harian</p>
           </a>
-        </li> 
-        -->
+        </li>
         <li class="nav-item">
           <a href="<?= site_url('artikel-sampah'); ?>" class="nav-link <?= ($this->uri->segment(1) == 'c_artikel' && in_array($this->uri->segment(2), ['index', 'tambah', 'edit'])) ? 'active' : '' ?>">
               <i class="nav-icon fas fa-pen"></i>

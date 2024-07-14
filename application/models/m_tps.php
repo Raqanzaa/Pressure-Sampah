@@ -17,6 +17,12 @@ class m_tps extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_tps_by_id($tps_id) {
+        $this->db->where('id_tps', $tps_id);
+        $query = $this->db->get('t_tps'); // Ganti 'tps' dengan nama tabel TPS yang sesuai di database Anda
+        return $query->row_array();
+    }
+
     // Fungsi untuk mengambil satu data TPS
     public function get_tps($id_tps) {
         $this->db->select('t_tps.*, t_users.full_name');

@@ -95,24 +95,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="addForm" action="<?= site_url('c_ktgrsampah/create') ?>" method="post">
-                    <div class="form-group">
-                        <label for="nama_kategori">Nama Kategori</label>
-                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="warna_kategori">Warna Kategori</label>
-                        <input type="color" class="form-control" id="warna_kategori" name="warna_kategori" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- Content from create.php -->
+                <?php $this->load->view('v_ktgrsampah/create'); ?>
             </div>
         </div>
     </div>
