@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_artikel extends CI_Controller {
+class c_artikel extends CI_Controller {
 
     public function __construct()
     {
@@ -12,74 +12,82 @@ class C_artikel extends CI_Controller {
         $this->load->model('m_auth');
     }
 
-// fungsi untuk mengambil data
-public function index()
-{
-    $cari = $this->input->get('cari');
-    $page = $this->input->get('per_page');
-    $user_id = $this->session->userdata('user_id');
-    $data['user'] = $this->m_auth->get_user_by_id($user_id);
+    // Fungsi untuk mengambil data
+    public function index()
+    {
+        if (!$this->session->userdata('user_id')) {
+            redirect('auth/login');
+        }
 
-    $search = array('judul' => $cari);
+        $cari = $this->input->get('cari');
+        $page = $this->input->get('per_page');
+        $user_id = $this->session->userdata('user_id');
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+        $data['artikel'] = $this->m_artikel->get_all_artikel($user_id);
 
-    $batas =  9; // 9 data per halaman
-    if (!$page):
-        $offset = 0;
-    else:
-        $offset = $page;
-    endif;
+        $search = array('judul' => $cari);
 
-    $config['page_query_string'] = TRUE;
-    $config['base_url'] = base_url().'index.php/c_artikel/?cari='.$cari;
-    $config['total_rows'] = $this->m_artikel->jumlah_row($search);
+        $batas = 9; // 9 data per halaman
+        if (!$page):
+            $offset = 0;
+        else:
+            $offset = $page;
+        endif;
 
-    $config['per_page'] = $batas;
-    $config['uri_segment'] = $page;
+        $config['page_query_string'] = TRUE;
+        $config['base_url'] = base_url().'index.php/c_artikel/?cari='.$cari;
+        $config['total_rows'] = $this->m_artikel->jumlah_row($search, $user_id);
 
-    $config['full_tag_open'] = '<ul class="pagination">';
-    $config['full_tag_close'] = '</ul>';
+        $config['per_page'] = $batas;
+        $config['uri_segment'] = $page;
 
-    $config['first_link'] = 'first';
-    $config['first_tag_open'] = '<li><a>';
-    $config['first_tag_close'] = '</a></li>';
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
 
-    $config['last_link'] = 'last';
-    $config['last_tag_open'] = '<li><a>';
-    $config['last_tag_close'] = '</a></li>';
+        $config['first_link'] = 'first';
+        $config['first_tag_open'] = '<li><a>';
+        $config['first_tag_close'] = '</a></li>';
 
-    $config['next_link'] = '&raquo;';
-    $config['next_tag_open'] = '<li><a>';
-    $config['next_tag_close'] = '</a></li>';
+        $config['last_link'] = 'last';
+        $config['last_tag_open'] = '<li><a>';
+        $config['last_tag_close'] = '</a></li>';
 
-    $config['prev_link'] = '&laquo;';
-    $config['prev_tag_open'] = '<li><a>';
-    $config['prev_tag_close'] = '</a></li>';
+        $config['next_link'] = '&raquo;';
+        $config['next_tag_open'] = '<li><a>';
+        $config['next_tag_close'] = '</a></li>';
 
-    $config['cur_tag_open'] = '<li class="active"><a>';
-    $config['cur_tag_close'] = '</a></li>';
+        $config['prev_link'] = '&laquo;';
+        $config['prev_tag_open'] = '<li><a>';
+        $config['prev_tag_close'] = '</a></li>';
 
-    $config['num_tag_open'] = '<li><a>';
-    $config['num_tag_close'] = '</a></li>';
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '</a></li>';
 
-    $this->pagination->initialize($config);
-    $data['pagination'] = $this->pagination->create_links();
-    $data['jumlah_page'] = $page;
+        $config['num_tag_open'] = '<li><a>';
+        $config['num_tag_close'] = '</a></li>';
 
-    $data['data'] = $this->m_artikel->get($batas, $offset, $search);
+        $this->pagination->initialize($config);
+        $data['pagination'] = $this->pagination->create_links();
+        $data['jumlah_page'] = $page;
 
-    // Kirim query pencarian ke view
-    $data['cari'] = $cari;
+        $data['data'] = $this->m_artikel->get($batas, $offset, $search, $user_id);
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/topbar', $data);
-    $this->load->view('templates/sidebar', $data);
-    $this->load->view('v_artikel/read', $data);
-    $this->load->view('templates/footer');
-}
+        $data['cari'] = $cari;
 
-    // untuk menampilkan halaman tambah data
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('v_artikel/read', $data);
+        $this->load->view('templates/footer');
+    }
+
+    // Fungsi untuk menampilkan halaman tambah data
     public function tambah()
     {
+        if (!$this->session->userdata('user_id')) {
+            redirect('auth/login');
+        }
+
         $data['title'] = 'Tambah Artikel';
         $user_id = $this->session->userdata('user_id');
         $data['user'] = $this->m_auth->get_user_by_id($user_id);
@@ -99,14 +107,14 @@ public function index()
         }
     }
 
-    // untuk memasukan data ke database
+    // Fungsi untuk memasukan data ke database
     public function insertdata()
     {
         $judul = $this->input->post('judul');
         $tanggal_publikasi = $this->input->post('tanggal_publikasi');
         $deskripsi = $this->input->post('deskripsi');
 
-        // get gambar_artikel
+        // Mengambil gambar_artikel
         $config['upload_path'] = './assets/img';
         $config['allowed_types'] = 'jpg|png|jpeg|gif';
         $config['max_size'] = '2048';  // 2MB max
@@ -123,7 +131,8 @@ public function index()
                     'judul' => $judul,
                     'tanggal_publikasi' => $tanggal_publikasi,
                     'deskripsi' => $deskripsi,
-                    'gambar_artikel' => $gambar['file_name']
+                    'gambar_artikel' => $gambar['file_name'],
+                    'user_id' => $this->session->userdata('user_id')
                 );
                 $this->m_artikel->insert($data);
                 redirect('artikel-sampah');
@@ -134,33 +143,32 @@ public function index()
             $data = array(
                 'judul' => $judul,
                 'tanggal_publikasi' => $tanggal_publikasi,
-                'deskripsi' => $deskripsi
+                'deskripsi' => $deskripsi,
+                'user_id' => $this->session->userdata('user_id')
             );
             $this->m_artikel->insert($data);
             redirect('artikel-sampah');
         }
     }
 
-    // delete
+    // Fungsi untuk menghapus data
     public function deletedata($id, $gambar)
     {
         $path = './assets/img/';
         @unlink($path.$gambar);
 
-        $where = array('id_artikel' => $id);
+        $where = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
         $this->m_artikel->delete($where);
         return redirect('artikel-sampah');
     }
 
-    // edit
+    // Fungsi untuk menampilkan halaman edit
     public function edit($id)
     {
         $data['title'] = 'Edit Artikel';
-        $kondisi = array('id_artikel' => $id);
         $user_id = $this->session->userdata('user_id');
         $data['user'] = $this->m_auth->get_user_by_id($user_id);
-
-        $data['data'] = $this->m_artikel->get_by_id($kondisi);
+        $data['data'] = $this->m_artikel->get_by_id($id, $user_id);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
         $this->form_validation->set_rules('tanggal_publikasi', 'Tanggal Publikasi', 'required');
@@ -177,7 +185,7 @@ public function index()
         }
     }
 
-    // update
+    // Fungsi untuk mengupdate data
     public function updatedata()
     {
         $id = $this->input->post('id_artikel');
@@ -186,9 +194,8 @@ public function index()
         $deskripsi = $this->input->post('deskripsi');
 
         $path = './assets/img/';
-        $kondisi = array('id_artikel' => $id);
+        $kondisi = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
 
-        // get gambar_artikel
         $config['upload_path'] = './assets/img';
         $config['allowed_types'] = 'jpg|png|jpeg|gif';
         $config['max_size'] = '2048';  // 2MB max
@@ -205,9 +212,9 @@ public function index()
                     'judul' => $judul,
                     'tanggal_publikasi' => $tanggal_publikasi,
                     'deskripsi' => $deskripsi,
-                    'gambar_artikel' => $gambar['file_name']
+                    'gambar_artikel' => $gambar['file_name'],
+                    'user_id' => $this->session->userdata('user_id')
                 );
-                // hapus gambar pada direktori
                 @unlink($path.$this->input->post('filelama'));
 
                 $this->m_artikel->update($data, $kondisi);
@@ -219,7 +226,8 @@ public function index()
             $data = array(
                 'judul' => $judul,
                 'tanggal_publikasi' => $tanggal_publikasi,
-                'deskripsi' => $deskripsi
+                'deskripsi' => $deskripsi,
+                'user_id' => $this->session->userdata('user_id')
             );
             $this->m_artikel->update($data, $kondisi);
             redirect('artikel-sampah');

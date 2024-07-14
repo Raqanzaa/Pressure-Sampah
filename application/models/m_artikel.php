@@ -1,65 +1,53 @@
 <?php
-class m_artikel extends CI_Model
-{
-    // Retrieve data with optional limits and search criteria
-    public function get($batas = NULL, $offset = NULL, $cari = NULL)
-    {
-        if ($batas != NULL) {
-            $this->db->limit($batas, $offset);
-        }
-        if ($cari != NULL) {
-            $this->db->or_like($cari);
-        }
-        $this->db->from('t_artikel');
-        $query = $this->db->get();
+class m_artikel extends CI_Model {
+    
+    // Mendapatkan semua artikel untuk pengguna tertentu
+    public function get_all_artikel($user_id) {
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('t_artikel');
         return $query->result();
     }
 
-    // Count the number of rows matching the search criteria
-    public function jumlah_row($search)
-    {
-        if ($search != NULL) {
-            $this->db->or_like($search);
-        }
+    // Mendapatkan artikel dengan paginasi dan pencarian untuk pengguna tertentu
+    public function get($limit, $offset, $search, $user_id) {
+        $this->db->like($search);
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('t_artikel', $limit, $offset);
+        return $query->result();
+    }
+
+    // Mendapatkan jumlah artikel untuk pengguna tertentu
+    public function jumlah_row($search, $user_id) {
+        $this->db->like($search);
+        $this->db->where('user_id', $user_id);
         $query = $this->db->get('t_artikel');
         return $query->num_rows();
     }
 
-    // Retrieve a single row by ID
-    public function get_by_id($kondisi)
-    {
-        $this->db->from('t_artikel');
-        $this->db->where($kondisi);
-        $query = $this->db->get();
+    // Mendapatkan artikel berdasarkan id untuk pengguna tertentu
+    public function get_by_id($id, $user_id) {
+        $this->db->where('id_artikel', $id);
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('t_artikel');
         return $query->row();
     }
 
-    // Insert data into the table
-    public function insert($data)
-    {
-        $this->db->insert('t_artikel', $data);
-        return $this->db->insert_id();
+    // Menambahkan artikel baru
+    public function insert($data) {
+        return $this->db->insert('t_artikel', $data);
     }
 
-    // Delete data from the table
-    public function delete($where)
-    {
-        $this->db->where($where);
-        $this->db->delete('t_artikel');
-        return $this->db->affected_rows();
+    // Mengupdate artikel
+    public function update($data, $kondisi) {
+        $this->db->where($kondisi);
+        return $this->db->update('t_artikel', $data);
     }
 
-    // Update data in the table
-    public function update($data, $kondisi)
-    {
-        $this->db->update('t_artikel', $data, $kondisi);
-        return $this->db->affected_rows();
-    }
-
-    // Fungsi untuk mengambil semua data pengguna
-    public function get_all_users()
-    {
-        return $this->db->get('t_users')->result_array();
+    // Menghapus artikel
+    public function delete($kondisi) {
+        $this->db->where($kondisi);
+        return $this->db->delete('t_artikel');
     }
 }
+
 ?>
