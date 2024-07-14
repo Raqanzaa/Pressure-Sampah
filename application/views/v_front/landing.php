@@ -8,11 +8,10 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="<?php echo site_url('c_landing'); ?>#hero" class="">Beranda</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#hero-small" class="">About</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#hero">Beranda</a></li>
           <li><a href="<?php echo site_url('c_landing'); ?>#regulation">Regulasi Peraturan</a></li>
           <li><a href="<?php echo site_url('c_landing'); ?>#statistic">Statistik</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#services">Peta Guwosari</a></li>
+          <li><a href="<?php echo site_url('c_landing'); ?>#cards">Developer Profiles</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -77,30 +76,51 @@
 
     </section><!-- /Hero Section -->
     
-    <!-- Hero Section -->
-<section id="hero-small" class="hero section" style="height=100px">
-  <div class="container text-center pt-5">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-lg-5 d-flex justify-content-center align-items-center">
-        <img data-aos="fade-right" src="<?php echo base_url();?>assets/img/logo-black.svg" alt="" class="secondary-logo me-4">
-        <div>
-          <h1 data-aos="fade-up" class=""><span class="text-dark">Presure</span></h1>
-          <h1 data-aos="fade-up" class=""><span class="text-dark">Sampah</span></h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presure Sampah</title>
+  <style>
+    .custom-paragraph {
+      max-width: 600px; /* Set maximum width for the paragraph */
+      margin: 0 auto;  /* Center align the paragraph */
+    }
+    .hero {
+      height: 100px; /* Correct syntax for height */
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section id="hero-small" class="hero section">
+    <div class="container text-center pt-5">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+          <img data-aos="fade-right" src="<?php echo base_url();?>assets/img/logo-black.svg" alt="" class="secondary-logo me-4">
+          <div>
+            <h1 data-aos="fade-up" class=""><span class="text-dark">Presure</span></h1>
+            <h1 data-aos="fade-up" class=""><span class="text-dark">Sampah</span></h1>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-7 d-flex justify-content-center align-items-center">
-        <div>
-          <p data-aos="fade-up" data-aos-delay="100" class="text-dark custom-paragraph">Presur Sampah (Presentase Keberhasilan Daur Ulang Sampah) <span>
-            adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah.
-            Dengan fitur-fitur pencatata berat jenis sampah yang didaur ulang dan presentase daur ulang harian,
-            mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
-          </span>
-          <br></p>
+        <div class="col-lg-7 d-flex justify-content-center align-items-center">
+          <div>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-dark custom-paragraph">
+              Presur Sampah (Presentase Keberhasilan Daur Ulang Sampah) <span>
+              adalah aplikasi untuk melacak dan menilai seberapa efektif daur ulang sampah.
+              Dengan fitur-fitur pencatatan berat jenis sampah yang didaur ulang dan presentase daur ulang harian,
+              mingguan, dan bulanan, aplikasi ini membantu pengguna memantau dan meningkatkan praktik daur ulang mereka.
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section><!-- /Hero Section -->
+  </section>
+  <!-- /Hero Section -->
+</body>
+</html>
 
 <!-- REGULATION SECTION -->
 <section id="regulation" class="py-5">
@@ -108,7 +128,6 @@
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
         </div>
         <div class="container py-5" style="padding-right: 5%; padding-left: 5%;">
             <div class="carousel-inner">
@@ -120,7 +139,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Pemerintah Nomor 27 Tahun 2020</h5>
                                     <p class="card-text">Pengelolaan Sampah Spesifik.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/PP Nomor 27 Tahun 2020.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +149,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Presiden Republik Indonesia Nomor 83 Tahun 2018</h5>
                                     <p class="card-text">Penanganan Sampah Laut.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Perpres Nomor 83 Tahun 2018.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +159,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 6 Tahun 2022</h5>
                                     <p class="card-text">Sistem Informasi Pengelolaan Sampah Nasional.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/permen LHK No. 6 tahun 2022.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -150,21 +169,21 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 76 Tahun 2019</h5>
                                     <p class="card-text">Adipura.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 76 Tahun 2019.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                <div class="row">
+                    <div class="row">
                         <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
                             <div class="card custom-card align-items-center">
                                 <img src="<?php echo base_url();?>assets/img/regulation.svg" class="card-img-top w-75 mt-3" alt="Regulation Image 1">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 75 Tahun 2019</h5>
                                     <p class="card-text">Peta Jalan Pengurangan Sampah Oleh Produsen.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 75 Tahun 2019.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +193,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Pemerintah Nomor 81 Tahun 2022</h5>
                                     <p class="card-text">Pengelolaan Sampah Rumah Tangga dan Sampah Sejenis Sampah Rumah Tangga.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Permendagri Nomor 81 Tahun 2022 Tentang Pedoman Penyusunan RKPD 2023.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +203,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Undang-undang Republik Indonesia Nomor 18 Tahun 2008</h5>
                                     <p class="card-text">Pengelolaan Sampah.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/UU Nomor 18 Tahun 2008.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +213,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Peraturan Lingkungan Hidup dan Kehutanan Nomor 14 Tahun 2021</h5>
                                     <p class="card-text">Pengelolaan Sampah Pada Bank Sampah.</p>
-                                    <a href="" class="btn card-btn w-100">Unduh</a>
+                                    <a href="<?php echo base_url();?>assets/regulasi/Permen LHK Nomor 14 Tahun 2021-.pdf" class="btn card-btn w-100" download>Unduh</a>
                                 </div>
                             </div>
                         </div>
@@ -213,6 +232,7 @@
     </div>
 </section>
 <!-- END REGULATION SECTION -->
+
 
 <!-- STATISTICS SECTION -->
 <section id="statistic" class="statistic section">
@@ -332,6 +352,7 @@
 <!-- END STATISTICS SECTION -->
 
 <!-- STATISTICS CARDS -->
+<section id="cards" class="cards section">
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
 <h2 class="">Developer Profiles</h2>
@@ -367,10 +388,9 @@
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
               </svg>
             </a>
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <path d="M22 6l-10 7L2 6"></path>
+            <a href="https://www.instagram.com/a.rzq_u" class="hover:scale-110 transition-all duration-500 delay-200">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" xmlns="socialSvg instagramSvg" fill="currentColor">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/ahmad-rozaq-ubaidillah-044892278" class="hover:scale-110 transition-all duration-500 delay-200">
@@ -400,10 +420,9 @@
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
               </svg>
             </a>
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <path d="M22 6l-10 7L2 6"></path>
+            <a href="https://www.instagram.com/sanurfz" class="hover:scale-110 transition-all duration-500 delay-200">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" xmlns="socialSvg instagramSvg" fill="currentColor">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/sanurfz" class="hover:scale-110 transition-all duration-500 delay-200">
@@ -433,10 +452,9 @@
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
               </svg>
             </a>
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
-              <svg width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <path d="M22 6l-10 7L2 6"></path>
+            <a href="https://www.instagram.com/dhamayantivina" class="hover:scale-110 transition-all duration-500 delay-200">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" xmlns="socialSvg instagramSvg" fill="currentColor">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/vinadhamayanti" class="hover:scale-110 transition-all duration-500 delay-200">
@@ -450,6 +468,7 @@
     </div>
   </div>
 </div>
+</section>
 <!-- END STATISTICS CARDS -->
 
 </main>

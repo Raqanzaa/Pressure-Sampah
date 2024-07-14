@@ -47,15 +47,19 @@
                 <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
              </div>
 
-              <div class="form-group">
-                <label for="gambar_artikel">Gambar Artikel</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="gambar_artikel" name="gambar_artikel" required>
-                    <label class="custom-file-label" for="gambar_artikel">Pilih file</label>
-                  </div>
-                </div>
+             <div class="form-group">
+              <label for="gambar_artikel">Gambar Artikel</label>
+              <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="form-control-file" id="gambar_artikel" name="gambar_artikel" accept="image/*" onchange="previewImage(event)">
+                <small class="form-text text-muted">Ukuran foto maksimal 2MB.</small>
               </div>
+            </div>
+              <div class="mt-2">
+              <img id="gambar_preview" src="#" alt="Preview Gambar" style="display: none; max-width: 200px; max-height: 200px;"/>
+             </div>
+            </div>
+
             </div>
             <!-- /.card-body -->
 

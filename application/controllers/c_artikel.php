@@ -12,67 +12,70 @@ class C_artikel extends CI_Controller {
         $this->load->model('m_auth');
     }
 
-    // fungsi untuk mengambil data
-    public function index()
-    {
-        $cari = $this->input->get('cari');
-        $page = $this->input->get('per_page');
-        $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+// fungsi untuk mengambil data
+public function index()
+{
+    $cari = $this->input->get('cari');
+    $page = $this->input->get('per_page');
+    $user_id = $this->session->userdata('user_id');
+    $data['user'] = $this->m_auth->get_user_by_id($user_id);
 
-        $search = array('judul' => $cari );
+    $search = array('judul' => $cari);
 
-        $batas =  9; // 9 data per page
-        if(!$page):
-            $offset = 0;
-        else:
-            $offset = $page;
-        endif;
+    $batas =  9; // 9 data per halaman
+    if (!$page):
+        $offset = 0;
+    else:
+        $offset = $page;
+    endif;
 
-        $config['page_query_string'] = TRUE;
-        $config['base_url'] = base_url().'index.php/c_artikel/?cari='.$cari;
-        $config['total_rows'] = $this->m_artikel->jumlah_row($search);
+    $config['page_query_string'] = TRUE;
+    $config['base_url'] = base_url().'index.php/c_artikel/?cari='.$cari;
+    $config['total_rows'] = $this->m_artikel->jumlah_row($search);
 
-        $config['per_page'] = $batas;
-        $config['uri_segment'] = $page;
+    $config['per_page'] = $batas;
+    $config['uri_segment'] = $page;
 
-        $config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
+    $config['full_tag_open'] = '<ul class="pagination">';
+    $config['full_tag_close'] = '</ul>';
 
-        $config['first_link'] = 'first';
-        $config['first_tag_open'] = '<li><a>';
-        $config['first_tag_close'] = '</a></li>';
+    $config['first_link'] = 'first';
+    $config['first_tag_open'] = '<li><a>';
+    $config['first_tag_close'] = '</a></li>';
 
-        $config['last_link'] = 'last';
-        $config['last_tag_open'] = '<li><a>';
-        $config['last_tag_close'] = '</a></li>';
+    $config['last_link'] = 'last';
+    $config['last_tag_open'] = '<li><a>';
+    $config['last_tag_close'] = '</a></li>';
 
-        $config['next_link'] = '&raquo;';
-        $config['next_tag_open'] = '<li><a>';
-        $config['next_tag_close'] = '</a></li>';
+    $config['next_link'] = '&raquo;';
+    $config['next_tag_open'] = '<li><a>';
+    $config['next_tag_close'] = '</a></li>';
 
-        $config['prev_link'] = '&laquo;';
-        $config['prev_tag_open'] = '<li><a>';
-        $config['prev_tag_close'] = '</a></li>';
+    $config['prev_link'] = '&laquo;';
+    $config['prev_tag_open'] = '<li><a>';
+    $config['prev_tag_close'] = '</a></li>';
 
-        $config['cur_tag_open'] = '<li class="active"><a>';
-        $config['cur_tag_close'] = '</a></li>';
+    $config['cur_tag_open'] = '<li class="active"><a>';
+    $config['cur_tag_close'] = '</a></li>';
 
-        $config['num_tag_open'] = '<li><a>';
-        $config['num_tag_close'] = '</a></li>';
+    $config['num_tag_open'] = '<li><a>';
+    $config['num_tag_close'] = '</a></li>';
 
-        $this->pagination->initialize($config);
-        $data['pagination'] = $this->pagination->create_links();
-        $data['jumlah_page'] = $page;
+    $this->pagination->initialize($config);
+    $data['pagination'] = $this->pagination->create_links();
+    $data['jumlah_page'] = $page;
 
-        $data['data'] = $this->m_artikel->get($batas,$offset,$search);
+    $data['data'] = $this->m_artikel->get($batas, $offset, $search);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('v_artikel/read', $data);
-        $this->load->view('templates/footer');
-    }
+    // Kirim query pencarian ke view
+    $data['cari'] = $cari;
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('v_artikel/read', $data);
+    $this->load->view('templates/footer');
+}
 
     // untuk menampilkan halaman tambah data
     public function tambah()
