@@ -8,6 +8,12 @@ class m_artikel extends CI_Model {
         return $query->result();
     }
 
+      // Mendapatkan semua artikel tanpa memfilter user_id
+      public function get_all_articles() {
+        $query = $this->db->get('t_artikel');
+        return $query->result_array();
+    }
+
     // Mendapatkan artikel dengan paginasi dan pencarian untuk pengguna tertentu
     public function get($limit, $offset, $search, $user_id) {
         $this->db->like($search);

@@ -233,5 +233,12 @@ class c_artikel extends CI_Controller {
             redirect('artikel-sampah');
         }
     }
+
+    // Fungsi untuk menampilkan artikel di landing page
+    public function landing()
+    {
+        $data['artikel'] = $this->m_artikel->get_all_articles();
+        $this->load->view('v_front/landing', $data);
+    }
 }
 ?>

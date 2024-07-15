@@ -351,6 +351,95 @@
 </section>
 <!-- END STATISTICS SECTION -->
 
+<!-- ARTIKEL SECTION -->
+<div class="container section-title" data-aos="fade-up">
+    <h2 class="">Artikel</h2>
+</div><!-- End Section Title -->
+<section id="artikel" class="py-3">
+    <div class="container">
+        <div class="container py-5" style="padding-right: 5%; padding-left: 5%;">
+            <div class="row pl-2 pr-2">
+                <?php
+                // Ambil maksimal 8 artikel terbaru, diurutkan berdasarkan tanggal_publikasi descending
+                $counter = 0;
+                foreach (array_reverse($artikel) as $a): // Mengambil array terbalik
+                    $counter++;
+                    if ($counter > 8) break; // Hanya tampilkan maksimal 8 artikel
+                ?>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-4-custom">
+                        <div class="card custom-card shadow-sm" style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                            <img src="<?php echo base_url('assets/img/'.$a['gambar_artikel']); ?>" class="card-img-top" alt="<?php echo $a['judul']; ?>">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><?php echo $a['judul']; ?></h5>
+                                <p class="card-text"><?php echo $a['deskripsi']; ?></p>
+                                <p class="card-text"><small class="text-muted"><?php echo date('d F Y', strtotime($a['tanggal_publikasi'])); ?></small></p>
+                                <a href="#" class="btn btn-success btn-sm btn-army" data-toggle="modal" data-target="#artikelModal-<?php echo $a['id_artikel']; ?>">Baca Artikel</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="artikelModal-<?php echo $a['id_artikel']; ?>" tabindex="-1" role="dialog" aria-labelledby="artikelModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="artikelModalLabel"><?php echo $a['judul']; ?></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="<?php echo base_url('assets/img/'.$a['gambar_artikel']); ?>" class="img-fluid mb-3" alt="<?php echo $a['judul']; ?>">
+                                    <p><?php echo $a['deskripsi']; ?></p>
+                                    <p class="text-muted"><?php echo date('d F Y', strtotime($a['tanggal_publikasi'])); ?></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END ARTIKEL SECTION -->
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Bootstrap JS dan jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    .custom-card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px); /* Menggeser card ke atas saat hover */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+    }
+
+    .btn-army {
+        background-color: #50B498; /* Ubah warna background menjadi hijau army */
+        border-color: #006769; /* Ubah warna border sesuai dengan background */
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        $('.modal').on('hidden.bs.modal', function () {
+            $('body').css('padding-right', '0');
+        });
+    });
+</script>
+
+
+
 <!-- STATISTICS CARDS -->
 <section id="cards" class="cards section">
 <!-- Section Title -->
