@@ -371,7 +371,6 @@
                             <img src="<?php echo base_url('assets/img/'.$a['gambar_artikel']); ?>" class="card-img-top" alt="<?php echo $a['judul']; ?>">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold"><?php echo $a['judul']; ?></h5>
-                                <p class="card-text"><?php echo $a['deskripsi']; ?></p>
                                 <p class="card-text"><small class="text-muted"><?php echo date('d F Y', strtotime($a['tanggal_publikasi'])); ?></small></p>
                                 <a href="#" class="btn btn-success btn-sm btn-army" data-toggle="modal" data-target="#artikelModal-<?php echo $a['id_artikel']; ?>">Baca Artikel</a>
                             </div>
