@@ -61,7 +61,7 @@ class c_ktgrsampah extends CI_Controller {
             );
 
             $this->m_ktgrsampah->insert_ktgrsampah($data);
-            redirect('c_ktgrsampah');
+            redirect('kategori-sampah');
         }
     }
 
@@ -96,7 +96,7 @@ class c_ktgrsampah extends CI_Controller {
             );
 
             $this->m_ktgrsampah->update_ktgrsampah($id_ktgrsampah, $data);
-            redirect('c_ktgrsampah');
+            redirect('kategori-sampah');
         }
     }
 
@@ -106,7 +106,7 @@ class c_ktgrsampah extends CI_Controller {
         }
 
         $this->m_ktgrsampah->delete_ktgrsampah($id_ktgrsampah);
-        redirect('c_ktgrsampah');
+        redirect('kategori-sampah');
     }
 }
 ?>

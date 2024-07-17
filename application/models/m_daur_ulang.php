@@ -3,17 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_daur_ulang extends CI_Model {
 
-    // public function get_harian($tanggal) {
-    //     $user_id = $this->session->userdata('user_id'); // Get the user ID from the session
-    //     $this->db->select('t_daur_ulang.*, t_tps.nama_tps, t_ktgrsampah.nama_kategori');
-    //     $this->db->from('t_daur_ulang');
-    //     $this->db->join('t_tps', 't_daur_ulang.tps_id = t_tps.id_tps');
-    //     $this->db->join('t_ktgrsampah', 't_daur_ulang.kategori_id = t_ktgrsampah.id_ktgrsampah');
-    //     $this->db->where('tanggal', $tanggal);
-    //     $this->db->where('t_daur_ulang.user_id', $user_id); // Ensure data belongs to the logged-in user
-    //     return $this->db->get()->result_array();
-    // }
-
     public function get_harian_by_tanggal($tanggal, $tps_id) {
         $user_id = $this->session->userdata('user_id');
         $this->db->where('tanggal', $tanggal);

@@ -1,4 +1,4 @@
-<form action="<?= site_url('c_daur_ulang/update_harian'); ?>" method="post">
+<form action="<?= site_url('presentase-daur-ulang/update_harian'); ?>" method="post">
     <input type="hidden" name="id" value="<?= $daur_ulang['id']; ?>">
     <div class="form-group">
         <label for="tanggal">Tanggal</label>

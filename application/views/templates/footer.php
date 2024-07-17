@@ -3,7 +3,6 @@
 
 <footer class="main-footer" style="margin-top: 62px;">
   <div class="float-right d-none d-sm-block">
-    <!-- <b>Version</b> 3.2.0 -->
   </div>
   <strong>Copyright &copy; 2024 <a href="https://github.com/Raqanzaa/ci-manpro">Pressure Sampah</a>.</strong> All rights reserved.
 </footer>
@@ -29,8 +28,6 @@
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
 <!-- Include Cropper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-<!-- Sweetalert -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 <!-- jQuery Mapael -->
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
 <script src="<?php echo base_url();?>/assets/AdminLTE-3.2.0/plugins/raphael/raphael.min.js"></script>
@@ -96,36 +93,46 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- SCRIPT FOR CHART -->
-<script>
+<!-- <script>
 $(document).ready(function() {
-  // Get context with jQuery - using jQuery's .get() method.
   var areaChartCanvas = $('#areaChart').get(0).getContext('2d');
 
   var areaChartData = {
-    labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels  : ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
     datasets: [
       {
-        label               : 'Sampah Basah',
-        backgroundColor     : 'rgba(60,141,188,0.9)',
-        borderColor         : 'rgba(60,141,188,0.8)',
-        pointRadius         : false,
-        pointColor          : '#3b8bba',
-        pointStrokeColor    : 'rgba(60,141,188,1)',
-        pointHighlightFill  : '#fff',
-        pointHighlightStroke: 'rgba(60,141,188,1)',
-        data                : [28, 48, 40, 19, 86, 27, 90]
-      },
-      {
-        label               : 'Sampah Kering',
-        backgroundColor     : 'rgba(210, 214, 222, 1)',
-        borderColor         : 'rgba(210, 214, 222, 1)',
-        pointRadius         : false,
-        pointColor          : 'rgba(210, 214, 222, 1)',
-        pointStrokeColor    : '#c1c7d1',
-        pointHighlightFill  : '#fff',
-        pointHighlightStroke: 'rgba(220,220,220,1)',
-        data                : [65, 59, 80, 81, 56, 55, 40]
-      },
+    label               : 'Sampah',
+    backgroundColor     : 'rgba(60, 141, 188, 0.9)',
+    borderColor         : 'rgba(60, 141, 188, 0.8)',
+    pointRadius         : false,
+    pointColor          : '#3b8bba',
+    pointStrokeColor    : 'rgba(60, 141, 188, 1)',
+    pointHighlightFill  : '#fff',
+    pointHighlightStroke: 'rgba(60, 141, 188, 1)',
+    data                : [28, 48, 40, 19, 86, 27, 90, 20, 60, 45, 75, 55]
+},
+{
+    label               : 'Daur Ulang',
+    backgroundColor     : 'rgba(110, 214, 222, 1)',
+    borderColor         : 'rgba(110, 214, 222, 0.8)',
+    pointRadius         : false,
+    pointColor          : '#6ed6de',
+    pointStrokeColor    : 'rgba(110, 214, 222, 1)',
+    pointHighlightFill  : '#fff',
+    pointHighlightStroke: 'rgba(110, 214, 222, 1)',
+    data                : [65, 59, 80, 81, 56, 55, 40, 50, 70, 65, 60, 85]
+},
+{
+    label               : 'Residu',
+    backgroundColor     : 'rgba(41, 182, 246, 0.9)',
+    borderColor         : 'rgba(41, 182, 246, 0.8)',
+    pointRadius         : false,
+    pointColor          : '#29b6f6',
+    pointStrokeColor    : 'rgba(41, 182, 246, 1)',
+    pointHighlightFill  : '#fff',
+    pointHighlightStroke: 'rgba(41, 182, 246, 1)',
+    data                : [23, 54, 23, 78, 50, 27, 45, 60, 55, 70, 50, 60]
+}
     ]
   };
 
@@ -133,7 +140,7 @@ $(document).ready(function() {
     maintainAspectRatio : false,
     responsive : true,
     legend: {
-      display: true, // Display the legend
+      display: true,
     },
     scales: {
       xAxes: [{
@@ -149,51 +156,77 @@ $(document).ready(function() {
     }
   };
 
-  // This will get the first returned node in the jQuery collection.
   new Chart(areaChartCanvas, {
-    type: 'line',
+    type: 'bar',
     data: areaChartData,
     options: areaChartOptions
   });
 });
-</script>
-
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        <?php if ($this->session->flashdata('success')): ?>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: '<?php echo $this->session->flashdata('success'); ?>',
-                timer: 3000,
-                showConfirmButton: false,
-                position: 'top-start',
-                toast: true
-            });
-        <?php endif; ?>
-
-        <?php if ($this->session->flashdata('error')): ?>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: '<?php echo $this->session->flashdata('error'); ?>',
-                timer: 3000,
-                showConfirmButton: false,
-                position: 'top-start',
-                toast: true
-            });
-        <?php endif; ?>
-
-        <?php if ($this->session->flashdata('validation_errors')): ?>
-            Swal.fire({
-                icon: 'warning',
-                title: 'Validation Errors',
-                html: '<?php echo $this->session->flashdata('validation_errors'); ?>',
-                timer: 5000,
-                showConfirmButton: true,
-                position: 'top-start',
-                toast: true
-            });
-        <?php endif; ?>
-    });
 </script> -->
+
+<script>
+$(document).ready(function() {
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d');
+
+    var areaChartData = {
+        labels  : ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        datasets: [
+            {
+                label               : 'Sampah',
+                backgroundColor     : 'rgba(60, 141, 188, 0.9)',
+                borderColor         : 'rgba(60, 141, 188, 0.8)',
+                pointRadius         : false,
+                pointColor          : '#3b8bba',
+                pointStrokeColor    : 'rgba(60, 141, 188, 1)',
+                pointHighlightFill  : '#fff',
+                pointHighlightStroke: 'rgba(60, 141, 188, 1)',
+                data                : <?php echo json_encode($total_sampah_bulanan); ?>
+            },
+            {
+                label               : 'Daur Ulang',
+                backgroundColor     : 'rgba(110, 214, 222, 1)',
+                borderColor         : 'rgba(110, 214, 222, 0.8)',
+                pointRadius         : false,
+                pointColor          : '#6ed6de',
+                pointStrokeColor    : 'rgba(110, 214, 222, 1)',
+                data                : <?php echo json_encode($total_daur_ulang_bulanan); ?>
+            },
+            {
+                label               : 'Residu',
+                backgroundColor     : 'rgba(41, 182, 246, 0.9)',
+                borderColor         : 'rgba(41, 182, 246, 0.8)',
+                pointRadius         : false,
+                pointColor          : '#29b6f6',
+                pointStrokeColor    : 'rgba(41, 182, 246, 1)',
+                data                : <?php echo json_encode($total_residu_bulanan); ?>
+            }
+        ]
+    };
+
+    var areaChartOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+            display: true,
+        },
+        scales: {
+            xAxes: [{
+                gridLines : {
+                    display : false,
+                }
+            }],
+            yAxes: [{
+                gridLines : {
+                    display : false,
+                }
+            }]
+        }
+    };
+
+    new Chart(areaChartCanvas, {
+        type: 'bar',
+        data: areaChartData,
+        options: areaChartOptions
+    });
+});
+</script>

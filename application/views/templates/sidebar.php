@@ -44,13 +44,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('c_daur_ulang'); ?>" class="nav-link">
+          <a href="<?php echo base_url('presentase-daur-ulang'); ?>" class="nav-link">
             <i class="fas fa-recycle nav-icon"></i>
             <p>Data Daur Ulang</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('c_daur_ulang/kalender'); ?>" class="nav-link">
+          <a href="<?php echo base_url('presentase-daur-ulang/kalender'); ?>" class="nav-link">
             <i class="fas fa-book nav-icon"></i>
             <p>Input Data Harian</p>
           </a>

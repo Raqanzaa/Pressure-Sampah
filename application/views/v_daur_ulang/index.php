@@ -118,7 +118,7 @@
     }
 
     function viewDetails(tpsId) {
-        window.location.href = '<?= site_url('c_daur_ulang/view_details/') ?>' + tpsId;
+        window.location.href = '<?= site_url('presentase-daur-ulang/view_details/') ?>' + tpsId;
     }
 </script>
 

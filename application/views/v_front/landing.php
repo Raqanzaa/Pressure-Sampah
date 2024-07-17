@@ -1,17 +1,18 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-xl position-relative d-flex align-items-center">
 
-      <a href="<?php echo site_url('c_landing'); ?>" class="logo d-flex align-items-center me-auto">
+      <a href="<?php echo site_url('landing-page'); ?>" class="logo d-flex align-items-center me-auto">
         <img src="<?php echo base_url();?>assets/img/logo.svg" alt="">
         <h1 class="sitename">Presure Sampah</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="<?php echo site_url('c_landing'); ?>#hero">Beranda</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#regulation">Regulasi Peraturan</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#statistic">Statistik</a></li>
-          <li><a href="<?php echo site_url('c_landing'); ?>#cards">Developer Profiles</a></li>
+          <li><a href="<?php echo site_url('landing-page'); ?>#hero">Beranda</a></li>
+          <li><a href="<?php echo site_url('landing-page'); ?>#regulation">Regulasi Peraturan</a></li>
+          <li><a href="<?php echo site_url('landing-page'); ?>#statistic">Statistik</a></li>
+          <li><a href="<?php echo site_url('landing-page'); ?>#artikel">Artikel</a></li>
+          <li><a href="<?php echo site_url('landing-page'); ?>#cards">Developer Profiles</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -76,23 +77,7 @@
 
     </section><!-- /Hero Section -->
     
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presure Sampah</title>
-  <style>
-    .custom-paragraph {
-      max-width: 600px; /* Set maximum width for the paragraph */
-      margin: 0 auto;  /* Center align the paragraph */
-    }
-    .hero {
-      height: 100px; /* Correct syntax for height */
-    }
-  </style>
-</head>
-<body>
+    
   <!-- Hero Section -->
   <section id="hero-small" class="hero section">
     <div class="container text-center pt-5">
@@ -124,12 +109,16 @@
 
 <!-- REGULATION SECTION -->
 <section id="regulation" class="py-5">
-    <div id="carouselExampleDark" class="carousel carousel-light slide" style="background-image: url('<?php echo base_url();?>assets/img/carousel.svg'); background-size: cover; background-position: center;">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="container py-5" style="padding-right: 5%; padding-left: 5%;">
+  <div id="carouselExampleDark" class="carousel carousel-light slide" style="background-image: url('<?php echo base_url();?>assets/img/carousel.svg'); background-size: cover; background-position: center;">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="container py-5" style="padding-right: 10%; padding-left: 10%;">
+    <div class="container section-title bg-transparent" data-aos="fade-up" style="color: white;">
+    <h2 style="color: white;">Regulasi Pemerintah</h2>
+</div><!-- End Section Title -->
+
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
                     <div class="row">
@@ -243,112 +232,77 @@
   </div><!-- End Section Title -->
 
   <!-- Statistics Content -->
-  <div class="container">
+<div class="container">
     <div class="row text-center justify-center" data-aos="fade-up" data-aos-delay="100">
-      <!-- Statistik 1 -->
-      <!-- <div class="col-lg-4 col-md-6 mb-4">
-      <div class="card custom-card custom-card-utama d-flex align-items-center" style="position: relative;">
-          <img src="<?php echo base_url();?>assets/img/statistik1.svg" class="custom-statistik w-50 mt-3" alt="Statistik 1">
-          <div class="card-body">
-            <h1 class="card-title text-left fw-bold" id="stat-1">256</h1>
-            <p class="text-left text-grey">UNIT</p>
-            <p class="card-text text-left fw-bold">BSI (Bank Sampah Induk)</p>
-          </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card custom-card custom-card-utama align-items-center">
+                <img src="<?php echo base_url();?>assets/img/statistik2.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 2">
+                <div class="card-body">
+                    <h1 class="card-title text-left fw-bold" id="stat-1"><?php echo $tps; ?></h1>
+                    <p class="text-left text-grey">UNIT</p>
+                    <p class="card-text text-left fw-bold">TPS (Tempat Pembuangan Sampah)</p>
+                </div>
+            </div>
         </div>
-      </div> -->
-      <!-- Statistik 2 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card custom-card-utama align-items-center">
-          <img src="<?php echo base_url();?>assets/img/statistik2.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 2">
-          <div class="card-body">
-            <h1 class="card-title text-left fw-bold" id="stat-1">5</h1>
-            <p class="text-left text-grey">UNIT</p>
-            <p class="card-text text-left fw-bold">TPS (Tempat Pembuangan Sampah)</p>
-          </div>
-        </div>
-      </div>
-      <!-- Statistik 3 -->
-      <!-- <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card custom-card-utama align-items-center">
-          <img src="<?php echo base_url();?>assets/img/statistik3.svg" class="custom-statistik card-img-top w-50 mt-3" alt="Statistik 3">
-          <div class="card-body">
-            <h1 class="card-title text-left fw-bold" id="stat-1">4.681</h1>
-            <p class="text-left text-grey">NASABAH</p>
-            <p class="card-text text-left fw-bold">Lembaga/Rumah Tangga</p>
-          </div>
-        </div>
-      </div> -->
     </div>
     <br>
-    <!-- Year Filter -->
-    <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
-      <div class="col text-center">
-        <label for="yearFilter" class="form-label"></label>
-        <select class="form-select w-15 d-inline-block" id="yearFilter" style="max-width: 150px;">
-          <option value="2022">TAHUN 2022</option>
-          <option value="2023">TAHUN 2023</option>
-          <option value="2024">TAHUN 2024</option>
-        </select>
-      </div>
-    </div>
     <!-- Additional Statistics -->
     <div class="row text-center" data-aos="fade-up" data-aos-delay="300">
-       <!-- Statistik 4 -->
-       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card d-flex align-items-center">
-          <!-- <img src="<?php echo base_url();?>assets/img/statistik4.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
-          <div class="card-body">
-            <h2 class="card-title text-center fw-bold" id="stat-1">13</h2>
-            <p class="text-center text-grey">Jenis Sampah</p>
-          </div>
+        <!-- Statistik 4 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card custom-card d-flex align-items-center">
+                <!-- <img src="<?php echo base_url();?>assets/img/statistik4.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+                <div class="card-body">
+                    <h2 class="card-title text-center fw-bold" id="stat-1"><?php echo $jenis_sampah; ?></h2>
+                    <p class="text-center text-grey">Jenis Sampah</p>
+                </div>
+            </div>
         </div>
-      </div>
-       <!-- Statistik 5 -->
-       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card d-flex align-items-center">
-          <!-- <img src="<?php echo base_url();?>assets/img/statistik5.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
-          <div class="card-body">
-            <h2 class="card-title text-center fw-bold" id="stat-1">137.215,08 Ton</h2>
-            <p class="text-center text-grey">Sampah Dikumpulkan</p>
-          </div>
+        <!-- Statistik 5 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card custom-card d-flex align-items-center">
+                <!-- <img src="<?php echo base_url();?>assets/img/statistik5.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+                <div class="card-body">
+                    <h2 class="card-title text-center fw-bold" id="stat-1"><?php echo number_format($sampah_dikumpulkan, 2, ',', '.'); ?> Kg</h2>
+                    <p class="text-center text-grey">Sampah Dikumpulkan</p>
+                </div>
+            </div>
         </div>
-      </div>
-       <!-- Statistik 6 -->
-       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card d-flex align-items-center">
-          <!-- <img src="<?php echo base_url();?>assets/img/statistik6.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
-          <div class="card-body">
-            <h2 class="card-title text-center fw-bold" id="stat-1">2.461,05 Ton</h2>
-            <p class="text-center text-grey">Sampah Dimanfaatkan</p>
-          </div>
+        <!-- Statistik 6 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card custom-card d-flex align-items-center">
+                <!-- <img src="<?php echo base_url();?>assets/img/statistik6.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+                <div class="card-body">
+                    <h2 class="card-title text-center fw-bold" id="stat-1"><?php echo $kategori_sampah; ?></h2>
+                    <p class="text-center text-grey">Kategori Sampah</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <!-- Additional Statistics -->
     <div class="row text-center justify-content-center" data-aos="fade-up" data-aos-delay="300">
-       <!-- Statistik 7 -->
-       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card d-flex align-items-center">
-          <!-- <img src="<?php echo base_url();?>assets/img/statistik7.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
-          <div class="card-body">
-            <h2 class="card-title text-center fw-bold" id="stat-1">5.313,96 Ton</h2>
-            <p class="text-center text-grey">Sampah Didaur Ulang</p>
-          </div>
+        <!-- Statistik 7 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card custom-card d-flex align-items-center">
+                <!-- <img src="<?php echo base_url();?>assets/img/statistik7.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+                <div class="card-body">
+                    <h2 class="card-title text-center fw-bold" id="stat-1"><?php echo number_format($sampah_didaur_ulang, 2, ',', '.'); ?> Kg</h2>
+                    <p class="text-center text-grey">Sampah Didaur Ulang</p>
+                </div>
+            </div>
         </div>
-      </div>
-       <!-- Statistik 8 -->
-       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card d-flex align-items-center">
-          <!-- <img src="<?php echo base_url();?>assets/img/statistik8.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
-          <div class="card-body">
-            <h2 class="card-title text-center fw-bold" id="stat-1">25,61 Ton</h2>
-            <p class="text-center text-grey">Residu</p>
-          </div>
+        <!-- Statistik 8 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card custom-card d-flex align-items-center">
+                <!-- <img src="<?php echo base_url();?>assets/img/statistik8.svg" class="custom-statistik-2 mt-3" alt="Icon 1"> -->
+                <div class="card-body">
+                    <h2 class="card-title text-center fw-bold" id="stat-1"><?php echo number_format($residu, 2, ',', '.'); ?> Kg</h2>
+                    <p class="text-center text-grey">Residu</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
+</div>
 <!-- END STATISTICS SECTION -->
 
 <!-- ARTIKEL SECTION -->

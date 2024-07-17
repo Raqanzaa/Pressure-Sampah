@@ -16,7 +16,7 @@ class c_tps extends CI_Controller {
             redirect('auth/login');
         }
 
-        $user_id = $this->session->userdata('user_id');
+        $user_id = $this->session->userdata('user_id'); 
         $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['tps'] = $this->m_tps->get_all_tps($user_id);
 

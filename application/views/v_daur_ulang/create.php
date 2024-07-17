@@ -1,4 +1,4 @@
-<form id="createForm" action="<?= site_url('c_daur_ulang/submit_harian') ?>" method="post">
+<form id="createForm" action="<?= site_url('presentase-daur-ulang/submit_harian') ?>" method="post">
     <input type="hidden" name="tanggal" id="inputTanggal" value="">
     <div class="form-group">
         <label for="tps_id">Nama TPS</label>

@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <h3 class="card-title"><?php echo $tps['nama_tps']; ?></h3>
                         <div class="card-tools">
-                            <a href="<?= site_url('c_daur_ulang'); ?>" class="btn btn-secondary btn-sm">
+                            <a href="<?= site_url('presentase-daur-ulang'); ?>" class="btn btn-secondary btn-sm">
                                 <i class="fas fa-arrow-left"></i> Kembali
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                                                 <button type="button" class="btn btn-sm btn-warning text-light" data-toggle="modal" data-target="#editModal" onclick="loadEditForm(<?php echo $du['id']; ?>)">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </button>
-                                                <a href="<?= site_url('c_daur_ulang/delete/' . $du['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
+                                                <a href="<?= site_url('presentase-daur-ulang/delete/' . $du['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>
                                             </td>
@@ -76,7 +76,7 @@
 <script>
     function loadEditForm(id) {
         $.ajax({
-            url: '<?= site_url('c_daur_ulang/edit_harian/') ?>' + id,
+            url: '<?= site_url('presentase-daur-ulang/edit_harian/') ?>' + id,
             type: 'GET',
             success: function(data) {
                 $('#editModal .modal-body').html(data); 

@@ -61,6 +61,16 @@ $route['artikel-sampah/tambah'] = 'c_artikel/tambah';
 $route['artikel-sampah/edit/(:num)'] = 'c_artikel/edit/$1';
 $route['user-profile/index/(:num)'] = 'c_users/index/$1';
 $route['user-profile/edit/(:num)'] = 'c_users/edit/$1';
+$route['presentase-daur-ulang'] = 'c_daur_ulang';
+$route['presentase-daur-ulang/harian'] = 'c_daur_ulang/harian';
+$route['presentase-daur-ulang/submit_harian'] = 'c_daur_ulang/submit_harian';
+$route['presentase-daur-ulang/edit/(:num)'] = 'c_daur_ulang/edit_harian/$1';
+$route['presentase-daur-ulang/update_harian'] = 'c_daur_ulang/update_harian';
+$route['presentase-daur-ulang/update'] = 'c_daur_ulang/update_harian';
+$route['presentase-daur-ulang/delete/(:num)'] = 'c_daur_ulang/delete/$1';
+$route['presentase-daur-ulang/kalender'] = 'c_daur_ulang/kalender';
+$route['presentase-daur-ulang/view_details/(:num)'] = 'c_daur_ulang/view_details/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
 

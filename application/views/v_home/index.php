@@ -1,206 +1,145 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <!-- <h1>Dashboard</h1> -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-truck"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Jumlah TPS</span>
+            <span class="info-box-number"><?php echo $jumlah_tps; ?> <small>tps</small></span>
           </div>
-          <!-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Home</li>
-            </ol>
-          </div> -->
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <div class="container-fluid">
-
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-trash"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Jumlah TPS</span>
-                <span class="info-box-number">
-                  10
-                  <small></small>
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Total Sampah</span>
-                <span class="info-box-number">41,410
-                  <small>ton</small>
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Presentase</span>
-                <span class="info-box-number">760
-                  <small>%</small>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title">Laporan Bulanan</h5>
-
-                
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <p class="text-center">
-                      <strong>Keberhasilan Daur Ulang Sampah</strong>
-                    </p>
-
-                    <div class="chart">
-                      <!-- Sales Chart Canvas -->
-                      <canvas id="areaChart" height="180" style="height: 180px;"></canvas>
-                    </div>
-                    <!-- /.chart-responsive -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-md-4">
-                    <p class="text-center">
-                      <strong>Target Daur Ulang Sampah</strong>
-                    </p>
-
-                    <div class="progress-group">
-                      Bulanan
-                      <span class="float-right"><b>70%</b>/100%</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 70%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
-
-                    <div class="progress-group">
-                      Mingguan
-                      <span class="float-right"><b>60%</b>/100%</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" style="width: 60%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      Harian
-                      <span class="float-right"><b>40%</b>/100%</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 40%"></div>
-                      </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center mt-3">
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-success pr-1"></i>> 50% = Behasil</p>
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-warning pr-1"></i>< 50% = Netral</p>
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-danger pr-1"></i>< 30% = Gagal</p>
-                        
-                    </div>
-
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- ./card-body -->
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-                      <h5 class="description-header">Rp 10.000.000</h5>
-                      <span class="description-text">TOTAL DANA</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
-                      <h5 class="description-header">Rp 8.000.000</h5>
-                      <span class="description-text">TOTAL PENGELUARAN</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
-                      <h5 class="description-header">Rp 6.000.000</h5>
-                      <span class="description-text">TOTAL PEMASUKAN</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block">
-                      <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
-                      <h5 class="description-header">1000 <small>Ton</small></h5>
-                      <span class="description-text">TARGET DAUR ULANG</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-
       </div>
 
-    </section>
-    <!-- /.content -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-trash"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Total Sampah</span>
+            <span class="info-box-number"><?php echo number_format($total_sampah, 0, ',', '.'); ?> <small>kg</small></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix hidden-md-up"></div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-success elevation-1"><i class="fas fa-recycle"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Total Sampah Terdaur Ulang</span>
+            <span class="info-box-number"><?php echo number_format($total_daur_ulang, 0, ',', '.'); ?> <small>kg</small></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-trash-alt"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Total Residu Sampah</span>
+            <span class="info-box-number"><?php echo number_format($total_residu, 0, ',', '.'); ?> <small>kg</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+            <div class="col-md-8">
+                <p class="text-center">
+                    <strong>Keberhasilan Daur Ulang Sampah</strong>
+                </p>
+                <form method="post" action="<?php echo site_url('dashboard'); ?>">
+                    <div class="form-group">
+                        <label for="kategori_id">Pilih Kategori Sampah:</label>
+                        <select class="form-control" id="kategori_id" name="kategori_id" onchange="this.form.submit()">
+                            <option value="">Semua Kategori</option>
+                            <?php foreach ($kategori_sampah as $kategori): ?>
+                                <option value="<?php echo $kategori['id_ktgrsampah']; ?>" <?php echo set_select('kategori_id', $kategori['id_ktgrsampah']); ?>>
+                                    <?php echo $kategori['nama_kategori']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </form>
+                <div class="chart">
+                    <canvas id="areaChart" height="300" style="height: 300px;"></canvas>
+                </div>
+            </div>
+
+              <div class="col-md-4 mb-5">
+                <p class="text-center">
+                  <strong>Target Daur Ulang Sampah</strong>
+                </p>
+                <div class="progress-group mt-5">
+                    Bulanan
+                    <span class="float-right"><b><?php echo $progress_bulanan['persen']; ?></b>%</span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar <?php echo $progress_bulanan['kelas']; ?>" style="width: <?php echo $progress_bulanan['persen']; ?>%"></div>
+                    </div>
+                </div>
+                <div class="progress-group mt-3">
+                    Mingguan
+                    <span class="float-right"><b><?php echo $progress_mingguan['persen']; ?></b>%</span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar <?php echo $progress_mingguan['kelas']; ?>" style="width: <?php echo $progress_mingguan['persen']; ?>%"></div>
+                    </div>
+                </div>
+                <div class="progress-group mt-3">
+                    Harian
+                    <span class="float-right"><b><?php echo $progress_harian['persen']; ?></b>%</span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar <?php echo $progress_harian['kelas']; ?>" style="width: <?php echo $progress_harian['persen']; ?>%"></div>
+                    </div>
+                </div>
+
+                <div class="kriteria-daurulang mt-5">
+                    <p class="text-center">
+                      <strong>Kriteria Keberhasilan Daur Ulang</strong>
+                    </p>
+                    <div class="d-flex justify-content-center mt-3">
+                      <p class="pr-3"><i class="nav-icon fas fa-square text-success p-2"></i>> 50% = Berhasil</p>
+                      <p class="pr-3"><i class="nav-icon fas fa-square text-warning p-2"></i>< 50% = Netral</p>
+                      <p class="pr-3"><i class="nav-icon fas fa-square text-danger p-2"></i>< 30% = Gagal</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.content -->
+
+<!-- Display total waste -->
+<?php if (isset($total_sampah)) : ?>
+    <div>Total Sampah: <?= $total_sampah; ?></div>
+<?php endif; ?>
+
+<!-- Display total recycled waste -->
+<?php if (isset($total_daur_ulang)) : ?>
+    <div>Total Daur Ulang: <?= $total_daur_ulang; ?></div>
+<?php endif; ?>
+
+<!-- Display total residue -->
+<?php if (isset($total_residu)) : ?>
+    <div>Total Residu: <?= $total_residu; ?></div>
+<?php endif; ?>
+
+<!-- Progress bars -->
+<div class="progress-bar <?= isset($progress_bulanan['kelas']) ? $progress_bulanan['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_bulanan['persen']) ? $progress_bulanan['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_bulanan['persen']) ? $progress_bulanan['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress-bar <?= isset($progress_mingguan['kelas']) ? $progress_mingguan['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_mingguan['persen']) ? $progress_mingguan['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_mingguan['persen']) ? $progress_mingguan['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress-bar <?= isset($progress_harian['kelas']) ? $progress_harian['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_harian['persen']) ? $progress_harian['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_harian['persen']) ? $progress_harian['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div>

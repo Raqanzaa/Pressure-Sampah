@@ -6,7 +6,6 @@ class c_daur_ulang extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('m_daur_ulang');
-        $this->load->model('m_users');
         $this->load->model('m_tps');
         $this->load->model('m_ktgrsampah');
         $this->load->model('m_auth');
@@ -37,7 +36,7 @@ class c_daur_ulang extends CI_Controller {
         }
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['tps'] = $this->m_tps->get_all_tps($user_id);
         $data['daur_ulang'] = $this->m_daur_ulang->get_all_daur_ulang($user_id);
         $data['kategori'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
@@ -83,7 +82,7 @@ class c_daur_ulang extends CI_Controller {
         $nama_bulan = $this->get_bulan_indonesia($bulan);
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
         $data['daur_ulang'] = $this->m_daur_ulang->get_harian($tanggal, $user_id);
         $data['nama_bulan'] = $nama_bulan;
         $data['tahun'] = $tahun;
@@ -107,7 +106,7 @@ class c_daur_ulang extends CI_Controller {
         $this->form_validation->set_rules('tps_id', 'Nama TPS', 'required');
     
         if ($this->form_validation->run() === FALSE) {
-            $this->kalender(); // Redirect to form if validation fails
+            $this->kalender();
         } else {
             $data = array(
                 'tanggal' => date('Y-m-d', strtotime($this->input->post('tanggal'))),
@@ -121,7 +120,6 @@ class c_daur_ulang extends CI_Controller {
     
             $this->m_daur_ulang->insert_harian($data);
     
-            // Akumulasi data mingguan
             $tanggal_obj = new DateTime($data['tanggal']);
             $minggu_ke = $tanggal_obj->format("W");
             $bulan = $tanggal_obj->format("n");
@@ -139,7 +137,6 @@ class c_daur_ulang extends CI_Controller {
             );
             $this->m_daur_ulang->accumulate_mingguan($mingguan_data);
     
-            // Akumulasi data bulanan
             $bulanan_data = array(
                 'bulan' => $bulan,
                 'tahun' => $tahun,
@@ -152,11 +149,10 @@ class c_daur_ulang extends CI_Controller {
             );
             $this->m_daur_ulang->accumulate_bulanan($bulanan_data);
     
-            redirect('c_daur_ulang');
+            redirect('presentase-daur-ulang');
         }
     }
     
-
     public function edit_harian($id) {
         if (!$this->session->userdata('user_id')) {
             redirect('auth/login');
@@ -168,7 +164,7 @@ class c_daur_ulang extends CI_Controller {
         $data['tps'] = $this->m_tps->get_all_tps($this->session->userdata('user_id'));
     
         if (empty($data['daur_ulang'])) {
-            redirect('c_daur_ulang');
+            redirect('presentase-daur-ulang');
         }
     
         $this->load->view('v_daur_ulang/edit', $data);
@@ -203,7 +199,7 @@ class c_daur_ulang extends CI_Controller {
 
         $this->update_akumulasi($new_data['tanggal'], $new_data['tps_id'], $diff_data);
     
-        redirect('c_daur_ulang');
+        redirect('presentase-daur-ulang');
     }
     
     private function update_akumulasi($tanggal, $tps_id, $diff_data) {
@@ -224,7 +220,7 @@ class c_daur_ulang extends CI_Controller {
             $this->update_akumulasi_delete($data_to_delete['tanggal'], $data_to_delete['tps_id'], $data_to_delete);
         }
     
-        redirect('c_daur_ulang');
+        redirect('presentase-daur-ulang');
     }
     
     private function update_akumulasi_delete($tanggal, $tps_id, $data) {
@@ -264,7 +260,7 @@ class c_daur_ulang extends CI_Controller {
         }
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->m_auth->get_user_by_id($user_id);
     
         $bulan = date('n');
         $tahun = date('Y');
@@ -290,7 +286,7 @@ class c_daur_ulang extends CI_Controller {
             redirect('auth/login');
         }
     
-        $data['user'] = $this->m_users->get_user_by_id($this->session->userdata('user_id'));
+        $data['user'] = $this->m_auth->get_user_by_id($this->session->userdata('user_id'));
         $data['tps'] = $this->m_tps->get_tps_by_id($tps_id);
         $data['daur_ulang'] = $this->m_daur_ulang->get_daur_ulang_by_tps_id($tps_id);
     
