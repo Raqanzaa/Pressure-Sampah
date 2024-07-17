@@ -107,9 +107,9 @@
                       <strong>Kriteria Keberhasilan Daur Ulang</strong>
                     </p>
                     <div class="d-flex justify-content-center mt-3">
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-success p-2"></i>> 50% = Berhasil</p>
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-warning p-2"></i>< 50% = Netral</p>
-                      <p class="pr-3"><i class="nav-icon fas fa-square text-danger p-2"></i>< 30% = Gagal</p>
+                      <p class="pr-1"><i class="nav-icon fas fa-square text-success p-1"></i>> 50% = Berhasil</p>
+                      <p class="pr-1"><i class="nav-icon fas fa-square text-warning p-1"></i>< 50% = Netral</p>
+                      <p class="pr-1"><i class="nav-icon fas fa-square text-danger p-1"></i>< 30% = Gagal</p>
                     </div>
                 </div>
               </div>
@@ -124,22 +124,21 @@
 </section>
 <!-- /.content -->
 
-<!-- Display total waste -->
-<?php if (isset($total_sampah)) : ?>
+
+<!-- VARDUMP -->
+<!-- <?php if (isset($total_sampah)) : ?>
     <div>Total Sampah: <?= $total_sampah; ?></div>
 <?php endif; ?>
 
-<!-- Display total recycled waste -->
 <?php if (isset($total_daur_ulang)) : ?>
     <div>Total Daur Ulang: <?= $total_daur_ulang; ?></div>
 <?php endif; ?>
 
-<!-- Display total residue -->
 <?php if (isset($total_residu)) : ?>
     <div>Total Residu: <?= $total_residu; ?></div>
 <?php endif; ?>
 
-<!-- Progress bars -->
 <div class="progress-bar <?= isset($progress_bulanan['kelas']) ? $progress_bulanan['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_bulanan['persen']) ? $progress_bulanan['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_bulanan['persen']) ? $progress_bulanan['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div>
 <div class="progress-bar <?= isset($progress_mingguan['kelas']) ? $progress_mingguan['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_mingguan['persen']) ? $progress_mingguan['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_mingguan['persen']) ? $progress_mingguan['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div>
-<div class="progress-bar <?= isset($progress_harian['kelas']) ? $progress_harian['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_harian['persen']) ? $progress_harian['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_harian['persen']) ? $progress_harian['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress-bar <?= isset($progress_harian['kelas']) ? $progress_harian['kelas'] : ''; ?>" role="progressbar" style="width: <?= isset($progress_harian['persen']) ? $progress_harian['persen'] : 0; ?>%" aria-valuenow="<?= isset($progress_harian['persen']) ? $progress_harian['persen'] : 0; ?>" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- END VARDUMP -->
