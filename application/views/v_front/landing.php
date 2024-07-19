@@ -24,9 +24,9 @@
 
   <!-- LOGIN & REGISTER PAGE -->
   <div id="loginPopup" class="popup">
-    <div class="popup-content">
+    <div class="popup-content" style="margin-top: 200px;">
         <span class="close" onclick="closeLoginPopup()">&times;</span>
-        <div class="w-auto rounded-2xl m-auto bg-slate-900">
+        <div class="w-auto rounded-2xl bg-slate-900">
             <div class="flex flex-col gap-2 p-8">
                 <p class="text-center text-3xl text-gray-300 mb-4">Login</p>
                 <?php echo form_open('auth/login'); ?>
@@ -44,7 +44,7 @@
 </div>
 
 <div id="registerPopup" class="popup">
-    <div class="popup-content">
+    <div class="popup-content" style="margin-top: 200px;">
         <span class="close2" onclick="closeRegisterPopup()">&times;</span>
         <span class="back" onclick="showLoginPopup()">&larr; Back to Login</span>
         <div class="w-auto rounded-2xl m-auto bg-slate-900">
@@ -232,7 +232,7 @@
   </div><!-- End Section Title -->
 
   <!-- Statistics Content -->
-<div class="container">
+<div class="container pb-5">
     <div class="row text-center justify-center" data-aos="fade-up" data-aos-delay="100">
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card custom-card custom-card-utama align-items-center">
@@ -306,26 +306,21 @@
 <!-- END STATISTICS SECTION -->
 
 <!-- ARTIKEL SECTION -->
-<div class="container section-title" data-aos="fade-up">
-    <h2 class="">Artikel</h2>
-</div><!-- End Section Title -->
 <section id="artikel" class="py-3">
+    <div class="container section-title" data-aos="fade-up">
+        <h2 class="">Artikel</h2>
+    </div>
     <div class="container">
-        <div class="container py-5" style="padding-right: 5%; padding-left: 5%;">
+        <div class="container">
             <div class="row pl-2 pr-2">
-                <?php
-                // Ambil maksimal 8 artikel terbaru, diurutkan berdasarkan tanggal_publikasi descending
-                $counter = 0;
-                foreach (array_reverse($artikel) as $a): // Mengambil array terbalik
-                    $counter++;
-                    if ($counter > 8) break; // Hanya tampilkan maksimal 8 artikel
-                ?>
+                <?php foreach ($artikel as $a): ?>
                     <div class="col-lg-3 col-md-6 mb-4 mb-4-custom">
                         <div class="card custom-card shadow-sm" style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
                             <img src="<?php echo base_url('assets/img/'.$a['gambar_artikel']); ?>" class="card-img-top" alt="<?php echo $a['judul']; ?>">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold"><?php echo $a['judul']; ?></h5>
                                 <p class="card-text"><small class="text-muted"><?php echo date('d F Y', strtotime($a['tanggal_publikasi'])); ?></small></p>
+                                <p class="card-text"><small class="text-muted">Author: <?php echo $a['full_name']; ?></small></p>
                                 <a href="#" class="btn btn-success btn-sm btn-army" data-toggle="modal" data-target="#artikelModal-<?php echo $a['id_artikel']; ?>">Baca Artikel</a>
                             </div>
                         </div>
@@ -345,6 +340,7 @@
                                     <img src="<?php echo base_url('assets/img/'.$a['gambar_artikel']); ?>" class="img-fluid mb-3" alt="<?php echo $a['judul']; ?>">
                                     <p><?php echo $a['deskripsi']; ?></p>
                                     <p class="text-muted"><?php echo date('d F Y', strtotime($a['tanggal_publikasi'])); ?></p>
+                                    <p class="text-muted">Author: <?php echo $a['full_name']; ?></p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -367,6 +363,14 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script>
+    $(document).ready(function() {
+        $('.modal').on('hidden.bs.modal', function () {
+            $('body').css('padding-right', '0');
+        });
+    });
+</script>
+
 <style>
     .custom-card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
@@ -377,19 +381,35 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
     }
 
+    #artikel .custom-card img {
+        height: 200px; /* Atur tinggi gambar sesuai keinginan Anda */
+        object-fit: cover; /* Memastikan gambar dipotong dengan rapi */
+        width: 100%; /* Pastikan gambar memenuhi lebar card */
+    }
+
     .btn-army {
         background-color: #50B498; /* Ubah warna background menjadi hijau army */
         border-color: #006769; /* Ubah warna border sesuai dengan background */
     }
+    
+    .dark-mode {
+        background-color: #4b545c;
+        color: white;
+    }
+
+    .dark-mode .text-gray-700 {
+        color: #d1d5db; /* Warna teks untuk mode gelap */
+    }
+
+    .dark-mode .text-gray-500 {
+        color: #9ca3af; /* Warna teks untuk mode gelap */
+    }
+
+    .dark-mode .bg-gray-700 {
+        background-color: #1f2937; /* Warna latar belakang untuk ikon */
+    }
 </style>
 
-<script>
-    $(document).ready(function() {
-        $('.modal').on('hidden.bs.modal', function () {
-            $('body').css('padding-right', '0');
-        });
-    });
-</script>
 
 
 
@@ -413,19 +433,15 @@
     <!-- Profile Cards Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
       <!-- Profile Card 1 (Kiri) -->
-      <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-80">
-        <div class="text-gray-500 group-hover:scale-105 transition-all">
-          <svg class="w-20 h-20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-          </svg>
-        </div>
-        <div class="group-hover:pb-10 transition-all duration-500 delay-200">
+        <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-96 dark-mode" style="background-color: #113626;">
+          <div class="rounded-full overflow-hidden w-24 h-24 mx-auto group-hover:scale-105 transition-all duration-500 delay-200" style="background-image: url('assets/img/develop/rozaq.png'); background-size: cover; background-position: center; border: 4px solid white;"></div>
+          <div class="group-hover:pb-10 transition-all duration-500 delay-200 mt-3">
           <h1 class="font-semibold text-gray-700 text-lg">Ahmad Rozaq U.</h1>
           <p class="text-gray-500 text-sm">@a.rzq_u</p>
         </div>
         <div class="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
-          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm">
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
+          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm" style="background-color: #113626;">
+            <a href="https://github.com/Raqanzaa" class="hover:scale-110 transition-all duration-500 delay-200">
               <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
               </svg>
@@ -445,19 +461,15 @@
       </div>
 
       <!-- Profile Card 2 (Tengah) -->
-      <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-80">
-        <div class="text-gray-500 group-hover:scale-105 transition-all">
-          <svg class="w-20 h-20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-          </svg>
-        </div>
-        <div class="group-hover:pb-10 transition-all duration-500 delay-200">
+        <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-96 dark-mode" style="background-color: #113626;">
+          <div class="rounded-full overflow-hidden w-24 h-24 mx-auto group-hover:scale-105 transition-all duration-500 delay-200" style="background-image: url('assets/img/develop/sanurfz.png'); background-size: cover; background-position: center; border: 4px solid white;"></div>
+          <div class="group-hover:pb-10 transition-all duration-500 delay-200 mt-3">
           <h1 class="font-semibold text-gray-700 text-lg">Nur Ikhsan M. H.</h1>
           <p class="text-gray-500 text-sm">@sanurfz</p>
         </div>
         <div class="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
-          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm">
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
+          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm" style="background-color: #113626;">
+            <a href="https://github.com/Ikhsanurfz" class="hover:scale-110 transition-all duration-500 delay-200">
               <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
               </svg>
@@ -477,19 +489,15 @@
       </div>
 
       <!-- Profile Card 3 (Kanan) -->
-      <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-80">
-        <div class="text-gray-500 group-hover:scale-105 transition-all">
-          <svg class="w-20 h-20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-          </svg>
-        </div>
-        <div class="group-hover:pb-10 transition-all duration-500 delay-200">
+        <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm mx-auto hover:shadow-2xl transition-all duration-500 shadow-xl lg:w-96 dark-mode" style="background-color: #113626;">
+          <div class="rounded-full overflow-hidden w-24 h-24 mx-auto group-hover:scale-105 transition-all duration-500 delay-200" style="background-image: url('assets/img/develop/vina.png'); background-size: cover; background-position: center; border: 4px solid white;"></div>
+          <div class="group-hover:pb-10 transition-all duration-500 delay-200 mt-3">
           <h1 class="font-semibold text-gray-700 text-lg">Vina Dhamayanti</h1>
           <p class="text-gray-500 text-sm">@dhamayantivina</p>
         </div>
         <div class="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
-          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm">
-            <a href="#" class="hover:scale-110 transition-all duration-500 delay-200">
+          <div class="flex gap-3 text-2xl bg-gray-700 text-white p-1 hover:p-2 transition-all duration-500 delay-200 rounded-full shadow-sm" style="background-color: #113626;">
+            <a href="https://github.com/dhamayantivina" class="hover:scale-110 transition-all duration-500 delay-200">
               <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
               </svg>

@@ -10,7 +10,12 @@ class m_artikel extends CI_Model {
 
       // Mendapatkan semua artikel tanpa memfilter user_id
       public function get_all_articles() {
-        $query = $this->db->get('t_artikel');
+        $this->db->select('artikel.*, t_users.full_name');
+        $this->db->from('t_artikel artikel');
+        $this->db->join('t_users', 'artikel.user_id = t_users.id');
+        $this->db->order_by('artikel.tanggal_publikasi', 'DESC');
+        $this->db->limit(8);
+        $query = $this->db->get();
         return $query->result_array();
     }
 
