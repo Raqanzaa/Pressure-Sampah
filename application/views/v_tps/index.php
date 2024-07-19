@@ -75,7 +75,7 @@
                                             <button class="btn btn-info btn-sm text-light" data-toggle="modal" data-target="#editModal" onclick="loadEditForm(<?= $t['id_tps']; ?>)">
                                                 <i class="fas fa-edit"></i> Edit
                                             </button>
-                                            <a href="<?= site_url('c_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
+                                            <a href="<?= site_url('C_tps/delete/'.$t['id_tps']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -128,7 +128,7 @@
     function loadEditForm(id_tps) {
         console.log('Loading form for TPS ID:', id_tps);
         $.ajax({
-            url: '<?= site_url('c_tps/edit/') ?>' + id_tps,
+            url: '<?= site_url('C_tps/edit/') ?>' + id_tps,
             type: 'GET',
             success: function(data) {
                 console.log('AJAX success:', data);

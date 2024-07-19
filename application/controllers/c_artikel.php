@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_artikel extends CI_Controller {
+class C_artikel extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('m_artikel');
+        $this->load->model('M_artikel');
         $this->load->library('upload');
         $this->load->library('pagination');
-        $this->load->model('m_auth');
+        $this->load->model('M_auth');
     }
 
     // Fungsi untuk mengambil data
@@ -22,8 +22,8 @@ class c_artikel extends CI_Controller {
         $cari = $this->input->get('cari');
         $page = $this->input->get('per_page');
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['artikel'] = $this->m_artikel->get_all_artikel($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['artikel'] = $this->M_artikel->get_all_artikel($user_id);
 
         $search = array('judul' => $cari);
 
@@ -35,8 +35,8 @@ class c_artikel extends CI_Controller {
         endif;
 
         $config['page_query_string'] = TRUE;
-        $config['base_url'] = base_url().'index.php/c_artikel/?cari='.$cari;
-        $config['total_rows'] = $this->m_artikel->jumlah_row($search, $user_id);
+        $config['base_url'] = base_url().'index.php/C_artikel/?cari='.$cari;
+        $config['total_rows'] = $this->M_artikel->jumlah_row($search, $user_id);
 
         $config['per_page'] = $batas;
         $config['uri_segment'] = $page;
@@ -70,7 +70,7 @@ class c_artikel extends CI_Controller {
         $data['pagination'] = $this->pagination->create_links();
         $data['jumlah_page'] = $page;
 
-        $data['data'] = $this->m_artikel->get($batas, $offset, $search, $user_id);
+        $data['data'] = $this->M_artikel->get($batas, $offset, $search, $user_id);
 
         $data['cari'] = $cari;
 
@@ -90,7 +90,7 @@ class c_artikel extends CI_Controller {
 
         $data['title'] = 'Tambah Artikel';
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
         $this->form_validation->set_rules('tanggal_publikasi', 'Tanggal Publikasi', 'required');
@@ -134,7 +134,7 @@ class c_artikel extends CI_Controller {
                     'gambar_artikel' => $gambar['file_name'],
                     'user_id' => $this->session->userdata('user_id')
                 );
-                $this->m_artikel->insert($data);
+                $this->M_artikel->insert($data);
                 redirect('artikel-sampah');
             } else {
                 die("Gagal upload");
@@ -146,7 +146,7 @@ class c_artikel extends CI_Controller {
                 'deskripsi' => $deskripsi,
                 'user_id' => $this->session->userdata('user_id')
             );
-            $this->m_artikel->insert($data);
+            $this->M_artikel->insert($data);
             redirect('artikel-sampah');
         }
     }
@@ -158,7 +158,7 @@ class c_artikel extends CI_Controller {
         @unlink($path.$gambar);
 
         $where = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
-        $this->m_artikel->delete($where);
+        $this->M_artikel->delete($where);
         return redirect('artikel-sampah');
     }
 
@@ -167,8 +167,8 @@ class c_artikel extends CI_Controller {
     {
         $data['title'] = 'Edit Artikel';
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['data'] = $this->m_artikel->get_by_id($id, $user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['data'] = $this->M_artikel->get_by_id($id, $user_id);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
         $this->form_validation->set_rules('tanggal_publikasi', 'Tanggal Publikasi', 'required');
@@ -229,7 +229,7 @@ class c_artikel extends CI_Controller {
                 'deskripsi' => $deskripsi,
                 'user_id' => $this->session->userdata('user_id')
             );
-            $this->m_artikel->update($data, $kondisi);
+            $this->M_artikel->update($data, $kondisi);
             redirect('artikel-sampah');
         }
     }
@@ -237,7 +237,7 @@ class c_artikel extends CI_Controller {
     // Fungsi untuk menampilkan artikel di landing page
     public function landing()
     {
-        $data['artikel'] = $this->m_artikel->get_all_articles();
+        $data['artikel'] = $this->M_artikel->get_all_articles();
         $this->load->view('v_front/landing', $data);
     }
 }

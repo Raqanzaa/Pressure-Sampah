@@ -38,7 +38,7 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="<?= base_url() ?>index.php/c_artikel/updatedata" method="post" enctype="multipart/form-data">
+          <form action="<?= base_url() ?>index.php/C_artikel/updatedata" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
                 <label for="judul">Judul Artikel</label>

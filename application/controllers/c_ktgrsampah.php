@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_ktgrsampah extends CI_Controller {
+class C_ktgrsampah extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('m_ktgrsampah');
-        $this->load->model('m_auth');
+        $this->load->model('M_ktgrsampah');
+        $this->load->model('M_auth');
         $this->load->library('form_validation');
     }
 
@@ -16,8 +16,8 @@ class c_ktgrsampah extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['ktgrsampah'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['ktgrsampah'] = $this->M_ktgrsampah->get_all_ktgrsampah($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -32,7 +32,7 @@ class c_ktgrsampah extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -60,7 +60,7 @@ class c_ktgrsampah extends CI_Controller {
                 'warna_kategori' => $this->input->post('warna_kategori')
             );
 
-            $this->m_ktgrsampah->insert_ktgrsampah($data);
+            $this->M_ktgrsampah->insert_ktgrsampah($data);
             redirect('kategori-sampah');
         }
     }
@@ -71,8 +71,8 @@ class c_ktgrsampah extends CI_Controller {
         }
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['ktgrsampah'] = $this->m_ktgrsampah->get_ktgrsampah($id_ktgrsampah);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['ktgrsampah'] = $this->M_ktgrsampah->get_ktgrsampah($id_ktgrsampah);
     
         $this->load->view('v_ktgrsampah/edit', $data);
     }
@@ -95,7 +95,7 @@ class c_ktgrsampah extends CI_Controller {
                 'warna_kategori' => $this->input->post('warna_kategori')
             );
 
-            $this->m_ktgrsampah->update_ktgrsampah($id_ktgrsampah, $data);
+            $this->M_ktgrsampah->update_ktgrsampah($id_ktgrsampah, $data);
             redirect('kategori-sampah');
         }
     }
@@ -105,7 +105,7 @@ class c_ktgrsampah extends CI_Controller {
             redirect('auth/login');
         }
 
-        $this->m_ktgrsampah->delete_ktgrsampah($id_ktgrsampah);
+        $this->M_ktgrsampah->delete_ktgrsampah($id_ktgrsampah);
         redirect('kategori-sampah');
     }
 }

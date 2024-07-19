@@ -1,5 +1,5 @@
 <?php
-class m_artikel extends CI_Model {
+class M_artikel extends CI_Model {
     
     // Mendapatkan semua artikel untuk pengguna tertentu
     public function get_all_artikel($user_id) {

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_landing extends CI_Model {
+class M_landing extends CI_Model {
 
     // Dapatkan jumlah TPS
     public function get_tps_count() {

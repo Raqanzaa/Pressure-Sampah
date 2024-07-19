@@ -1,5 +1,5 @@
 
-<?php echo form_open('c_tps/store'); ?>
+<?php echo form_open('C_tps/store'); ?>
 <div class="form-group">
     <label for="nama_tps">Nama TPS</label>
     <input type="text" name="nama_tps" class="form-control" required>
@@ -27,5 +27,5 @@
     <textarea name="keterangan" class="form-control" required></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Simpan</button>
-<!-- <a href="<?php echo site_url('c_tps'); ?>" class="btn btn-secondary">Kembali</a> -->
+<!-- <a href="<?php echo site_url('C_tps'); ?>" class="btn btn-secondary">Kembali</a> -->
 <?php echo form_close(); ?>

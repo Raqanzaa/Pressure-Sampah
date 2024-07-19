@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_daur_ulang extends CI_Model {
+class M_daur_ulang extends CI_Model {
 
     public function get_harian_by_tanggal($tanggal, $tps_id) {
         $user_id = $this->session->userdata('user_id');
@@ -44,8 +44,7 @@ class m_daur_ulang extends CI_Model {
         $this->db->where('id', $id);
         $this->db->where('user_id', $user_id); // Ensure the update is for the logged-in user's data
         return $this->db->update('t_daur_ulang');
-    }
-    
+    } 
 
     public function delete_harian($id) {
         $this->db->where('id', $id);

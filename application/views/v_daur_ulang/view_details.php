@@ -76,7 +76,7 @@
 <script>
     function loadEditForm(id) {
         $.ajax({
-            url: '<?= site_url('presentase-daur-ulang/edit_harian/') ?>' + id,
+            url: '<?= site_url('presentase-daur-ulang/edit/') ?>' + id,
             type: 'GET',
             success: function(data) {
                 $('#editModal .modal-body').html(data); 

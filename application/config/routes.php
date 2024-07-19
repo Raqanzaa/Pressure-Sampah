@@ -49,27 +49,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'c_landing';
+$route['default_controller'] = 'C_landing';
 $route['login'] = 'auth/login';
 $route['register'] = 'auth/register';
-$route['dashboard'] = 'c_home';
-$route['landing-page'] = 'c_landing';
-$route['kategori-sampah'] = 'c_ktgrsampah';
-$route['list-tps'] = 'c_tps';
-$route['artikel-sampah'] = 'c_artikel';
-$route['artikel-sampah/tambah'] = 'c_artikel/tambah';
-$route['artikel-sampah/edit/(:num)'] = 'c_artikel/edit/$1';
-$route['user-profile/index/(:num)'] = 'c_users/index/$1';
-$route['user-profile/edit/(:num)'] = 'c_users/edit/$1';
-$route['presentase-daur-ulang'] = 'c_daur_ulang';
-$route['presentase-daur-ulang/harian'] = 'c_daur_ulang/harian';
-$route['presentase-daur-ulang/submit_harian'] = 'c_daur_ulang/submit_harian';
-$route['presentase-daur-ulang/edit/(:num)'] = 'c_daur_ulang/edit_harian/$1';
-$route['presentase-daur-ulang/update_harian'] = 'c_daur_ulang/update_harian';
-$route['presentase-daur-ulang/update'] = 'c_daur_ulang/update_harian';
-$route['presentase-daur-ulang/delete/(:num)'] = 'c_daur_ulang/delete/$1';
-$route['presentase-daur-ulang/kalender'] = 'c_daur_ulang/kalender';
-$route['presentase-daur-ulang/view_details/(:num)'] = 'c_daur_ulang/view_details/$1';
+$route['dashboard'] = 'C_home';
+$route['landing-page'] = 'C_landing';
+$route['kategori-sampah'] = 'C_ktgrsampah';
+$route['list-tps'] = 'C_tps';
+$route['artikel-sampah'] = 'C_artikel';
+$route['artikel-sampah/tambah'] = 'C_artikel/tambah';
+$route['artikel-sampah/edit/(:num)'] = 'C_artikel/edit/$1';
+$route['user-profile/index/(:num)'] = 'C_users/index/$1';
+$route['user-profile/edit/(:num)'] = 'C_users/edit/$1';
+$route['presentase-daur-ulang'] = 'C_daur_ulang';
+$route['presentase-daur-ulang/harian'] = 'C_daur_ulang/harian';
+$route['presentase-daur-ulang/submit_harian'] = 'C_daur_ulang/submit_harian';
+$route['presentase-daur-ulang/edit/(:num)'] = 'C_daur_ulang/edit_harian/$1';
+$route['presentase-daur-ulang/update_harian'] = 'C_daur_ulang/update_harian';
+$route['presentase-daur-ulang/update'] = 'C_daur_ulang/update_harian';
+$route['presentase-daur-ulang/delete/(:num)'] = 'C_daur_ulang/delete/$1';
+$route['presentase-daur-ulang/kalender'] = 'C_daur_ulang/kalender';
+$route['presentase-daur-ulang/view_details/(:num)'] = 'C_daur_ulang/view_details/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

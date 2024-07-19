@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_tps extends CI_Controller {
+class C_tps extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('m_tps');
-        $this->load->model('m_auth');
+        $this->load->model('M_tps');
+        $this->load->model('M_auth');
         $this->load->library('form_validation');
     }
 
@@ -17,8 +17,8 @@ class c_tps extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id'); 
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['tps'] = $this->m_tps->get_all_tps($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['tps'] = $this->M_tps->get_all_tps($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -34,7 +34,7 @@ class c_tps extends CI_Controller {
         }
 
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -84,7 +84,7 @@ class c_tps extends CI_Controller {
             );
 
             // Simpan data ke database
-            $this->m_tps->insert_tps($data);
+            $this->M_tps->insert_tps($data);
             redirect('list-tps');
         }
     }
@@ -112,8 +112,8 @@ class c_tps extends CI_Controller {
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
     
         if ($this->form_validation->run() == FALSE) {
-            $data['user'] = $this->m_auth->get_user_by_id($this->session->userdata('user_id'));
-            $data['tps'] = $this->m_tps->get_tps($id_tps);
+            $data['user'] = $this->M_auth->get_user_by_id($this->session->userdata('user_id'));
+            $data['tps'] = $this->M_tps->get_tps($id_tps);
     
             $this->load->view('templates/header', $data);
             $this->load->view('templates/topbar', $data);
@@ -140,7 +140,7 @@ class c_tps extends CI_Controller {
                 'keterangan' => $keterangan
             );
     
-            $this->m_tps->update_tps($id_tps, $tps_data);
+            $this->M_tps->update_tps($id_tps, $tps_data);
             redirect('list-tps');
         }
     }
@@ -152,7 +152,7 @@ class c_tps extends CI_Controller {
             redirect('auth/login');
         }
 
-        $this->m_tps->delete_tps($id_tps);
+        $this->M_tps->delete_tps($id_tps);
         redirect('list-tps');
     }
 }

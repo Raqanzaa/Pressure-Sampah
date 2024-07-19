@@ -65,7 +65,7 @@
                                                     <button type="button" class="btn btn-info btn-sm text-light" data-toggle="modal" data-target="#editModal" onclick="loadEditForm(<?= $k['id_ktgrsampah']; ?>)">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
-                                                    <a href="<?= site_url('c_ktgrsampah/delete/'.$k['id_ktgrsampah']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
+                                                    <a href="<?= site_url('C_ktgrsampah/delete/'.$k['id_ktgrsampah']); ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -123,7 +123,7 @@
     function loadEditForm(id_ktgrsampah) {
         console.log('Loading form for Kategori Sampah ID:', id_ktgrsampah);
         $.ajax({
-            url: '<?= site_url('c_ktgrsampah/edit/') ?>' + id_ktgrsampah,
+            url: '<?= site_url('C_ktgrsampah/edit/') ?>' + id_ktgrsampah,
             type: 'GET',
             success: function(data) {
                 console.log('AJAX success:', data);

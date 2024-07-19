@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_home extends CI_Controller {
+class C_home extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('m_auth');
-        $this->load->model('m_home');
-        $this->load->model('m_tps');
-        $this->load->model('m_ktgrsampah');
-        $this->load->model('m_daur_ulang');
+        $this->load->model('M_auth');
+        $this->load->model('M_home');
+        $this->load->model('M_tps');
+        $this->load->model('M_ktgrsampah');
+        $this->load->model('M_daur_ulang');
         // Periksa apakah pengguna sudah login
         if (!$this->session->userdata('user_id')) {
             redirect('auth/login');
@@ -19,23 +19,23 @@ class c_home extends CI_Controller {
     public function index() {
         $user_id = $this->session->userdata('user_id');
         $data = []; // Inisialisasi array $data
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
         $data['title'] = 'Dashboard';
 
         // Mengambil semua data TPS berdasarkan user ID
-        $tps_data = $this->m_tps->get_all_tps($user_id);
-        $data['total_sampah'] = $this->m_home->get_total_sampah($user_id);
-        $data['total_daur_ulang'] = $this->m_home->get_total_daur_ulang($user_id);
-        $data['total_residu'] = $this->m_home->get_total_residu($user_id);
+        $tps_data = $this->M_tps->get_all_tps($user_id);
+        $data['total_sampah'] = $this->M_home->get_total_sampah($user_id);
+        $data['total_daur_ulang'] = $this->M_home->get_total_daur_ulang($user_id);
+        $data['total_residu'] = $this->M_home->get_total_residu($user_id);
 
         // Mengambil kategori sampah
-        $data['kategori_sampah'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
+        $data['kategori_sampah'] = $this->M_ktgrsampah->get_all_ktgrsampah($user_id);
 
         // Default kategori (bisa diubah sesuai kebutuhan)
         $kategori_id = $this->input->post('kategori_id') ? $this->input->post('kategori_id') : null;
 
         // Mengambil data bulanan berdasarkan kategori
-        $data['data_per_bulan'] = $this->m_home->get_data_per_bulan_by_kategori($user_id, $kategori_id);
+        $data['data_per_bulan'] = $this->M_home->get_data_per_bulan_by_kategori($user_id, $kategori_id);
 
         // Menghitung jumlah TPS
         $data['jumlah_tps'] = count($tps_data);
@@ -59,9 +59,9 @@ class c_home extends CI_Controller {
         $data['total_residu_bulanan'] = $total_residu_bulanan;
 
         // Mengambil data bulanan, mingguan, dan harian
-        $bulanan = $this->m_home->get_data_bulanan($user_id, $kategori_id);
-        $mingguan = $this->m_home->get_data_mingguan($user_id, $kategori_id);
-        $harian = $this->m_home->get_data_harian($user_id, $kategori_id);
+        $bulanan = $this->M_home->get_data_bulanan($user_id, $kategori_id);
+        $mingguan = $this->M_home->get_data_mingguan($user_id, $kategori_id);
+        $harian = $this->M_home->get_data_harian($user_id, $kategori_id);
 
         // Menghitung persentase keberhasilan daur ulang
         $data['persen_bulanan'] = isset($bulanan['total']) && $bulanan['total'] > 0 ? ($bulanan['daur_ulang'] / $bulanan['total']) * 100 : 0;

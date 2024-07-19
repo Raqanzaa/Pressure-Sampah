@@ -1,4 +1,4 @@
-<form id="editForm" action="<?= site_url('c_ktgrsampah/update/'.$ktgrsampah['id_ktgrsampah']) ?>" method="post">
+<form id="editForm" action="<?= site_url('C_ktgrsampah/update/'.$ktgrsampah['id_ktgrsampah']) ?>" method="post">
     <div class="form-group">
         <label for="nama_kategori">Nama Kategori</label>
         <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="<?= $ktgrsampah['nama_kategori'] ?>" required>
@@ -15,7 +15,7 @@
         <?= form_error('warna_kategori', '<small class="text-danger">', '</small>') ?>
     </div>
     <button type="submit" class="btn btn-primary">Simpan</button>
-    <!-- <a href="<?= site_url('c_ktgrsampah'); ?>" class="btn btn-secondary">Kembali</a> -->
+    <!-- <a href="<?= site_url('C_ktgrsampah'); ?>" class="btn btn-secondary">Kembali</a> -->
 </form>
 
 <script>

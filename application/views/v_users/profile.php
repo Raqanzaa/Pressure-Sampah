@@ -39,7 +39,7 @@
                         <div class="text-center">
                             <a href="<?= site_url('user-profile/edit/'.$user['id']); ?>" class="btn btn-primary">Edit Profil</a>
                             <?php if (!empty($user['profile_picture'])): ?>
-                                <a href="<?= site_url('c_users/delete_profile_picture/'.$user['id']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus foto profil?')">Hapus Foto</a>
+                                <a href="<?= site_url('C_users/delete_profile_picture/'.$user['id']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus foto profil?')">Hapus Foto</a>
                             <?php endif; ?>
                         </div>
                     </div>

@@ -67,7 +67,7 @@
                                                 <a class="btn btn-info btn-sm" href="<?= site_url('artikel-sampah/edit/') . $artikel->id_artikel ?>">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
-                                                <a class="btn btn-danger btn-sm" href="<?= site_url('c_artikel/deletedata/') . $artikel->id_artikel ?>/<?= $artikel->gambar_artikel ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                <a class="btn btn-danger btn-sm" href="<?= site_url('C_artikel/deletedata/') . $artikel->id_artikel ?>/<?= $artikel->gambar_artikel ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>
                                             </td>

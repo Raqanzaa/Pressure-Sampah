@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <?= form_open_multipart('c_users/update/'.$user['id']); ?>
+                        <?= form_open_multipart('C_users/update/'.$user['id']); ?>
                         <div class="form-group">
                             <label for="full_name">Full Name</label>
                             <input type="text" class="form-control" id="full_name" name="full_name" value="<?= $user['full_name'] ?>" required>

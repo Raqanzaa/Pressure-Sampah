@@ -1,4 +1,4 @@
-<form id="editForm" action="<?= site_url('c_tps/update/'.$tps['id_tps']) ?>" method="post">
+<form id="editForm" action="<?= site_url('C_tps/update/'.$tps['id_tps']) ?>" method="post">
     <div class="form-group">
         <label for="nama_tps">Nama TPS</label>
         <input type="text" class="form-control" id="nama_tps" name="nama_tps" value="<?= $tps['nama_tps'] ?>" required>
@@ -25,7 +25,7 @@
         <?= form_error('keterangan', '<small class="text-danger">', '</small>') ?>
     </div>
     <button type="submit" class="btn btn-primary">Simpan</button>
-    <!-- <a href="<?= site_url('c_tps'); ?>" class="btn btn-secondary">Kembali</a> -->
+    <!-- <a href="<?= site_url('C_tps'); ?>" class="btn btn-secondary">Kembali</a> -->
 </form>
 
 <script>

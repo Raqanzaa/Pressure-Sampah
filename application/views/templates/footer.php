@@ -37,26 +37,20 @@
 <!-- Custom scripts -->
 <script defer>
 document.addEventListener('DOMContentLoaded', function() {
-  // Get all nav-link elements
+
   var navLinks = document.querySelectorAll('.nav-link');
 
-  // Add click event listener to each nav-link
   navLinks.forEach(function(link) {
     link.addEventListener('click', function(event) {
-      // Prevent default behavior if necessary
-      // event.preventDefault();
 
-      // Remove active class from all nav-link elements
       navLinks.forEach(function(link) {
         link.classList.remove('active');
       });
 
-      // Add active class to the clicked nav-link
       this.classList.add('active');
     });
   });
 
-  // Check URL to maintain active class on page reload
   var currentPath = window.location.pathname;
   var foundActive = false;
   navLinks.forEach(function(link) {
@@ -70,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // If no nav-link matches the current URL, default to the Dashboard link
   if (!foundActive) {
     navLinks.forEach(function(link) {
       link.classList.remove('active');
@@ -78,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.nav-link[href="<?= site_url('dashboard') ?>"]').classList.add('active');
   }
 
-  // Additional check for c_artikel pages
   var artikelPaths = ['artikel-sampah', 'artikel-sampah/index', 'artikel-sampah/tambah', 'artikel-sampah/edit'];
   artikelPaths.forEach(function(path) {
     if (currentPath.includes(path)) {
@@ -91,78 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
-<!-- SCRIPT FOR CHART -->
-<!-- <script>
-$(document).ready(function() {
-  var areaChartCanvas = $('#areaChart').get(0).getContext('2d');
-
-  var areaChartData = {
-    labels  : ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-    datasets: [
-      {
-    label               : 'Sampah',
-    backgroundColor     : 'rgba(60, 141, 188, 0.9)',
-    borderColor         : 'rgba(60, 141, 188, 0.8)',
-    pointRadius         : false,
-    pointColor          : '#3b8bba',
-    pointStrokeColor    : 'rgba(60, 141, 188, 1)',
-    pointHighlightFill  : '#fff',
-    pointHighlightStroke: 'rgba(60, 141, 188, 1)',
-    data                : [28, 48, 40, 19, 86, 27, 90, 20, 60, 45, 75, 55]
-},
-{
-    label               : 'Daur Ulang',
-    backgroundColor     : 'rgba(110, 214, 222, 1)',
-    borderColor         : 'rgba(110, 214, 222, 0.8)',
-    pointRadius         : false,
-    pointColor          : '#6ed6de',
-    pointStrokeColor    : 'rgba(110, 214, 222, 1)',
-    pointHighlightFill  : '#fff',
-    pointHighlightStroke: 'rgba(110, 214, 222, 1)',
-    data                : [65, 59, 80, 81, 56, 55, 40, 50, 70, 65, 60, 85]
-},
-{
-    label               : 'Residu',
-    backgroundColor     : 'rgba(41, 182, 246, 0.9)',
-    borderColor         : 'rgba(41, 182, 246, 0.8)',
-    pointRadius         : false,
-    pointColor          : '#29b6f6',
-    pointStrokeColor    : 'rgba(41, 182, 246, 1)',
-    pointHighlightFill  : '#fff',
-    pointHighlightStroke: 'rgba(41, 182, 246, 1)',
-    data                : [23, 54, 23, 78, 50, 27, 45, 60, 55, 70, 50, 60]
-}
-    ]
-  };
-
-  var areaChartOptions = {
-    maintainAspectRatio : false,
-    responsive : true,
-    legend: {
-      display: true,
-    },
-    scales: {
-      xAxes: [{
-        gridLines : {
-          display : false,
-        }
-      }],
-      yAxes: [{
-        gridLines : {
-          display : false,
-        }
-      }]
-    }
-  };
-
-  new Chart(areaChartCanvas, {
-    type: 'bar',
-    data: areaChartData,
-    options: areaChartOptions
-  });
-});
-</script> -->
 
 <script>
 $(document).ready(function() {

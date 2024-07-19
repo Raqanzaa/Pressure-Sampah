@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_daur_ulang extends CI_Controller {
+class C_daur_ulang extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('m_daur_ulang');
-        $this->load->model('m_tps');
-        $this->load->model('m_ktgrsampah');
-        $this->load->model('m_auth');
+        $this->load->model('M_daur_ulang');
+        $this->load->model('M_tps');
+        $this->load->model('M_ktgrsampah');
+        $this->load->model('M_auth');
         $this->load->library('form_validation');
     }
 
@@ -36,10 +36,10 @@ class c_daur_ulang extends CI_Controller {
         }
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['tps'] = $this->m_tps->get_all_tps($user_id);
-        $data['daur_ulang'] = $this->m_daur_ulang->get_all_daur_ulang($user_id);
-        $data['kategori'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['tps'] = $this->M_tps->get_all_tps($user_id);
+        $data['daur_ulang'] = $this->M_daur_ulang->get_all_daur_ulang($user_id);
+        $data['kategori'] = $this->M_ktgrsampah->get_all_ktgrsampah($user_id);
     
         $grouped_data = [];
         foreach ($data['daur_ulang'] as $item) {
@@ -82,12 +82,12 @@ class c_daur_ulang extends CI_Controller {
         $nama_bulan = $this->get_bulan_indonesia($bulan);
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
-        $data['daur_ulang'] = $this->m_daur_ulang->get_harian($tanggal, $user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
+        $data['daur_ulang'] = $this->M_daur_ulang->get_harian($tanggal, $user_id);
         $data['nama_bulan'] = $nama_bulan;
         $data['tahun'] = $tahun;
-        $data['kategori'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
-        $data['tps'] = $this->m_tps->get_all_tps($user_id);
+        $data['kategori'] = $this->M_ktgrsampah->get_all_ktgrsampah($user_id);
+        $data['tps'] = $this->M_tps->get_all_tps($user_id);
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -118,7 +118,7 @@ class c_daur_ulang extends CI_Controller {
                 'user_id' => $this->session->userdata('user_id')
             );
     
-            $this->m_daur_ulang->insert_harian($data);
+            $this->M_daur_ulang->insert_harian($data);
     
             $tanggal_obj = new DateTime($data['tanggal']);
             $minggu_ke = $tanggal_obj->format("W");
@@ -135,7 +135,7 @@ class c_daur_ulang extends CI_Controller {
                 'tps_id' => $data['tps_id'],
                 'user_id' => $data['user_id']
             );
-            $this->m_daur_ulang->accumulate_mingguan($mingguan_data);
+            $this->M_daur_ulang->accumulate_mingguan($mingguan_data);
     
             $bulanan_data = array(
                 'bulan' => $bulan,
@@ -147,7 +147,7 @@ class c_daur_ulang extends CI_Controller {
                 'tps_id' => $data['tps_id'],
                 'user_id' => $data['user_id']
             );
-            $this->m_daur_ulang->accumulate_bulanan($bulanan_data);
+            $this->M_daur_ulang->accumulate_bulanan($bulanan_data);
     
             redirect('presentase-daur-ulang');
         }
@@ -159,9 +159,9 @@ class c_daur_ulang extends CI_Controller {
         }
     
         $data['user'] = $this->session->userdata('user_id');
-        $data['daur_ulang'] = $this->m_daur_ulang->get_harian_by_id($id);
-        $data['kategori'] = $this->m_ktgrsampah->get_all_ktgrsampah($this->session->userdata('user_id'));
-        $data['tps'] = $this->m_tps->get_all_tps($this->session->userdata('user_id'));
+        $data['daur_ulang'] = $this->M_daur_ulang->get_harian_by_id($id);
+        $data['kategori'] = $this->M_ktgrsampah->get_all_ktgrsampah($this->session->userdata('user_id'));
+        $data['tps'] = $this->M_tps->get_all_tps($this->session->userdata('user_id'));
     
         if (empty($data['daur_ulang'])) {
             redirect('presentase-daur-ulang');
@@ -186,9 +186,9 @@ class c_daur_ulang extends CI_Controller {
             'user_id' => $this->session->userdata('user_id')
         ];
     
-        $old_data = $this->m_daur_ulang->get_harian_by_id($id);
+        $old_data = $this->M_daur_ulang->get_harian_by_id($id);
     
-        $this->m_daur_ulang->update_harian($id, $new_data);
+        $this->M_daur_ulang->update_harian($id, $new_data);
 
         $diff_data = [
             'berat_total' => $new_data['berat_total'] - $old_data['berat_total'],
@@ -203,8 +203,8 @@ class c_daur_ulang extends CI_Controller {
     }
     
     private function update_akumulasi($tanggal, $tps_id, $diff_data) {
-        $this->m_daur_ulang->accumulate_update_mingguan($tanggal, $tps_id, $diff_data);
-        $this->m_daur_ulang->accumulate_update_bulanan($tanggal, $tps_id, $diff_data);
+        $this->M_daur_ulang->accumulate_update_mingguan($tanggal, $tps_id, $diff_data);
+        $this->M_daur_ulang->accumulate_update_bulanan($tanggal, $tps_id, $diff_data);
     }
     
     
@@ -213,10 +213,10 @@ class c_daur_ulang extends CI_Controller {
             redirect('auth/login');
         }
 
-        $data_to_delete = $this->m_daur_ulang->get_harian_by_id($id, $this->session->userdata('user_id')); // Add user_id
+        $data_to_delete = $this->M_daur_ulang->get_harian_by_id($id, $this->session->userdata('user_id')); // Add user_id
     
         if ($data_to_delete) {
-            $this->m_daur_ulang->delete_harian($id, $this->session->userdata('user_id')); // Add user_id
+            $this->M_daur_ulang->delete_harian($id, $this->session->userdata('user_id')); // Add user_id
             $this->update_akumulasi_delete($data_to_delete['tanggal'], $data_to_delete['tps_id'], $data_to_delete);
         }
     
@@ -239,7 +239,7 @@ class c_daur_ulang extends CI_Controller {
             'residu' => -$data['residu'],
             'user_id' => $data['user_id']
         );
-        $this->m_daur_ulang->accumulate_delete_mingguan($mingguan_data);
+        $this->M_daur_ulang->accumulate_delete_mingguan($mingguan_data);
 
         $bulanan_data = array(
             'bulan' => $bulan,
@@ -251,7 +251,7 @@ class c_daur_ulang extends CI_Controller {
             'residu' => -$data['residu'],
             'user_id' => $data['user_id']
         );
-        $this->m_daur_ulang->accumulate_delete_bulanan($bulanan_data);
+        $this->M_daur_ulang->accumulate_delete_bulanan($bulanan_data);
     }
 
     public function kalender() {
@@ -260,24 +260,24 @@ class c_daur_ulang extends CI_Controller {
         }
     
         $user_id = $this->session->userdata('user_id');
-        $data['user'] = $this->m_auth->get_user_by_id($user_id);
+        $data['user'] = $this->M_auth->get_user_by_id($user_id);
     
         $bulan = date('n');
         $tahun = date('Y');
-        $data['kalender_data'] = $this->m_daur_ulang->get_data_bulanan($user_id, $bulan, $tahun);
+        $data['kalender_data'] = $this->M_daur_ulang->get_data_bulanan($user_id, $bulan, $tahun);
     
         $tanggal = date('Y-m-d');
         $nama_bulan = $this->get_bulan_indonesia($bulan);
-        $data['daur_ulang'] = $this->m_daur_ulang->get_harian($user_id, $tanggal);
+        $data['daur_ulang'] = $this->M_daur_ulang->get_harian($user_id, $tanggal);
         $data['nama_bulan'] = $nama_bulan;
         $data['tahun'] = $tahun;
-        $data['kategori'] = $this->m_ktgrsampah->get_all_ktgrsampah($user_id);
-        $data['tps'] = $this->m_tps->get_all_tps($user_id);
+        $data['kategori'] = $this->M_ktgrsampah->get_all_ktgrsampah($user_id);
+        $data['tps'] = $this->M_tps->get_all_tps($user_id);
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('v_daur_ulang/kalender', $data);
+        $this->load->view('v_daur_ulang/kalender', $data); 
         $this->load->view('templates/footer');
     }    
     
@@ -286,9 +286,9 @@ class c_daur_ulang extends CI_Controller {
             redirect('auth/login');
         }
     
-        $data['user'] = $this->m_auth->get_user_by_id($this->session->userdata('user_id'));
-        $data['tps'] = $this->m_tps->get_tps_by_id($tps_id);
-        $data['daur_ulang'] = $this->m_daur_ulang->get_daur_ulang_by_tps_id($tps_id);
+        $data['user'] = $this->M_auth->get_user_by_id($this->session->userdata('user_id'));
+        $data['tps'] = $this->M_tps->get_tps_by_id($tps_id);
+        $data['daur_ulang'] = $this->M_daur_ulang->get_daur_ulang_by_tps_id($tps_id);
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
