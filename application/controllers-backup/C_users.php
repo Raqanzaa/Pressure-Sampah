@@ -47,7 +47,7 @@ class C_users extends CI_Controller {
         }
     
         // Form validation rules
-        $this->form_validation->set_rules('full_name', 'Full Name', 'required');
+        $this->forMvalidation->set_rules('full_name', 'Full Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
     
         // Validate password if provided
@@ -108,6 +108,8 @@ class C_users extends CI_Controller {
             redirect('user-profile/index/' . $user_id);
         }
     }
+    
+    
     
     public function upload_profile_picture() {
         if (!$this->session->userdata('user_id')) {
@@ -190,166 +192,5 @@ class C_users extends CI_Controller {
         }
     }
 
-    public function manage() {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
-        }
-
-        $logged_in_user = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        if ($logged_in_user['user_level'] != 1) {
-            redirect('dashboard');
-        }
-
-        $data['user'] = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        $data['users'] = $this->M_users->get_all_users();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('v_users/manage', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function create_manage() {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
-        }
-    
-        $logged_in_user = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        if ($logged_in_user['user_level'] != 1) {
-            redirect('dashboard');
-        }
-    
-        $data['user'] = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-    
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('v_users/add_users');
-        $this->load->view('templates/footer');
-    }
-    
-
-    public function store_manage() {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
-        }
-
-        $logged_in_user = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        if ($logged_in_user['user_level'] != 1) {
-            redirect('dashboard');
-        }
-
-        // Form validation rules
-        $this->form_validation->set_rules('full_name', 'Full Name', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
-        $this->form_validation->set_rules('user_level', 'User Level', 'required|integer');
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('validation_errors', validation_errors());
-            $this->create_manage();
-        } else {
-            $data = [
-                'full_name' => $this->input->post('full_name'),
-                'email' => $this->input->post('email'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'user_level' => $this->input->post('user_level'),
-            ];
-
-            if ($this->M_users->insert_user($data)) {
-                $this->session->set_flashdata('success', 'User added successfully.');
-            } else {
-                $this->session->set_flashdata('error', 'Failed to add user.');
-            }
-            redirect('c_users/manage');
-        }
-    }
-
-    public function edit_manage($user_id) {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
-        }
-
-        $logged_in_user = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        if ($logged_in_user['user_level'] != 1) {
-            redirect('dashboard');
-        }
-
-        $data['user'] = $this->M_users->get_user_by_id($user_id);
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('v_users/edit_users', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function update_manage($user_id) {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
-        }
-
-        $logged_in_user = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        if ($logged_in_user['user_level'] != 1) {
-            redirect('dashboard');
-        }
-
-        // Form validation rules
-        $this->form_validation->set_rules('full_name', 'Full Name', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('user_level', 'User Level', 'required|integer'); // Adjust as needed
-
-        // Validate password if provided
-        if (!empty($this->input->post('password'))) {
-            $this->form_validation->set_rules('password', 'Password', 'required');
-            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
-        }
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('validation_errors', validation_errors());
-            $this->edit_manage($user_id);
-        } else {
-            $data = [
-                'full_name' => $this->input->post('full_name'),
-                'email' => $this->input->post('email'),
-                'user_level' => $this->input->post('user_level'),
-            ];
-
-            // Update password if provided
-            if (!empty($this->input->post('password'))) {
-                $new_password = $this->input->post('password');
-                $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-                $data['password'] = $hashed_password;
-            }
-
-            if ($this->M_users->update_user($user_id, $data)) {
-                $this->session->set_flashdata('success', 'User updated successfully.');
-            } else {
-                $this->session->set_flashdata('error', 'Failed to update user.');
-            }
-            redirect('c_users/manage');
-        }
-    }
-
-    public function delete_manage($user_id) {
-        if (!$this->session->userdata('user_id')) {
-            redirect('auth/login');
-        }
-
-        $logged_in_user = $this->M_users->get_user_by_id($this->session->userdata('user_id'));
-        if ($logged_in_user['user_level'] != 1) {
-            redirect('dashboard');
-        }
-
-        if ($this->M_users->delete_user($user_id)) {
-            $this->session->set_flashdata('success', 'User deleted successfully.');
-        } else {
-            $this->session->set_flashdata('error', 'Failed to delete user.');
-        }
-
-        redirect('c_users/manage');
-    }
 }
 ?>

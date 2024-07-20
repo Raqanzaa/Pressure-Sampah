@@ -34,10 +34,10 @@
                 <input type="password" name="password" class="mb-3 bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-light" placeholder="Password" required>
                 <button type="submit" name="login" class="w-full inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95" value="login">Login</button>
                 <?php echo form_close(); ?>
-                <!-- <p class="text-center">atau</p>
+                <p class="text-center">atau</p>
                 <div class="text-center">
                     <button class="btn btn-secondary w-full" type="button" onclick="showRegisterPopup()">Register</button>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

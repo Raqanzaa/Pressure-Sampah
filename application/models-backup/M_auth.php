@@ -7,7 +7,7 @@ class M_auth extends CI_Model {
         parent::__construct();
     }
 
-    // Function to save new user data
+    // Fungsi untuk menyimpan data pengguna baru
     public function register_user($data) {
         return $this->db->insert('t_users', $data);
     }
@@ -18,13 +18,13 @@ class M_auth extends CI_Model {
         return $query->row_array();
     }
 
-    // Function to get user data by username
+    // Fungsi untuk mengambil data pengguna berdasarkan username
     public function get_user_by_username($username) {
         $query = $this->db->get_where('t_users', array('username' => $username));
         return $query->row_array();
     }
 
-    // Function to check if username exists
+    // Fungsi untuk memeriksa keberadaan pengguna berdasarkan username
     public function check_username_exists($username) {
         $query = $this->db->get_where('t_users', array('username' => $username));
         if (empty($query->row_array())) {
@@ -34,7 +34,7 @@ class M_auth extends CI_Model {
         }
     }
 
-    // Function to check if email exists
+    // Fungsi untuk memeriksa keberadaan pengguna berdasarkan email
     public function check_email_exists($email) {
         $query = $this->db->get_where('t_users', array('email' => $email));
         if (empty($query->row_array())) {
@@ -44,7 +44,7 @@ class M_auth extends CI_Model {
         }
     }
 
-    // Function to check user password
+    // Fungsi untuk memeriksa kecocokan password pengguna
     public function login_user($email, $password) {
         $this->db->where('email', $email);
         $user = $this->db->get('t_users')->row_array();
@@ -56,7 +56,7 @@ class M_auth extends CI_Model {
         }
     }
 
-    // Function to get all user data
+    // Fungsi untuk mengambil semua data pengguna
     public function get_all_users() {
         return $this->db->get('t_users')->result_array();
     }

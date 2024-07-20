@@ -15,7 +15,6 @@ class Auth extends CI_Controller {
             $user = $this->M_auth->login_user($email, $password);
             if ($user) {
                 $this->session->set_userdata('user_id', $user['id']);
-                $this->session->set_userdata('user_level', $user['user_level']);
                 redirect('dashboard');  // Pastikan URL controller 'dashboard' sesuai dengan route yang diinginkan
             } else {
                 $this->session->set_flashdata('error', 'Email atau password salah.');
@@ -31,15 +30,14 @@ class Auth extends CI_Controller {
             $this->form_validation->set_rules('full_name', 'Full Name', 'required');
             $this->form_validation->set_rules('password', 'Password', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[t_users.email]');
-
+    
             if ($this->form_validation->run() == true) {
                 $data = array(
                     'full_name' => $this->input->post('full_name'),
                     'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                    'email' => $this->input->post('email'),
-                    'user_level' => 0  // Default user_level set to 0
+                    'email' => $this->input->post('email')
                 );
-
+    
                 if ($this->M_auth->register_user($data)) {
                     $this->session->set_flashdata('success', 'Registrasi berhasil! Silakan login.');
                     redirect('landing-page?registered=true');
@@ -55,10 +53,10 @@ class Auth extends CI_Controller {
             redirect('landing-page');
         }
     }
+    
 
     public function logout() {
         $this->session->unset_userdata('user_id');
-        $this->session->unset_userdata('user_level');
         redirect('auth/login');
     }
 }

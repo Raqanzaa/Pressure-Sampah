@@ -18,19 +18,9 @@ class M_users extends CI_Model {
         return $query->result_array();
     }
 
-    public function insert_user($data) {
-        return $this->db->insert('t_users', $data);
-    }
-    
     public function update_user($user_id, $data) {
         $this->db->where('id', $user_id);
         $this->db->update('t_users', $data);
-        return $this->db->affected_rows() > 0;  // Return true if rows were affected
     }    
-
-    public function delete_user($user_id) {
-        $this->db->where('id', $user_id);
-        return $this->db->delete('t_users');
-    }
 }
 ?>
