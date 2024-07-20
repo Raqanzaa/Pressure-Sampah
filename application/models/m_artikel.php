@@ -3,7 +3,10 @@ class M_artikel extends CI_Model {
     
     // Mendapatkan semua artikel untuk pengguna tertentu
     public function get_all_artikel($user_id) {
-        $this->db->where('user_id', $user_id);
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $query = $this->db->get('t_artikel');
         return $query->result();
     }
@@ -22,7 +25,10 @@ class M_artikel extends CI_Model {
     // Mendapatkan artikel dengan paginasi dan pencarian untuk pengguna tertentu
     public function get($limit, $offset, $search, $user_id) {
         $this->db->like($search);
-        $this->db->where('user_id', $user_id);
+         if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $query = $this->db->get('t_artikel', $limit, $offset);
         return $query->result();
     }
@@ -30,7 +36,10 @@ class M_artikel extends CI_Model {
     // Mendapatkan jumlah artikel untuk pengguna tertentu
     public function jumlah_row($search, $user_id) {
         $this->db->like($search);
-        $this->db->where('user_id', $user_id);
+         if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $query = $this->db->get('t_artikel');
         return $query->num_rows();
     }
@@ -38,7 +47,10 @@ class M_artikel extends CI_Model {
     // Mendapatkan artikel berdasarkan id untuk pengguna tertentu
     public function get_by_id($id, $user_id) {
         $this->db->where('id_artikel', $id);
-        $this->db->where('user_id', $user_id);
+         if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $query = $this->db->get('t_artikel');
         return $query->row();
     }
@@ -59,6 +71,11 @@ class M_artikel extends CI_Model {
         $this->db->where($kondisi);
         return $this->db->delete('t_artikel');
     }
+
+    private function is_super_user() {
+        return $this->session->userdata('user_level') == 1;
+    }
+    
 }
 
 ?>
