@@ -7,9 +7,16 @@ class M_ktgrsampah extends CI_Model {
         parent::__construct();
     }
 
+    private function is_super_user() {
+        return $this->session->userdata('user_level') == 1;
+    }
+
     public function get_all_ktgrsampah($user_id) {
         $this->db->select('id_ktgrsampah, nama_kategori, deskripsi, warna_kategori'); // Added deskripsi here
-        $this->db->where('user_id', $user_id);
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $query = $this->db->get('t_ktgrsampah');
         return $query->result_array();
     }

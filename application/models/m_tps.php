@@ -7,12 +7,19 @@ class M_tps extends CI_Model {
         parent::__construct();
     }
 
+    private function is_super_user() {
+        return $this->session->userdata('user_level') == 1;
+    }
+
     // Fungsi untuk mengambil semua data TPS berdasarkan user ID
     public function get_all_tps($user_id) {
         $this->db->select('t_tps.*, t_users.full_name');
         $this->db->from('t_tps');
         $this->db->join('t_users', 't_tps.user_id = t_users.id');
-        $this->db->where('t_tps.user_id', $user_id);
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_tps.user_id', $user_id);
+        }
         $query = $this->db->get();
         return $query->result_array();
     }

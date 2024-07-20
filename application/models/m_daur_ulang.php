@@ -3,51 +3,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_daur_ulang extends CI_Model {
 
+    private function is_super_user() {
+        return $this->session->userdata('user_level') == 1;
+    }
+
     public function get_harian_by_tanggal($tanggal, $tps_id) {
-        $user_id = $this->session->userdata('user_id');
         $this->db->where('tanggal', $tanggal);
         $this->db->where('tps_id', $tps_id);
-        $this->db->where('user_id', $user_id); // Ensure data belongs to the logged-in user
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
+
         $query = $this->db->get('t_daur_ulang');
         return $query->row_array();
     }
     
     public function get_harian_by_id($id) {
-        $user_id = $this->session->userdata('user_id');
         $this->db->select('t_daur_ulang.*, t_tps.nama_tps');
         $this->db->from('t_daur_ulang');
         $this->db->join('t_tps', 't_daur_ulang.tps_id = t_tps.id_tps');
         $this->db->where('t_daur_ulang.id', $id);
-        $this->db->where('t_daur_ulang.user_id', $user_id); // Ensure data belongs to the logged-in user
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_daur_ulang.user_id', $user_id);
+        }
+
         $query = $this->db->get();
         return $query->row_array();
     }
     
     public function get_daur_ulang_by_tps_id($tps_id) {
-        $user_id = $this->session->userdata('user_id');
         $this->db->select('t_daur_ulang.*, t_ktgrsampah.nama_kategori');
         $this->db->from('t_daur_ulang');
         $this->db->join('t_ktgrsampah', 't_daur_ulang.kategori_id = t_ktgrsampah.id_ktgrsampah', 'left');
         $this->db->where('t_daur_ulang.tps_id', $tps_id);
-        $this->db->where('t_daur_ulang.user_id', $user_id); // Ensure data belongs to the logged-in user
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_daur_ulang.user_id', $user_id);
+        }
+
         return $this->db->get()->result_array();
     }    
 
     public function insert_harian($data) {
-        $data['user_id'] = $this->session->userdata('user_id');
+        if (!$this->is_super_user()) {
+            $data['user_id'] = $this->session->userdata('user_id');
+        }
         $this->db->insert('t_daur_ulang', $data);
     }
     
     public function update_harian($id, $data) {
-        $user_id = $this->session->userdata('user_id');
+       
         $this->db->set($data);
         $this->db->where('id', $id);
-        $this->db->where('user_id', $user_id); // Ensure the update is for the logged-in user's data
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
+
         return $this->db->update('t_daur_ulang');
     } 
 
     public function delete_harian($id) {
         $this->db->where('id', $id);
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
+
         $this->db->delete('t_daur_ulang');
     }
     
@@ -58,6 +87,12 @@ class M_daur_ulang extends CI_Model {
         $this->db->join('t_ktgrsampah', 't_mingguan.kategori_id = t_ktgrsampah.id_ktgrsampah');
         $this->db->where('minggu_ke', $minggu_ke);
         $this->db->where('tahun', $tahun);
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_mingguan.user_id', $user_id);
+        }
+
         return $this->db->get()->result_array();
     }
 
@@ -66,11 +101,20 @@ class M_daur_ulang extends CI_Model {
         $this->db->from('t_bulanan');
         $this->db->join('t_tps', 't_bulanan.tps_id = t_tps.id_tps');
         $this->db->join('t_ktgrsampah', 't_bulanan.kategori_id = t_ktgrsampah.id_ktgrsampah');
+
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_bulanan.user_id', $user_id); 
+        }
+
         return $this->db->get()->result_array();
     }
 
     public function accumulate_mingguan($data) {
-        $user_id = $this->session->userdata('user_id');
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $this->db->where('minggu_ke', $data['minggu_ke']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -89,13 +133,18 @@ class M_daur_ulang extends CI_Model {
             $this->db->where('id', $existing_data['id']);
             $this->db->update('t_mingguan', $update_data);
         } else {
-            $data['user_id'] = $user_id;
+            if (!$this->is_super_user()) {
+                $data['user_id'] = $this->session->userdata('user_id');
+            }
             $this->db->insert('t_mingguan', $data);
         }
     }
 
     public function accumulate_bulanan($data) {
-        $user_id = $this->session->userdata('user_id');
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $this->db->where('bulan', $data['bulan']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -113,13 +162,18 @@ class M_daur_ulang extends CI_Model {
             $this->db->where('id', $existing_data['id']);
             $this->db->update('t_bulanan', $update_data);
         } else {
-            $data['user_id'] = $user_id;
+            if (!$this->is_super_user()) {
+                $data['user_id'] = $this->session->userdata('user_id');
+            }
             $this->db->insert('t_bulanan', $data);
         }
     }
 
     public function accumulate_update_mingguan($tanggal, $tps_id, $diff_data) {
-        $user_id = $this->session->userdata('user_id');
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $tanggal_obj = new DateTime($tanggal);
         $minggu_ke = ceil($tanggal_obj->format("d") / 7);
         $tahun = $tanggal_obj->format("Y");
@@ -143,7 +197,10 @@ class M_daur_ulang extends CI_Model {
     }
     
     public function accumulate_update_bulanan($tanggal, $tps_id, $diff_data) {
-        $user_id = $this->session->userdata('user_id');
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $tanggal_obj = new DateTime($tanggal);
         $bulan = $tanggal_obj->format("m");
         $tahun = $tanggal_obj->format("Y");
@@ -167,6 +224,10 @@ class M_daur_ulang extends CI_Model {
     }
 
     public function accumulate_delete_mingguan($data) {
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $this->db->where('minggu_ke', $data['minggu_ke']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -195,6 +256,10 @@ class M_daur_ulang extends CI_Model {
     }
     
     public function accumulate_delete_bulanan($data) {
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('user_id', $user_id);
+        }
         $this->db->where('bulan', $data['bulan']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -228,7 +293,10 @@ class M_daur_ulang extends CI_Model {
         $this->db->join('t_tps', 't_bulanan.tps_id = t_tps.id_tps');
         $this->db->join('t_users', 't_bulanan.user_id = t_users.id');
         $this->db->join('t_ktgrsampah', 't_bulanan.kategori_id = t_ktgrsampah.id_ktgrsampah');
-        $this->db->where('t_bulanan.user_id', $user_id);
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_bulanan.user_id', $user_id);
+        }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -239,7 +307,10 @@ class M_daur_ulang extends CI_Model {
         $this->db->join('t_tps', 't_daur_ulang.tps_id = t_tps.id_tps');
         $this->db->join('t_ktgrsampah', 't_daur_ulang.kategori_id = t_ktgrsampah.id_ktgrsampah');
         $this->db->where('tanggal', $tanggal);
-        $this->db->where('t_daur_ulang.user_id', $user_id); // Ensure data belongs to the logged-in user
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_daur_ulang.user_id', $user_id);
+        }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -250,7 +321,10 @@ class M_daur_ulang extends CI_Model {
         $this->db->join('t_users', 't_daur_ulang.user_id = t_users.id');
         $this->db->where('MONTH(tanggal)', $bulan);
         $this->db->where('YEAR(tanggal)', $tahun);
-        $this->db->where('t_daur_ulang.user_id', $user_id);
+        if (!$this->is_super_user()) {
+            $user_id = $this->session->userdata('user_id');
+            $this->db->where('t_daur_ulang.user_id', $user_id);
+        }
         return $this->db->get()->result_array();
     }
     

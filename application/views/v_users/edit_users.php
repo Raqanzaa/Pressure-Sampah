@@ -9,7 +9,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('dashboard'); ?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('c_users/manage'); ?>">Manage Users</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('user-management'); ?>">Manage Users</a></li>
                             <li class="breadcrumb-item active">Edit User</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?php echo site_url('c_users/update_manage/' . $user['id']); ?>" method="post">
+                <form action="<?php echo site_url('user-management/update/' . $user['id']); ?>" method="post">
                     <div class="form-group">
                         <label for="full_name">Full Name</label>
                         <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo $user['full_name']; ?>" required>
