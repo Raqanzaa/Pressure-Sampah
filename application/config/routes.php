@@ -59,6 +59,7 @@ $route['list-tps'] = 'C_tps';
 $route['artikel-sampah'] = 'C_artikel';
 $route['artikel-sampah/tambah'] = 'C_artikel/tambah';
 $route['artikel-sampah/edit/(:num)'] = 'C_artikel/edit/$1';
+$route['artikel-sampah/hapus/(:num)'] = 'C_artikel/hapus/$1';
 
 $route['user-profile/index/(:num)'] = 'C_users/index/$1';
 $route['user-profile/edit/(:num)'] = 'C_users/edit/$1';

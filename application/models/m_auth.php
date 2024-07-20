@@ -60,5 +60,20 @@ class M_auth extends CI_Model {
     public function get_all_users() {
         return $this->db->get('t_users')->result_array();
     }
+
+    public function is_super_user($user_id)
+    {
+        $this->db->select('user_level');
+        $this->db->from('t_users');
+        $this->db->where('id', $user_id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $user = $query->row();
+            return $user->user_level == 1; // Asumsi level 1 adalah super admin
+        }
+
+        return FALSE;
+    }
 }
 ?>

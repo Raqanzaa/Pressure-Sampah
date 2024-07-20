@@ -64,11 +64,11 @@ class M_artikel extends CI_Model {
         return $this->db->update('t_artikel', $data);
     }
 
-  // Menghapus artikel
-  public function delete($kondisi) {
-    $this->db->where($kondisi);
-    return $this->db->delete('t_artikel');
-}
+    public function delete($where)
+    {
+        $this->db->where($where);
+        return $this->db->delete('t_artikel');
+    }
 
     private function is_super_user() {
         return $this->session->userdata('user_level') == 1;

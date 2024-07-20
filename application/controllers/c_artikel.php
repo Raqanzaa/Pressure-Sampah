@@ -219,16 +219,36 @@ class C_artikel extends CI_Controller {
         }
     }
 
-      // Fungsi untuk menghapus data
-      public function deletedata($id, $gambar)
-      {
-          $path = './assets/img/';
-          @unlink($path.$gambar);
-  
-          $where = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
-          $this->M_artikel->delete($where);
-          return redirect('artikel-sampah');
-      }
+    public function deletedata($id, $gambar = null)
+    {
+        // Periksa level user
+        $user_id = $this->session->userdata('user_id');
+        $is_super_user = $this->M_auth->is_super_user($user_id); // Pastikan metode ini ada di model M_auth
 
+        if ($is_super_user) {
+            $this->hapus_data($id, $gambar);
+        } else {
+            $artikel = $this->M_artikel->get_by_id($id, $user_id);
+            if ($artikel) {
+                $this->hapus_data($id, $artikel->gambar_artikel);
+            } else {
+                redirect('artikel-sampah');
+            }
+        }
+    }
+
+    private function hapus_data($id, $gambar = null)
+    {
+        if ($gambar) {
+            $path = './assets/img/' . $gambar;
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
+        $this->M_artikel->delete(array('id_artikel' => $id));
+        redirect('artikel-sampah');
+    }
 }
+
 ?>
