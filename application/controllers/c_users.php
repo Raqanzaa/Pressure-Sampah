@@ -263,7 +263,7 @@ class C_users extends CI_Controller {
             } else {
                 $this->session->set_flashdata('error', 'Failed to add user.');
             }
-            redirect('c_users/manage');
+            redirect('user-management');
         }
     }
 
@@ -329,7 +329,7 @@ class C_users extends CI_Controller {
             } else {
                 $this->session->set_flashdata('error', 'Failed to update user.');
             }
-            redirect('c_users/manage');
+            redirect('user-management');
         }
     }
 
@@ -349,7 +349,7 @@ class C_users extends CI_Controller {
             $this->session->set_flashdata('error', 'Failed to delete user.');
         }
 
-        redirect('c_users/manage');
+        redirect('user-management');
     }
 }
 ?>

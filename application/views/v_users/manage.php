@@ -36,7 +36,7 @@
                     </div>
                 <?php endif; ?>
 
-                <a href="<?php echo site_url('c_users/create_manage'); ?>" class="btn btn-primary mb-3">Add New User</a>
+                <a href="<?php echo site_url('c_users/create_manage'); ?>" class="btn btn-primary mb-3">Tambah User</a>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -55,8 +55,8 @@
                                 <td><?php echo $user['email']; ?></td>
                                 <td><?php echo $user['user_level'] == 1 ? 'Super User' : 'Regular User'; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url('c_users/edit_manage/' . $user['id']); ?>" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="<?php echo site_url('c_users/delete_manage/' . $user['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                                    <a href="<?php echo site_url('user-management/edit/' . $user['id']); ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="<?php echo site_url('user-management/delete/' . $user['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

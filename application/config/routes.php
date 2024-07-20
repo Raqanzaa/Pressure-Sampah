@@ -59,8 +59,18 @@ $route['list-tps'] = 'C_tps';
 $route['artikel-sampah'] = 'C_artikel';
 $route['artikel-sampah/tambah'] = 'C_artikel/tambah';
 $route['artikel-sampah/edit/(:num)'] = 'C_artikel/edit/$1';
+
 $route['user-profile/index/(:num)'] = 'C_users/index/$1';
 $route['user-profile/edit/(:num)'] = 'C_users/edit/$1';
+$route['user-profile/update/(:num)'] = 'C_users/update/$1';
+$route['user-profile/delete/(:num)'] = 'C_users/delete/$1';
+$route['user-management'] = 'C_users/manage';
+$route['user-management/create'] = 'C_users/create_manage';
+$route['user-management/store'] = 'C_users/store_manage';
+$route['user-management/edit/(:num)'] = 'C_users/edit_manage/$1';
+$route['user-management/update/(:num)'] = 'C_users/update_manage/$1';
+$route['user-management/delete/(:num)'] = 'C_users/delete_manage/$1';
+
 $route['presentase-daur-ulang'] = 'C_daur_ulang';
 $route['presentase-daur-ulang/harian'] = 'C_daur_ulang/harian';
 $route['presentase-daur-ulang/submit_harian'] = 'C_daur_ulang/submit_harian';
@@ -69,7 +79,8 @@ $route['presentase-daur-ulang/update_harian'] = 'C_daur_ulang/update_harian';
 $route['presentase-daur-ulang/update'] = 'C_daur_ulang/update_harian';
 $route['presentase-daur-ulang/delete/(:num)'] = 'C_daur_ulang/delete/$1';
 $route['presentase-daur-ulang/kalender'] = 'C_daur_ulang/kalender';
-$route['presentase-daur-ulang/view_details/(:num)'] = 'C_daur_ulang/view_details/$1';
+$route['presentase-daur-ulang/view-details/(:num)'] = 'C_daur_ulang/view_details/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
