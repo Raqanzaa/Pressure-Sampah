@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
 <script>
 $(document).ready(function() {
     var areaChartCanvas = $('#areaChart').get(0).getContext('2d');
@@ -91,33 +90,33 @@ $(document).ready(function() {
     var areaChartData = {
         labels  : ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
         datasets: [
-            {
+          {
                 label               : 'Sampah',
-                backgroundColor     : 'rgba(60, 141, 188, 0.9)',
-                borderColor         : 'rgba(60, 141, 188, 0.8)',
+                backgroundColor     : 'rgba(90, 178, 255, 0.9)', // #5AB2FF
+                borderColor         : 'rgba(90, 178, 255, 0.8)',
                 pointRadius         : false,
-                pointColor          : '#3b8bba',
-                pointStrokeColor    : 'rgba(60, 141, 188, 1)',
+                pointColor          : '#5AB2FF',
+                pointStrokeColor    : 'rgba(90, 178, 255, 1)',
                 pointHighlightFill  : '#fff',
-                pointHighlightStroke: 'rgba(60, 141, 188, 1)',
+                pointHighlightStroke: 'rgba(90, 178, 255, 1)',
                 data                : <?php echo json_encode($total_sampah_bulanan); ?>
             },
             {
                 label               : 'Daur Ulang',
-                backgroundColor     : 'rgba(110, 214, 222, 1)',
-                borderColor         : 'rgba(110, 214, 222, 0.8)',
+                backgroundColor     : 'rgba(160, 222, 255, 1)', // #A0DEFF
+                borderColor         : 'rgba(160, 222, 255, 0.8)',
                 pointRadius         : false,
-                pointColor          : '#6ed6de',
-                pointStrokeColor    : 'rgba(110, 214, 222, 1)',
+                pointColor          : '#A0DEFF',
+                pointStrokeColor    : 'rgba(160, 222, 255, 1)',
                 data                : <?php echo json_encode($total_daur_ulang_bulanan); ?>
             },
             {
                 label               : 'Residu',
-                backgroundColor     : 'rgba(41, 182, 246, 0.9)',
-                borderColor         : 'rgba(41, 182, 246, 0.8)',
+                backgroundColor     : 'rgba(80, 140, 155, 0.9)', // #508C9B
+                borderColor         : 'rgba(80, 140, 155, 0.8)',
                 pointRadius         : false,
-                pointColor          : '#29b6f6',
-                pointStrokeColor    : 'rgba(41, 182, 246, 1)',
+                pointColor          : '#508C9B',
+                pointStrokeColor    : 'rgba(80, 140, 155, 1)',
                 data                : <?php echo json_encode($total_residu_bulanan); ?>
             }
         ]
@@ -128,16 +127,25 @@ $(document).ready(function() {
         responsive : true,
         legend: {
             display: true,
+            labels: {
+                fontColor: '#ffffff' 
+            }
         },
         scales: {
             xAxes: [{
                 gridLines : {
                     display : false,
+                },
+                ticks: {
+                    fontColor: '#ffffff'
                 }
             }],
             yAxes: [{
                 gridLines : {
                     display : false,
+                },
+                ticks: {
+                    fontColor: '#ffffff' 
                 }
             }]
         }

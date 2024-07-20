@@ -29,13 +29,15 @@ class C_home extends CI_Controller {
         $data['total_residu'] = $this->M_home->get_total_residu($user_id);
 
         // Mengambil kategori sampah
+        $data['nama_tps'] = $this->M_tps->get_all_tps($user_id);
         $data['kategori_sampah'] = $this->M_ktgrsampah->get_all_ktgrsampah($user_id);
 
         // Default kategori (bisa diubah sesuai kebutuhan)
         $kategori_id = $this->input->post('kategori_id') ? $this->input->post('kategori_id') : null;
+        $tps_id = $this->input->post('tps_id') ? $this->input->post('tps_id') : null;
 
         // Mengambil data bulanan berdasarkan kategori
-        $data['data_per_bulan'] = $this->M_home->get_data_per_bulan_by_kategori($user_id, $kategori_id);
+        $data['data_per_bulan'] = $this->M_home->get_data_per_bulan_by_kategori_and_tps($user_id, $kategori_id, $tps_id);
 
         // Menghitung jumlah TPS
         $data['jumlah_tps'] = count($tps_data);
@@ -59,9 +61,9 @@ class C_home extends CI_Controller {
         $data['total_residu_bulanan'] = $total_residu_bulanan;
 
         // Mengambil data bulanan, mingguan, dan harian
-        $bulanan = $this->M_home->get_data_bulanan($user_id, $kategori_id);
-        $mingguan = $this->M_home->get_data_mingguan($user_id, $kategori_id);
-        $harian = $this->M_home->get_data_harian($user_id, $kategori_id);
+        $bulanan = $this->M_home->get_data_bulanan($user_id, $kategori_id, $tps_id);
+        $mingguan = $this->M_home->get_data_mingguan($user_id, $kategori_id, $tps_id);
+        $harian = $this->M_home->get_data_harian($user_id, $kategori_id, $tps_id);
 
         // Menghitung persentase keberhasilan daur ulang
         $data['persen_bulanan'] = isset($bulanan['total']) && $bulanan['total'] > 0 ? ($bulanan['daur_ulang'] / $bulanan['total']) * 100 : 0;
