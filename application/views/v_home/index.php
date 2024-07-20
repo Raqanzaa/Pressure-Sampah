@@ -58,19 +58,30 @@
                 <p class="text-center">
                     <strong>Keberhasilan Daur Ulang Sampah</strong>
                 </p>
-                <form method="post" action="<?php echo site_url('dashboard'); ?>">
-                    <div class="form-group">
-                        <label for="kategori_id">Pilih Kategori Sampah:</label>
-                        <select class="form-control" id="kategori_id" name="kategori_id" onchange="this.form.submit()">
-                            <option value="">Semua Kategori</option>
-                            <?php foreach ($kategori_sampah as $kategori): ?>
-                                <option value="<?php echo $kategori['id_ktgrsampah']; ?>" <?php echo set_select('kategori_id', $kategori['id_ktgrsampah']); ?>>
-                                    <?php echo $kategori['nama_kategori']; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </form>
+                <form method="post" action="<?php echo site_url('dashboard'); ?>" style="display: flex; flex-wrap: wrap;">
+                  <div class="form-group" style="flex: 1; margin-right: 10px;">
+                      <!-- <label for="kategori_id">Pilih Kategori Sampah:</label> -->
+                      <select class="form-control" id="kategori_id" name="kategori_id" onchange="this.form.submit()">
+                          <option value="">Semua Kategori</option>
+                          <?php foreach ($kategori_sampah as $kategori): ?>
+                              <option value="<?php echo $kategori['id_ktgrsampah']; ?>" <?php echo set_select('kategori_id', $kategori['id_ktgrsampah']); ?>>
+                                  <?php echo $kategori['nama_kategori']; ?>
+                              </option>
+                          <?php endforeach; ?>
+                      </select>
+                  </div>
+                  <div class="form-group" style="flex: 1;">
+                      <!-- <label for="tps_id">Pilih TPS:</label> -->
+                      <select class="form-control" id="tps_id" name="tps_id" onchange="this.form.submit()">
+                          <option value="">Semua TPS</option>
+                          <?php foreach ($nama_tps as $tps): ?>
+                              <option value="<?php echo $tps['id_tps']; ?>" <?php echo set_select('tps_id', $tps['id_tps']); ?>>
+                                  <?php echo $tps['nama_tps']; ?>
+                              </option>
+                          <?php endforeach; ?>
+                      </select>
+                  </div>
+              </form>
                 <div class="chart">
                     <canvas id="areaChart" height="300" style="height: 300px;"></canvas>
                 </div>

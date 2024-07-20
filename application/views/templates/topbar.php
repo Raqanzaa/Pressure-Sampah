@@ -34,7 +34,7 @@
 
                 <?php if (isset($user['user_level']) && $user['user_level'] == 1): ?>
                     <div class="dropdown-divider"></div>
-                    <a href="<?php echo site_url('user-management/'); ?>" class="dropdown-item">
+                    <a href="<?php echo site_url('user-management'); ?>" class="dropdown-item">
                         <i class="fas fa-users mr-2"></i> Manajemen User
                     </a>
                 <?php endif; ?>

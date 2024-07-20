@@ -10,7 +10,7 @@ class C_daur_ulang extends CI_Controller {
         $this->load->model('M_ktgrsampah');
         $this->load->model('M_auth');
         $this->load->library('form_validation');
-    }
+    } 
 
     public function get_bulan_indonesia($bulan) {
         $bulan_array = [

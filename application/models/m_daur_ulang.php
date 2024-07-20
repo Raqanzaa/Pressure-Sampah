@@ -57,17 +57,16 @@ class M_daur_ulang extends CI_Model {
     }
     
     public function update_harian($id, $data) {
-       
         $this->db->set($data);
         $this->db->where('id', $id);
-
+    
         if (!$this->is_super_user()) {
             $user_id = $this->session->userdata('user_id');
             $this->db->where('user_id', $user_id);
         }
-
+    
         return $this->db->update('t_daur_ulang');
-    } 
+    }    
 
     public function delete_harian($id) {
         $this->db->where('id', $id);
@@ -111,10 +110,7 @@ class M_daur_ulang extends CI_Model {
     }
 
     public function accumulate_mingguan($data) {
-        if (!$this->is_super_user()) {
-            $user_id = $this->session->userdata('user_id');
-            $this->db->where('user_id', $user_id);
-        }
+        $user_id = $this->session->userdata('user_id');
         $this->db->where('minggu_ke', $data['minggu_ke']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -133,18 +129,13 @@ class M_daur_ulang extends CI_Model {
             $this->db->where('id', $existing_data['id']);
             $this->db->update('t_mingguan', $update_data);
         } else {
-            if (!$this->is_super_user()) {
-                $data['user_id'] = $this->session->userdata('user_id');
-            }
+            $data['user_id'] = $user_id;
             $this->db->insert('t_mingguan', $data);
         }
     }
 
     public function accumulate_bulanan($data) {
-        if (!$this->is_super_user()) {
-            $user_id = $this->session->userdata('user_id');
-            $this->db->where('user_id', $user_id);
-        }
+        $user_id = $this->session->userdata('user_id');
         $this->db->where('bulan', $data['bulan']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -162,21 +153,19 @@ class M_daur_ulang extends CI_Model {
             $this->db->where('id', $existing_data['id']);
             $this->db->update('t_bulanan', $update_data);
         } else {
-            if (!$this->is_super_user()) {
-                $data['user_id'] = $this->session->userdata('user_id');
-            }
+            $data['user_id'] = $user_id;
             $this->db->insert('t_bulanan', $data);
         }
     }
 
     public function accumulate_update_mingguan($tanggal, $tps_id, $diff_data) {
-        if (!$this->is_super_user()) {
-            $user_id = $this->session->userdata('user_id');
-            $this->db->where('user_id', $user_id);
-        }
+        $user_id = $this->session->userdata('user_id');
         $tanggal_obj = new DateTime($tanggal);
-        $minggu_ke = ceil($tanggal_obj->format("d") / 7);
+        $minggu_ke = (int)$tanggal_obj->format("W"); // Menggunakan minggu ISO-8601
         $tahun = $tanggal_obj->format("Y");
+    
+        echo "Minggu ke: " . $minggu_ke . ", Tahun: " . $tahun . ", TPS ID: " . $tps_id . ", User ID: " . $user_id;
+        print_r($diff_data);
     
         $this->db->where('minggu_ke', $minggu_ke);
         $this->db->where('tahun', $tahun);
@@ -191,16 +180,22 @@ class M_daur_ulang extends CI_Model {
                 'berat_daur_ulang' => $existing_data['berat_daur_ulang'] + $diff_data['berat_daur_ulang'],
                 'residu' => $existing_data['residu'] + $diff_data['residu']
             );
+    
+            echo "Existing Data: ";
+            print_r($existing_data);
+            echo "Update Data: ";
+            print_r($update_data);
+    
             $this->db->where('id', $existing_data['id']);
             $this->db->update('t_mingguan', $update_data);
+        } else {
+            echo "No existing data found for update.";
         }
     }
     
+    
     public function accumulate_update_bulanan($tanggal, $tps_id, $diff_data) {
-        if (!$this->is_super_user()) {
-            $user_id = $this->session->userdata('user_id');
-            $this->db->where('user_id', $user_id);
-        }
+        $user_id = $this->session->userdata('user_id');
         $tanggal_obj = new DateTime($tanggal);
         $bulan = $tanggal_obj->format("m");
         $tahun = $tanggal_obj->format("Y");
@@ -224,10 +219,6 @@ class M_daur_ulang extends CI_Model {
     }
 
     public function accumulate_delete_mingguan($data) {
-        if (!$this->is_super_user()) {
-            $user_id = $this->session->userdata('user_id');
-            $this->db->where('user_id', $user_id);
-        }
         $this->db->where('minggu_ke', $data['minggu_ke']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
@@ -256,10 +247,6 @@ class M_daur_ulang extends CI_Model {
     }
     
     public function accumulate_delete_bulanan($data) {
-        if (!$this->is_super_user()) {
-            $user_id = $this->session->userdata('user_id');
-            $this->db->where('user_id', $user_id);
-        }
         $this->db->where('bulan', $data['bulan']);
         $this->db->where('tahun', $data['tahun']);
         $this->db->where('kategori_id', $data['kategori_id']);
