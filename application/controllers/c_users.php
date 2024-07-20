@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_users extends CI_Controller {
+class C_users extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('m_users');
+        $this->load->model('M_users');
         $this->load->library(['form_validation', 'upload', 'image_lib']);
     }
 
@@ -18,7 +18,7 @@ class c_users extends CI_Controller {
             $user_id = $this->session->userdata('user_id');
         }
 
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->M_users->get_user_by_id($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -32,7 +32,7 @@ class c_users extends CI_Controller {
             redirect('auth/login');
         }
 
-        $data['user'] = $this->m_users->get_user_by_id($user_id);
+        $data['user'] = $this->M_users->get_user_by_id($user_id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -73,7 +73,7 @@ class c_users extends CI_Controller {
             }
     
             // Handle profile picture upload
-            $existing_user = $this->m_users->get_user_by_id($user_id);
+            $existing_user = $this->M_users->get_user_by_id($user_id);
             $existing_profile_picture = $existing_user['profile_picture'];
     
             if (!empty($_FILES['profile_picture']['name'])) {
@@ -100,7 +100,7 @@ class c_users extends CI_Controller {
                 }
             }
     
-            if ($this->m_users->update_user($user_id, $data)) {
+            if ($this->M_users->update_user($user_id, $data)) {
                 $this->session->set_flashdata('success', 'Profile updated successfully.');
             } else {
                 $this->session->set_flashdata('error', 'Failed to update profile.');
@@ -108,8 +108,6 @@ class c_users extends CI_Controller {
             redirect('user-profile/index/' . $user_id);
         }
     }
-    
-    
     
     public function upload_profile_picture() {
         if (!$this->session->userdata('user_id')) {
@@ -140,7 +138,7 @@ class c_users extends CI_Controller {
             );
 
             // Update user profile picture in the database
-            $this->m_users->update_user($user_id, $data);
+            $this->M_users->update_user($user_id, $data);
 
             echo json_encode(['status' => 'success', 'message' => 'Profile picture uploaded successfully.']);
         }
@@ -152,7 +150,7 @@ class c_users extends CI_Controller {
         }
     
         // Get the existing profile picture filename
-        $existing_user = $this->m_users->get_user_by_id($user_id);
+        $existing_user = $this->M_users->get_user_by_id($user_id);
         $existing_profile_picture = $existing_user['profile_picture'];
     
         // Delete the old profile picture file
@@ -160,7 +158,7 @@ class c_users extends CI_Controller {
     
         // Update database to remove profile picture reference
         $data = ['profile_picture' => NULL];
-        if ($this->m_users->update_user($user_id, $data)) {
+        if ($this->M_users->update_user($user_id, $data)) {
             $this->session->set_flashdata('success', 'Profile picture deleted successfully.');
         } else {
             $this->session->set_flashdata('error', 'Failed to delete profile picture.');
@@ -265,7 +263,7 @@ class c_users extends CI_Controller {
             } else {
                 $this->session->set_flashdata('error', 'Failed to add user.');
             }
-            redirect('c_users/manage');
+            redirect('user-management');
         }
     }
 
@@ -331,7 +329,7 @@ class c_users extends CI_Controller {
             } else {
                 $this->session->set_flashdata('error', 'Failed to update user.');
             }
-            redirect('c_users/manage');
+            redirect('user-management');
         }
     }
 
@@ -351,7 +349,7 @@ class c_users extends CI_Controller {
             $this->session->set_flashdata('error', 'Failed to delete user.');
         }
 
-        redirect('c_users/manage');
+        redirect('user-management');
     }
 }
 ?>
