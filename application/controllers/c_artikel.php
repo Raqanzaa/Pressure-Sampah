@@ -151,17 +151,6 @@ class C_artikel extends CI_Controller {
         }
     }
 
-    // Fungsi untuk menghapus data
-    public function deletedata($id, $gambar)
-    {
-        $path = './assets/img/';
-        @unlink($path.$gambar);
-
-        $where = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
-        $this->M_artikel->delete($where);
-        return redirect('artikel-sampah');
-    }
-
     // Fungsi untuk menampilkan halaman edit
     public function edit($id)
     {
@@ -170,6 +159,7 @@ class C_artikel extends CI_Controller {
         $data['user'] = $this->M_auth->get_user_by_id($user_id);
         $data['data'] = $this->M_artikel->get_by_id($id, $user_id);
 
+        // Set rules for form validation
         $this->form_validation->set_rules('judul', 'Judul', 'required');
         $this->form_validation->set_rules('tanggal_publikasi', 'Tanggal Publikasi', 'required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi Artikel', 'required');
@@ -185,7 +175,7 @@ class C_artikel extends CI_Controller {
         }
     }
 
-    // Fungsi untuk mengupdate data
+    // Fungsi untuk mengupdate data artikel
     public function updatedata()
     {
         $id = $this->input->post('id_artikel');
@@ -193,9 +183,7 @@ class C_artikel extends CI_Controller {
         $tanggal_publikasi = $this->input->post('tanggal_publikasi');
         $deskripsi = $this->input->post('deskripsi');
 
-        $path = './assets/img/';
-        $kondisi = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
-
+        // Configuration for file upload
         $config['upload_path'] = './assets/img';
         $config['allowed_types'] = 'jpg|png|jpeg|gif';
         $config['max_size'] = '2048';  // 2MB max
@@ -205,6 +193,7 @@ class C_artikel extends CI_Controller {
 
         $this->upload->initialize($config);
 
+        // Check if a new image file is uploaded
         if (!empty($_FILES['gambar_artikel']['name'])) {
             if ($this->upload->do_upload('gambar_artikel')) {
                 $gambar = $this->upload->data();
@@ -212,33 +201,34 @@ class C_artikel extends CI_Controller {
                     'judul' => $judul,
                     'tanggal_publikasi' => $tanggal_publikasi,
                     'deskripsi' => $deskripsi,
-                    'gambar_artikel' => $gambar['file_name'],
-                    'user_id' => $this->session->userdata('user_id')
+                    'gambar_artikel' => $gambar['file_name']
                 );
-                @unlink($path.$this->input->post('filelama'));
-
-                $this->m_artikel->update($data, $kondisi);
+                $this->M_artikel->update($data, array('id_artikel' => $id));
                 redirect('artikel-sampah');
             } else {
-                die("Gagal update");
+                die("Gagal upload");
             }
         } else {
             $data = array(
                 'judul' => $judul,
                 'tanggal_publikasi' => $tanggal_publikasi,
-                'deskripsi' => $deskripsi,
-                'user_id' => $this->session->userdata('user_id')
+                'deskripsi' => $deskripsi
             );
-            $this->M_artikel->update($data, $kondisi);
+            $this->M_artikel->update($data, array('id_artikel' => $id));
             redirect('artikel-sampah');
         }
     }
 
-    // Fungsi untuk menampilkan artikel di landing page
-    public function landing()
-    {
-        $data['artikel'] = $this->M_artikel->get_all_articles();
-        $this->load->view('v_front/landing', $data);
-    }
+      // Fungsi untuk menghapus data
+      public function deletedata($id, $gambar)
+      {
+          $path = './assets/img/';
+          @unlink($path.$gambar);
+  
+          $where = array('id_artikel' => $id, 'user_id' => $this->session->userdata('user_id'));
+          $this->M_artikel->delete($where);
+          return redirect('artikel-sampah');
+      }
+
 }
 ?>
