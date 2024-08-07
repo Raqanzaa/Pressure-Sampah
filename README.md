@@ -1,7 +1,7 @@
 # Presur Sampah
 
 ## Thumbnail
-![Thumbnail](https://github.com/Raqanzaa/Pressure-Sampah/raw/main/Thumbnail.png)
+![Thumbnail](https://github.com/Raqanzaa/Pressure-Sampah/blob/main/Tumbnail.png)
 
 ## Deskripsi
 
