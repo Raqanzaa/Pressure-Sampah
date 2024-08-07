@@ -1,5 +1,8 @@
 # Presur Sampah
 
+## Thumbnail
+![Thumbnail](https://github.com/username/repository/raw/main/Thumbnail.png)
+
 ## Deskripsi
 
 **Presur Sampah** (Presentase Keberhasilan Daur Ulang Sampah) adalah aplikasi inovatif yang dirancang untuk melacak dan menilai efektivitas daur ulang sampah Anda. Dengan fitur-fitur pencatatan berat jenis sampah yang didaur ulang serta presentase daur ulang harian, mingguan, dan bulanan, Presur Sampah membantu pengguna dalam memantau dan meningkatkan praktik daur ulang mereka.
